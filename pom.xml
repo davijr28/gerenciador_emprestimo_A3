@@ -10,4 +10,5 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <exec.mainClass>com.teste.Teste</exec.mainClass>
     </properties>
+    <name>gerenciador_emprestimo_A3</name>
 </project>
