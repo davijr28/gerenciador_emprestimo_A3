@@ -1,5 +1,5 @@
 # Sistema de Gerenciamento de Empréstimo de Ferramentas
-## Curso Engenharia de Software, Unisul continente Florianópolis
+## Curso Engenharia de Computação, Unisul continente Florianópolis
 
 Este projeto faz parte da avaliação A3 – Desempenho de Compreensão, onde desenvolvemos uma aplicação para atender a necessidade fictícia de gerenciamento de empréstimos de ferramentas. O software permite o controle de amigos e ferramentas, incluindo funcionalidades de CRUD, relatórios de empréstimos e ferramentas, além de um sistema de controle de devoluções e notificações.
 
