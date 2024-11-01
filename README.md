@@ -1,5 +1,5 @@
 # Sistema de Gerenciamento de Empréstimo de Ferramentas
-## Curso Engenharia de Software, Unisul continente Florianópolis
+## Curso Engenharia da Computação, Unisul continente Florianópolis
 
 Este projeto faz parte da avaliação A3 – Desempenho de Compreensão, onde desenvolvemos uma aplicação para atender a necessidade fictícia de gerenciamento de empréstimos de ferramentas. O software permite o controle de amigos e ferramentas, incluindo funcionalidades de CRUD, relatórios de empréstimos e ferramentas, além de um sistema de controle de devoluções e notificações.
 
@@ -35,7 +35,17 @@ Para o desenvolvimento e execução deste projeto, utilizamos o ambiente e as te
 
 •Frameworks e Bibliotecas: JDBC para conexão com o banco de dados
 
-•IDE: NetBeans (13° versão)
+•IDE: NetBeans
+
+### Versões Utilizadas
+
+•Apache NetBeans IDE 13
+
+•Jdk 8
+
+•Windows 10
+
+•MySQL Workbench 8.0
 
 ### Para configuração inicial:
 
@@ -45,7 +55,7 @@ bash
 
 Copiar código
 
-git clone [URL_DO_REPOSITÓRIO]
+git clone [https://github.com/davijr28/gerenciador_emprestimo_A3]
 
 Configure o banco de dados usando o script fornecido em database.sql.
 
@@ -95,10 +105,10 @@ Mensagens de Commits: Adotamos uma convenção de mensagens de commit para fáci
 Para executar o projeto, compile o código na IDE e certifique-se de que o banco de dados esteja corretamente configurado. Em seguida, execute o método principal na classe Principal.java para iniciar a aplicação.
 
 ### Conclusão
-Este projeto aprimorou nossas habilidades de desenvolvimento colaborativo, uso de CRUDs e implementação de um sistema completo com interface gráfica e controle de dados persistente.
+...
 
 ### Apresentação em Vídeo
-A apresentação do projeto está disponível em (link do vídeo no YouTube).
+A apresentação do projeto estara disponível em um link de vídeo no YouTube assim que o projeto for finalizado.
 
 ### Alunos:
 • Victor de Melo da Rosa | RA: 162211386
