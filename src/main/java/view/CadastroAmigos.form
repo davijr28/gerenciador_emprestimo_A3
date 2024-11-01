@@ -3,35 +3,6 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
-      <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Arquivo"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Arquivo_Teste"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sobre"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Sobre_teste"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-      </SubComponents>
     </Menu>
   </NonVisualComponents>
   <Properties>
@@ -57,53 +28,87 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+          <Component id="jFormattedTextField1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="JBFerramentas" min="-2" pref="109" max="-2" attributes="0"/>
+                  <Component id="JBEmprestimos" min="-2" pref="109" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="JBRelatorios" min="-2" pref="109" max="-2" attributes="0"/>
+                  <Component id="JBAmigos" min="-2" pref="109" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="67" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="JBSair" min="-2" pref="109" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="237" max="32767" attributes="0"/>
+              <Component id="jFormattedTextField1" min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JBAmigos" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="JBFerramentas" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JBRelatorios" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="JBEmprestimos" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Component id="JBSair" min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="243" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="170" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Esse &#xe9; um texto teste"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
+    <Component class="javax.swing.JButton" name="JBAmigos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Amigos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="JBEmprestimos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Empr&#xe9;stimos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBEmprestimosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="JBFerramentas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ferramentas"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="JBSair">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sair"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBSairActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="JBRelatorios">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gerenciador de Empr&#xe9;stimo de Ferramentas:"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
