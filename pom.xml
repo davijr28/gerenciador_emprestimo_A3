@@ -11,4 +11,11 @@
         <exec.mainClass>com.teste.Teste</exec.mainClass>
     </properties>
     <name>gerenciador_emprestimo_A3</name>
+    <dependencies>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE130</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -18,26 +18,34 @@ public class CadastroAmigos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JBAmigos = new javax.swing.JButton();
-        JBEmprestimos = new javax.swing.JButton();
-        JBFerramentas = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         JBSair = new javax.swing.JButton();
-        JBRelatorios = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        JBEmprestimos1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        JBEmprestimos4 = new javax.swing.JButton();
+        JBEmprestimos5 = new javax.swing.JButton();
+        JBEmprestimos6 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("File");
+        jMenuBar3.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar3.add(jMenu4);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        JBAmigos.setText("Amigos");
-
-        JBEmprestimos.setText("Empréstimos");
-        JBEmprestimos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBEmprestimosActionPerformed(evt);
-            }
-        });
-
-        JBFerramentas.setText("Ferramentas");
 
         JBSair.setText("Sair");
         JBSair.addActionListener(new java.awt.event.ActionListener() {
@@ -46,67 +54,129 @@ public class CadastroAmigos extends javax.swing.JFrame {
             }
         });
 
-        JBRelatorios.setText("Relatórios");
-
-        jFormattedTextField1.setText("Gerenciador de Empréstimo de Ferramentas:");
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+        JBEmprestimos1.setText("Relatórios");
+        JBEmprestimos1.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        JBEmprestimos1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+                JBEmprestimos1ActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Gerenciador de Empréstimos de Ferramentas");
+        jLabel1.setToolTipText("");
+
+        JBEmprestimos4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        JBEmprestimos4.setText("Ferramentas ");
+        JBEmprestimos4.setToolTipText("");
+        JBEmprestimos4.setHideActionText(true);
+        JBEmprestimos4.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        JBEmprestimos4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBEmprestimos4ActionPerformed(evt);
+            }
+        });
+
+        JBEmprestimos5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        JBEmprestimos5.setText("Amigos");
+        JBEmprestimos5.setAutoscrolls(true);
+        JBEmprestimos5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        JBEmprestimos5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBEmprestimos5ActionPerformed(evt);
+            }
+        });
+
+        JBEmprestimos6.setText("Empréstimos");
+        JBEmprestimos6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        JBEmprestimos6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBEmprestimos6ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("jLabel2");
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jFormattedTextField1)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(JBEmprestimos6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JBFerramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JBRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBAmigos, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                    .addComponent(JBEmprestimos5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBEmprestimos1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(JBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(143, 143, 143))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(185, 185, 185))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(33, 33, 33)
+                    .addComponent(JBEmprestimos4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(263, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
+                .addComponent(JBEmprestimos5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBAmigos, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBFerramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(JBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                    .addComponent(JBEmprestimos1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBEmprestimos6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addComponent(JBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(116, 116, 116)
+                    .addComponent(JBEmprestimos4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(297, Short.MAX_VALUE)))
         );
+
+        JBEmprestimos1.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JBEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JBEmprestimosActionPerformed
 
     private void JBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_JBSairActionPerformed
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+    private void JBEmprestimos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimos1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+    }//GEN-LAST:event_JBEmprestimos1ActionPerformed
+
+    private void JBEmprestimos4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimos4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBEmprestimos4ActionPerformed
+
+    private void JBEmprestimos5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimos5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBEmprestimos5ActionPerformed
+
+    private void JBEmprestimos6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimos6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBEmprestimos6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,12 +214,19 @@ public class CadastroAmigos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBAmigos;
-    private javax.swing.JButton JBEmprestimos;
-    private javax.swing.JButton JBFerramentas;
-    private javax.swing.JButton JBRelatorios;
+    private javax.swing.JButton JBEmprestimos1;
+    private javax.swing.JButton JBEmprestimos4;
+    private javax.swing.JButton JBEmprestimos5;
+    private javax.swing.JButton JBEmprestimos6;
     private javax.swing.JButton JBSair;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     // End of variables declaration//GEN-END:variables
 }
