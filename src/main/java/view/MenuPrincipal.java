@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
-/**
- *
- * @author victo
- */
 public class MenuPrincipal extends javax.swing.JFrame {
 
     /**
@@ -28,9 +20,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         JBMenuSair = new javax.swing.JButton();
         JBMenuIniciar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Empréstimo de Ferrametas");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JBMenuSair.setText("SAIR");
         JBMenuSair.addActionListener(new java.awt.event.ActionListener() {
@@ -38,6 +32,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 JBMenuSairActionPerformed(evt);
             }
         });
+        getContentPane().add(JBMenuSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 140, 60));
 
         JBMenuIniciar.setText("INICIAR");
         JBMenuIniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -45,27 +40,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 JBMenuIniciarActionPerformed(evt);
             }
         });
+        getContentPane().add(JBMenuIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 140, 60));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(JBMenuSair, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(JBMenuIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(153, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(JBMenuIniciar)
-                .addGap(53, 53, 53)
-                .addComponent(JBMenuSair)
-                .addContainerGap(96, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\victo\\OneDrive\\Documentos\\NetBeansProjects\\gerenciador_emprestimo_A3\\imagens\\MenuPrincipal.png")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -118,5 +96,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBMenuIniciar;
     private javax.swing.JButton JBMenuSair;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
