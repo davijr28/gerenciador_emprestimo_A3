@@ -26,21 +26,142 @@ public class CadastroFerramentas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        JTFMarca = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        JBCadastroFerramentasVoltar = new javax.swing.JButton();
+        JBCadastroFerramentasInserir = new javax.swing.JButton();
+        JTFNome = new javax.swing.JTextField();
+        JTFCustoDeAquisicao = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Ferramentas");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CADASTRO DE FERRAMENTAS");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        JTFMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFMarcaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("Nome");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setText("Marca");
+
+        JBCadastroFerramentasVoltar.setText("VOLTAR");
+        JBCadastroFerramentasVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCadastroFerramentasVoltarActionPerformed(evt);
+            }
+        });
+
+        JBCadastroFerramentasInserir.setText("INSERIR");
+        JBCadastroFerramentasInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCadastroFerramentasInserirActionPerformed(evt);
+            }
+        });
+
+        JTFNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFNomeActionPerformed(evt);
+            }
+        });
+
+        JTFCustoDeAquisicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFCustoDeAquisicaoActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setText("Custo de Aquisição");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(216, 216, 216)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JTFNome)
+                            .addComponent(JTFMarca)
+                            .addComponent(JTFCustoDeAquisicao)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(JBCadastroFerramentasVoltar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JBCadastroFerramentasInserir)
+                                .addGap(29, 29, 29))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JTFMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JTFCustoDeAquisicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JBCadastroFerramentasVoltar)
+                    .addComponent(JBCadastroFerramentasInserir))
+                .addGap(42, 42, 42))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JTFMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFMarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFMarcaActionPerformed
+
+    private void JBCadastroFerramentasVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastroFerramentasVoltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_JBCadastroFerramentasVoltarActionPerformed
+
+    private void JBCadastroFerramentasInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastroFerramentasInserirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBCadastroFerramentasInserirActionPerformed
+
+    private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFNomeActionPerformed
+
+    private void JTFCustoDeAquisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFCustoDeAquisicaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFCustoDeAquisicaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +199,14 @@ public class CadastroFerramentas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBCadastroFerramentasInserir;
+    private javax.swing.JButton JBCadastroFerramentasVoltar;
+    private javax.swing.JTextField JTFCustoDeAquisicao;
+    private javax.swing.JTextField JTFMarca;
+    private javax.swing.JTextField JTFNome;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
