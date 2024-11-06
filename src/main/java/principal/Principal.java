@@ -5,7 +5,8 @@ import view.MenuPrincipal;
 
 public class Principal {
     public static void main(String[] args) {
-        CadastroAmigos janela = new CadastroAmigos();
+        MenuPrincipal janela = new MenuPrincipal();
         janela.setVisible(true);
+        janela.setLocationRelativeTo(null);
     }
 }
