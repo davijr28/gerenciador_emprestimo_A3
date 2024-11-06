@@ -24,6 +24,7 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
         setTitle("Realizar Empréstimos");
 
         JBRealizarEmprestimosVoltar.setText("VOLTAR");
+        JBRealizarEmprestimosVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBRealizarEmprestimosVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBRealizarEmprestimosVoltarActionPerformed(evt);

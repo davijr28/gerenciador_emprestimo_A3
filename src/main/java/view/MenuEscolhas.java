@@ -55,6 +55,7 @@ public class MenuEscolhas extends javax.swing.JFrame {
         JBCadastroFerramentas.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         JBCadastroFerramentas.setForeground(new java.awt.Color(0, 0, 0));
         JBCadastroFerramentas.setText("Cadastro de Ferramentas");
+        JBCadastroFerramentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCadastroFerramentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBCadastroFerramentasActionPerformed(evt);
@@ -65,6 +66,7 @@ public class MenuEscolhas extends javax.swing.JFrame {
         JBCadastroAmigos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         JBCadastroAmigos.setForeground(new java.awt.Color(0, 0, 0));
         JBCadastroAmigos.setText("Cadastro de Amigos");
+        JBCadastroAmigos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCadastroAmigos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBCadastroAmigosActionPerformed(evt);
@@ -79,6 +81,7 @@ public class MenuEscolhas extends javax.swing.JFrame {
         JBRelatoriosDeEmprestimos.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         JBRelatoriosDeEmprestimos.setForeground(new java.awt.Color(0, 0, 0));
         JBRelatoriosDeEmprestimos.setText("Relatórios de Empréstimos");
+        JBRelatoriosDeEmprestimos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBRelatoriosDeEmprestimos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBRelatoriosDeEmprestimosActionPerformed(evt);
@@ -89,6 +92,7 @@ public class MenuEscolhas extends javax.swing.JFrame {
         JBMenuEscolhasVoltar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         JBMenuEscolhasVoltar.setForeground(new java.awt.Color(255, 51, 51));
         JBMenuEscolhasVoltar.setText("VOLTAR");
+        JBMenuEscolhasVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBMenuEscolhasVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBMenuEscolhasVoltarActionPerformed(evt);
@@ -99,6 +103,7 @@ public class MenuEscolhas extends javax.swing.JFrame {
         JBRealizarEmprestimos.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         JBRealizarEmprestimos.setForeground(new java.awt.Color(0, 0, 0));
         JBRealizarEmprestimos.setText("Realizar Empréstimos ");
+        JBRealizarEmprestimos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBRealizarEmprestimos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBRealizarEmprestimosActionPerformed(evt);

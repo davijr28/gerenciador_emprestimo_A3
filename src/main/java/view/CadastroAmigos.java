@@ -68,6 +68,7 @@ public class CadastroAmigos extends javax.swing.JFrame {
         jLabel3.setText("Telefone");
 
         JBCadastroAmigosVoltar.setText("VOLTAR");
+        JBCadastroAmigosVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCadastroAmigosVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBCadastroAmigosVoltarActionPerformed(evt);
@@ -75,6 +76,7 @@ public class CadastroAmigos extends javax.swing.JFrame {
         });
 
         JBCadastroAmigosInserir.setText("INSERIR");
+        JBCadastroAmigosInserir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCadastroAmigosInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBCadastroAmigosInserirActionPerformed(evt);

@@ -124,6 +124,9 @@
     <Component class="javax.swing.JButton" name="JBCadastroFerramentasVoltar">
       <Properties>
         <Property name="text" type="java.lang.String" value="VOLTAR"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCadastroFerramentasVoltarActionPerformed"/>
@@ -132,6 +135,9 @@
     <Component class="javax.swing.JButton" name="JBCadastroFerramentasInserir">
       <Properties>
         <Property name="text" type="java.lang.String" value="INSERIR"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBCadastroFerramentasInserirActionPerformed"/>

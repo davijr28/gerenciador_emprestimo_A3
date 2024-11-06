@@ -24,6 +24,7 @@ public class RelatorioDeEmprestimos extends javax.swing.JFrame {
         setTitle("Relatório de Empréstimos");
 
         JBRelatorioEmprestimosVoltar.setText("VOLTAR");
+        JBRelatorioEmprestimosVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBRelatorioEmprestimosVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBRelatorioEmprestimosVoltarActionPerformed(evt);

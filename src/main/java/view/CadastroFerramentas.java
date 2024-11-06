@@ -50,6 +50,7 @@ public class CadastroFerramentas extends javax.swing.JFrame {
         jLabel3.setText("Marca");
 
         JBCadastroFerramentasVoltar.setText("VOLTAR");
+        JBCadastroFerramentasVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCadastroFerramentasVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBCadastroFerramentasVoltarActionPerformed(evt);
@@ -57,6 +58,7 @@ public class CadastroFerramentas extends javax.swing.JFrame {
         });
 
         JBCadastroFerramentasInserir.setText("INSERIR");
+        JBCadastroFerramentasInserir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCadastroFerramentasInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBCadastroFerramentasInserirActionPerformed(evt);

@@ -27,6 +27,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JBMenuSair.setText("SAIR");
+        JBMenuSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBMenuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBMenuSairActionPerformed(evt);
@@ -35,14 +36,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(JBMenuSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 140, 60));
 
         JBMenuIniciar.setText("INICIAR");
+        JBMenuIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBMenuIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBMenuIniciarActionPerformed(evt);
             }
         });
         getContentPane().add(JBMenuIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 140, 60));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\victo\\OneDrive\\Documentos\\NetBeansProjects\\gerenciador_emprestimo_A3\\imagens\\MenuPrincipal.png")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
