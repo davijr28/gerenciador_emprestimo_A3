@@ -26,23 +26,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JMenuSair = new javax.swing.JButton();
-        JMenuIniciar = new javax.swing.JButton();
+        JBMenuSair = new javax.swing.JButton();
+        JBMenuIniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Empréstimo de Ferrametas");
 
-        JMenuSair.setText("SAIR");
-        JMenuSair.addActionListener(new java.awt.event.ActionListener() {
+        JBMenuSair.setText("SAIR");
+        JBMenuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMenuSairActionPerformed(evt);
+                JBMenuSairActionPerformed(evt);
             }
         });
 
-        JMenuIniciar.setText("INICIAR");
-        JMenuIniciar.addActionListener(new java.awt.event.ActionListener() {
+        JBMenuIniciar.setText("INICIAR");
+        JBMenuIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMenuIniciarActionPerformed(evt);
+                JBMenuIniciarActionPerformed(evt);
             }
         });
 
@@ -53,32 +53,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(147, 147, 147)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(JMenuSair, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(JMenuIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JBMenuSair, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(JBMenuIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(93, 93, 93)
-                .addComponent(JMenuIniciar)
+                .addComponent(JBMenuIniciar)
                 .addGap(53, 53, 53)
-                .addComponent(JMenuSair)
+                .addComponent(JBMenuSair)
                 .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuSairActionPerformed
+    private void JBMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMenuSairActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_JMenuSairActionPerformed
+    }//GEN-LAST:event_JBMenuSairActionPerformed
 
-    private void JMenuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuIniciarActionPerformed
+    private void JBMenuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMenuIniciarActionPerformed
         MenuEscolhas objeto = new MenuEscolhas();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
-    }//GEN-LAST:event_JMenuIniciarActionPerformed
+    }//GEN-LAST:event_JBMenuIniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,7 +116,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JMenuIniciar;
-    private javax.swing.JButton JMenuSair;
+    private javax.swing.JButton JBMenuIniciar;
+    private javax.swing.JButton JBMenuSair;
     // End of variables declaration//GEN-END:variables
 }

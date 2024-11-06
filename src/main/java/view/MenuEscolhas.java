@@ -26,21 +26,168 @@ public class MenuEscolhas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jSeparator1 = new javax.swing.JSeparator();
+        jButton6 = new javax.swing.JButton();
+        JBCadastroFerramentas = new javax.swing.JButton();
+        JBCadastroAmigos = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        JBRelatoriosDeEmprestimos = new javax.swing.JButton();
+        JBVoltar = new javax.swing.JButton();
+        JBRealizarEmprestimos = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jButton6.setText("Cadastro de Amigos");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("GERENCIADOR");
+        setBackground(new java.awt.Color(153, 153, 153));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        JBCadastroFerramentas.setBackground(new java.awt.Color(255, 255, 255));
+        JBCadastroFerramentas.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        JBCadastroFerramentas.setForeground(new java.awt.Color(0, 0, 0));
+        JBCadastroFerramentas.setText("Cadastro de Ferramentas");
+        JBCadastroFerramentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCadastroFerramentasActionPerformed(evt);
+            }
+        });
+
+        JBCadastroAmigos.setBackground(new java.awt.Color(255, 255, 255));
+        JBCadastroAmigos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        JBCadastroAmigos.setForeground(new java.awt.Color(0, 0, 0));
+        JBCadastroAmigos.setText("Cadastro de Amigos");
+        JBCadastroAmigos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCadastroAmigosActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel1.setText("GERENCIADOR DE CADASTROS E RELATÓRIOS");
+
+        JBRelatoriosDeEmprestimos.setBackground(new java.awt.Color(255, 255, 255));
+        JBRelatoriosDeEmprestimos.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        JBRelatoriosDeEmprestimos.setForeground(new java.awt.Color(0, 0, 0));
+        JBRelatoriosDeEmprestimos.setText("Relatórios de Empréstimos");
+        JBRelatoriosDeEmprestimos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBRelatoriosDeEmprestimosActionPerformed(evt);
+            }
+        });
+
+        JBVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        JBVoltar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        JBVoltar.setForeground(new java.awt.Color(255, 51, 51));
+        JBVoltar.setText("VOLTAR");
+        JBVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBVoltarActionPerformed(evt);
+            }
+        });
+
+        JBRealizarEmprestimos.setBackground(new java.awt.Color(255, 255, 255));
+        JBRealizarEmprestimos.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        JBRealizarEmprestimos.setForeground(new java.awt.Color(0, 0, 0));
+        JBRealizarEmprestimos.setText("Realizar Empréstimos ");
+        JBRealizarEmprestimos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBRealizarEmprestimosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(JBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JBRealizarEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JBCadastroAmigos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(JBCadastroFerramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JBRelatoriosDeEmprestimos))))
+                        .addGap(33, 33, 33))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JBCadastroFerramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBCadastroAmigos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JBRelatoriosDeEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBRealizarEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(JBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBCadastroFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastroFerramentasActionPerformed
+        CadastroFerramentas objeto = new CadastroFerramentas();
+        objeto.setVisible(true);
+        objeto.setLocationRelativeTo(null);
+    }//GEN-LAST:event_JBCadastroFerramentasActionPerformed
+
+    private void JBCadastroAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastroAmigosActionPerformed
+        CadastroAmigos objeto = new CadastroAmigos();
+        objeto.setVisible(true);
+        objeto.setLocationRelativeTo(null);
+    }//GEN-LAST:event_JBCadastroAmigosActionPerformed
+
+    private void JBRelatoriosDeEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatoriosDeEmprestimosActionPerformed
+        RelatorioDeEmprestimos objeto = new RelatorioDeEmprestimos();
+        objeto.setVisible(true);
+        objeto.setLocationRelativeTo(null);
+    }//GEN-LAST:event_JBRelatoriosDeEmprestimosActionPerformed
+
+    private void JBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBVoltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_JBVoltarActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void JBRealizarEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRealizarEmprestimosActionPerformed
+        RealizarEmprestimos objeto = new RealizarEmprestimos();
+        objeto.setVisible(true);
+        objeto.setLocationRelativeTo(null);
+    }//GEN-LAST:event_JBRealizarEmprestimosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +225,14 @@ public class MenuEscolhas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBCadastroAmigos;
+    private javax.swing.JButton JBCadastroFerramentas;
+    private javax.swing.JButton JBRealizarEmprestimos;
+    private javax.swing.JButton JBRelatoriosDeEmprestimos;
+    private javax.swing.JButton JBVoltar;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

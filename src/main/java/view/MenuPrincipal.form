@@ -27,8 +27,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="JMenuSair" pref="100" max="32767" attributes="0"/>
-                  <Component id="JMenuIniciar" max="32767" attributes="0"/>
+                  <Component id="JBMenuSair" pref="100" max="32767" attributes="0"/>
+                  <Component id="JBMenuIniciar" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="153" max="32767" attributes="0"/>
           </Group>
@@ -38,29 +38,29 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-              <Component id="JMenuIniciar" min="-2" max="-2" attributes="0"/>
+              <Component id="JBMenuIniciar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-              <Component id="JMenuSair" min="-2" max="-2" attributes="0"/>
+              <Component id="JBMenuSair" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="96" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="JMenuSair">
+    <Component class="javax.swing.JButton" name="JBMenuSair">
       <Properties>
         <Property name="text" type="java.lang.String" value="SAIR"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMenuSairActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBMenuSairActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JMenuIniciar">
+    <Component class="javax.swing.JButton" name="JBMenuIniciar">
       <Properties>
         <Property name="text" type="java.lang.String" value="INICIAR"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMenuIniciarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBMenuIniciarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
