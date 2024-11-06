@@ -33,7 +33,7 @@ public class MenuEscolhas extends javax.swing.JFrame {
         JBCadastroAmigos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         JBRelatoriosDeEmprestimos = new javax.swing.JButton();
-        JBVoltar = new javax.swing.JButton();
+        JBMenuEscolhasVoltar = new javax.swing.JButton();
         JBRealizarEmprestimos = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -93,13 +93,13 @@ public class MenuEscolhas extends javax.swing.JFrame {
             }
         });
 
-        JBVoltar.setBackground(new java.awt.Color(255, 255, 255));
-        JBVoltar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        JBVoltar.setForeground(new java.awt.Color(255, 51, 51));
-        JBVoltar.setText("VOLTAR");
-        JBVoltar.addActionListener(new java.awt.event.ActionListener() {
+        JBMenuEscolhasVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        JBMenuEscolhasVoltar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        JBMenuEscolhasVoltar.setForeground(new java.awt.Color(255, 51, 51));
+        JBMenuEscolhasVoltar.setText("VOLTAR");
+        JBMenuEscolhasVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBVoltarActionPerformed(evt);
+                JBMenuEscolhasVoltarActionPerformed(evt);
             }
         });
 
@@ -121,7 +121,7 @@ public class MenuEscolhas extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(JBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBMenuEscolhasVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -150,7 +150,7 @@ public class MenuEscolhas extends javax.swing.JFrame {
                     .addComponent(JBRelatoriosDeEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBRealizarEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(JBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JBMenuEscolhasVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
         );
 
@@ -175,9 +175,9 @@ public class MenuEscolhas extends javax.swing.JFrame {
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBRelatoriosDeEmprestimosActionPerformed
 
-    private void JBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBVoltarActionPerformed
+    private void JBMenuEscolhasVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMenuEscolhasVoltarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_JBVoltarActionPerformed
+    }//GEN-LAST:event_JBMenuEscolhasVoltarActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
@@ -227,9 +227,9 @@ public class MenuEscolhas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCadastroAmigos;
     private javax.swing.JButton JBCadastroFerramentas;
+    private javax.swing.JButton JBMenuEscolhasVoltar;
     private javax.swing.JButton JBRealizarEmprestimos;
     private javax.swing.JButton JBRelatoriosDeEmprestimos;
-    private javax.swing.JButton JBVoltar;
     private javax.swing.JButton jButton6;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;

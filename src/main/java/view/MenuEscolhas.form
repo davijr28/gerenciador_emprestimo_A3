@@ -61,7 +61,7 @@
               <EmptySpace pref="37" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="JBVoltar" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="JBMenuEscolhasVoltar" min="-2" pref="200" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -101,7 +101,7 @@
                   <Component id="JBRealizarEmprestimos" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="63" max="32767" attributes="0"/>
-              <Component id="JBVoltar" min="-2" pref="50" max="-2" attributes="0"/>
+              <Component id="JBMenuEscolhasVoltar" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -170,7 +170,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBRelatoriosDeEmprestimosActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="JBVoltar">
+    <Component class="javax.swing.JButton" name="JBMenuEscolhasVoltar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -184,7 +184,7 @@
         <Property name="text" type="java.lang.String" value="VOLTAR"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBVoltarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBMenuEscolhasVoltarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JBRealizarEmprestimos">
