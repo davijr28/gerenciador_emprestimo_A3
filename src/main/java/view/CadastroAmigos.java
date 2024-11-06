@@ -2,9 +2,6 @@ package view;
 
 public class CadastroAmigos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CadastroAmigos
-     */
     public CadastroAmigos() {
         initComponents();
     }
@@ -24,13 +21,13 @@ public class CadastroAmigos extends javax.swing.JFrame {
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        JBSair = new javax.swing.JButton();
-        JBEmprestimos1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        JBEmprestimos4 = new javax.swing.JButton();
-        JBEmprestimos5 = new javax.swing.JButton();
-        JBEmprestimos6 = new javax.swing.JButton();
+        JTFNome = new javax.swing.JTextField();
+        JTFTelefone = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        JBCadastroAmigosVoltar = new javax.swing.JButton();
+        JBCadastroAmigosInserir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jMenu1.setText("File");
@@ -47,56 +44,41 @@ public class CadastroAmigos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        JBSair.setText("Sair");
-        JBSair.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 153, 255));
+        jLabel1.setText("CADASTRO DE AMIGOS");
+
+        JTFNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBSairActionPerformed(evt);
+                JTFNomeActionPerformed(evt);
             }
         });
 
-        JBEmprestimos1.setText("Relatórios");
-        JBEmprestimos1.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        JBEmprestimos1.addActionListener(new java.awt.event.ActionListener() {
+        JTFTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBEmprestimos1ActionPerformed(evt);
+                JTFTelefoneActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Gerenciador de Empréstimos de Ferramentas");
-        jLabel1.setToolTipText("");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("Nome");
 
-        JBEmprestimos4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        JBEmprestimos4.setText("Ferramentas ");
-        JBEmprestimos4.setToolTipText("");
-        JBEmprestimos4.setHideActionText(true);
-        JBEmprestimos4.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        JBEmprestimos4.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setText("Telefone");
+
+        JBCadastroAmigosVoltar.setText("VOLTAR");
+        JBCadastroAmigosVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBEmprestimos4ActionPerformed(evt);
+                JBCadastroAmigosVoltarActionPerformed(evt);
             }
         });
 
-        JBEmprestimos5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        JBEmprestimos5.setText("Amigos");
-        JBEmprestimos5.setAutoscrolls(true);
-        JBEmprestimos5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        JBEmprestimos5.addActionListener(new java.awt.event.ActionListener() {
+        JBCadastroAmigosInserir.setText("INSERIR");
+        JBCadastroAmigosInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBEmprestimos5ActionPerformed(evt);
+                JBCadastroAmigosInserirActionPerformed(evt);
             }
         });
-
-        JBEmprestimos6.setText("Empréstimos");
-        JBEmprestimos6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        JBEmprestimos6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBEmprestimos6ActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("jLabel2");
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,79 +86,69 @@ public class CadastroAmigos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(15, 15, 15))
+                .addGap(96, 96, 96)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(JBCadastroAmigosVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JBCadastroAmigosInserir)
+                .addGap(92, 92, 92))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(JBEmprestimos6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JBEmprestimos5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBEmprestimos1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(JBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(143, 143, 143))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(185, 185, 185))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(33, 33, 33)
-                    .addComponent(JBEmprestimos4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(263, Short.MAX_VALUE)))
+                    .addComponent(JTFTelefone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTFNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(157, 157, 157)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(144, 144, 144)
+                                .addComponent(jLabel3)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                .addGap(50, 50, 50)
-                .addComponent(JBEmprestimos5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
+                .addGap(41, 41, 41)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
+                .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBEmprestimos1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBEmprestimos6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addComponent(JBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(116, 116, 116)
-                    .addComponent(JBEmprestimos4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(297, Short.MAX_VALUE)))
+                    .addComponent(JBCadastroAmigosVoltar)
+                    .addComponent(JBCadastroAmigosInserir))
+                .addGap(50, 50, 50))
         );
-
-        JBEmprestimos1.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSairActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_JBSairActionPerformed
-
-    private void JBEmprestimos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimos1ActionPerformed
+    private void JTFTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTelefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JBEmprestimos1ActionPerformed
+    }//GEN-LAST:event_JTFTelefoneActionPerformed
 
-    private void JBEmprestimos4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimos4ActionPerformed
+    private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JBEmprestimos4ActionPerformed
+    }//GEN-LAST:event_JTFNomeActionPerformed
 
-    private void JBEmprestimos5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimos5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JBEmprestimos5ActionPerformed
+    private void JBCadastroAmigosVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastroAmigosVoltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_JBCadastroAmigosVoltarActionPerformed
 
-    private void JBEmprestimos6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimos6ActionPerformed
+    private void JBCadastroAmigosInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastroAmigosInserirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JBEmprestimos6ActionPerformed
+    }//GEN-LAST:event_JBCadastroAmigosInserirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,13 +186,13 @@ public class CadastroAmigos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBEmprestimos1;
-    private javax.swing.JButton JBEmprestimos4;
-    private javax.swing.JButton JBEmprestimos5;
-    private javax.swing.JButton JBEmprestimos6;
-    private javax.swing.JButton JBSair;
+    private javax.swing.JButton JBCadastroAmigosInserir;
+    private javax.swing.JButton JBCadastroAmigosVoltar;
+    private javax.swing.JTextField JTFNome;
+    private javax.swing.JTextField JTFTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
