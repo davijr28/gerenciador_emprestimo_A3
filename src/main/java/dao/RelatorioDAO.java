@@ -23,3 +23,26 @@ public class RelatorioDAO {
         
         return minhaLista;
     }
+// Executa a consulta e popula a lista com os resultados.
+// param query SQL query para obter os dados do relatório.
+
+    private void getRelatorio(String query) {
+        try (Connection conn = db.getConnection(); 
+             Statement stmt = conn.createStatement(); 
+             ResultSet rs = stmt.executeQuery(query)) {
+            
+            while (rs.next()) {
+                String nomeAmigo = rs.getString("nome_amigo");
+                String nomeFerramenta = rs.getString("nome_ferramenta");
+                String telefoneAmigo = rs.getString("telefone_amigo");
+                double preco = rs.getDouble("preco");
+
+                RelatorioDAO relatorio = new RelatorioDAO(nomeAmigo, nomeFerramenta, telefoneAmigo, preco);
+                minhaLista.add(relatorio);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Erro ao obter o relatório: " + e.getMessage());
+        }
+    }
+}
