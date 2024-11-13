@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class ConexaoDAO {
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/db_emprestimoferramentas", "root", "1234");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/db_emprestimoferramentas", "root", "1234");
         } catch (SQLException e) {
             // Exibe mensagem de erro detalhada e captura a exceção com descrição
             JOptionPane.showMessageDialog(null, "Erro de conexão: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);

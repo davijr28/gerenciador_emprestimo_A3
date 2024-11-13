@@ -5,15 +5,23 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Relatorio;
 
 public class RelatorioDAO {
     
-    private final ArrayList<RelatorioDAO> minhaLista = new ArrayList<>();
+    private final ArrayList<Relatorio> minhaLista = new ArrayList<>();
     private final ConexaoDAO db;
-    
-// Construtor da classe RelatorioDAO.
-// Inicializa a conexão com o banco de dados.
-    public ArrayList<RelatorioDAO> getTotais() {
+
+    // Construtor da classe RelatorioDAO.
+    public RelatorioDAO() {
+        this.db = new ConexaoDAO();
+    }
+
+    /**
+     * Obtém a lista de totais dos empréstimos.
+     * @return ArrayList de Relatorio contendo os dados dos empréstimos.
+     */
+    public ArrayList<Relatorio> getTotais() {
         String query = "SELECT a.nome AS nome_amigo, f.nome AS nome_ferramenta, a.telefone AS telefone_amigo, f.preco AS preco " +
                        "FROM tb_emprestimos e " +
                        "JOIN tb_amigos a ON e.id_amigo = a.id " +
@@ -23,9 +31,11 @@ public class RelatorioDAO {
         
         return minhaLista;
     }
-// Executa a consulta e popula a lista com os resultados.
-// param query SQL query para obter os dados do relatório.
 
+    /**
+     * Executa a consulta e popula a lista com os resultados.
+     * @param query SQL query para obter os dados do relatório.
+     */
     private void getRelatorio(String query) {
         try (Connection conn = db.getConnection(); 
              Statement stmt = conn.createStatement(); 
@@ -37,7 +47,7 @@ public class RelatorioDAO {
                 String telefoneAmigo = rs.getString("telefone_amigo");
                 double preco = rs.getDouble("preco");
 
-                RelatorioDAO relatorio = new RelatorioDAO(nomeAmigo, nomeFerramenta, telefoneAmigo, preco);
+                Relatorio relatorio = new Relatorio(nomeAmigo, nomeFerramenta, telefoneAmigo, preco);
                 minhaLista.add(relatorio);
             }
         } catch (SQLException e) {
