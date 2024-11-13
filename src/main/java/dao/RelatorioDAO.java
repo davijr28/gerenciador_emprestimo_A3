@@ -51,7 +51,6 @@ public class RelatorioDAO {
                 minhaLista.add(relatorio);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
             System.out.println("Erro ao obter o relatório: " + e.getMessage());
         }
     }
