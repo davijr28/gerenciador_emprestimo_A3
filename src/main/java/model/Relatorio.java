@@ -13,19 +13,54 @@ public class Relatorio {
     private Timestamp dataEmprestimo;
     private Date dataDevolucao;
     private boolean entregue;
-    private double preco;
 
-    public Relatorio(String nomeAmigo, String nomeFerramenta, String telefoneAmigo, double preco) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // inicializar todos os campos
+    public Relatorio(int idAmigo, String nomeAmigo, String telefoneAmigo, int idFerramenta, 
+                     String nomeFerramenta, double precoFerramenta, Timestamp dataEmprestimo, 
+                     Date dataDevolucao, boolean entregue) {
+        this.idAmigo = idAmigo;
+        this.nomeAmigo = nomeAmigo;
+        this.telefoneAmigo = telefoneAmigo;
+        this.idFerramenta = idFerramenta;
+        this.nomeFerramenta = nomeFerramenta;
+        this.precoFerramenta = precoFerramenta;
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataDevolucao = dataDevolucao;
+        this.entregue = entregue;
     }
-    
-// Getters e Setters para cada campo
+
+    // getters e setters para os campo
+
+    public int getIdAmigo() {
+        return idAmigo;
+    }
+
+    public void setIdAmigo(int idAmigo) {
+        this.idAmigo = idAmigo;
+    }
+
     public String getNomeAmigo() {
         return nomeAmigo;
     }
 
     public void setNomeAmigo(String nomeAmigo) {
         this.nomeAmigo = nomeAmigo;
+    }
+
+    public String getTelefoneAmigo() {
+        return telefoneAmigo;
+    }
+
+    public void setTelefoneAmigo(String telefoneAmigo) {
+        this.telefoneAmigo = telefoneAmigo;
+    }
+
+    public int getIdFerramenta() {
+        return idFerramenta;
+    }
+
+    public void setIdFerramenta(int idFerramenta) {
+        this.idFerramenta = idFerramenta;
     }
 
     public String getNomeFerramenta() {
@@ -36,18 +71,50 @@ public class Relatorio {
         this.nomeFerramenta = nomeFerramenta;
     }
 
-    public String getTelefoneAmigo() {
-        return telefoneAmigo;
-    }
-    public void setTelefoneAmigo(String telefoneAmigo) {
-        this.telefoneAmigo = telefoneAmigo;
+    public double getPrecoFerramenta() {
+        return precoFerramenta;
     }
 
-    public double getPreco() {
-        return preco;
+    public void setPrecoFerramenta(double precoFerramenta) {
+        this.precoFerramenta = precoFerramenta;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public Timestamp getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public void setDataEmprestimo(Timestamp dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public void setDataDevolucao(Date dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
+
+    public boolean isEntregue() {
+        return entregue;
+    }
+
+    public void setEntregue(boolean entregue) {
+        this.entregue = entregue;
+    }
+
+    @Override
+    public String toString() {
+        return "Relatorio{" +
+                "idAmigo=" + idAmigo +
+                ", nomeAmigo='" + nomeAmigo + '\'' +
+                ", telefoneAmigo='" + telefoneAmigo + '\'' +
+                ", idFerramenta=" + idFerramenta +
+                ", nomeFerramenta='" + nomeFerramenta + '\'' +
+                ", precoFerramenta=" + precoFerramenta +
+                ", dataEmprestimo=" + dataEmprestimo +
+                ", dataDevolucao=" + dataDevolucao +
+                ", entregue=" + entregue +
+                '}';
     }
 }
