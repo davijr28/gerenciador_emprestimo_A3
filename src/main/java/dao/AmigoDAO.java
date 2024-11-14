@@ -8,61 +8,60 @@ public class AmigoDAO {
 
     public ArrayList<Amigos> lista = new ArrayList<>();
 
+    // Obtém todos os amigos do banco de dados.
     public ArrayList<Amigos> getAmigos() {
-        lista.clear();
+        lista.clear();  // Limpa a lista antes de preenchê-la com os dados mais recentes.
         try {
             Statement stmt = this.getConexao().createStatement();
             ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos");
             while (res.next()) {
-
                 int id = res.getInt("id");
                 String nome = res.getString("nome");
                 String telefone = res.getString("telefone");
 
-                Amigos objeto = new Amigos(id, nome, telefone);
-
-                lista.add(objeto);
+                Amigos objeto = new Amigos(id, nome, telefone);  // Cria o objeto Amigos com os dados do banco.
+                lista.add(objeto);  // Adiciona o objeto à lista.
             }
-            stmt.close();
+            stmt.close();  // Fecha Statement após o uso.
 
         } catch (SQLException ex) {
-            System.out.println("Erro:" + ex);
+            System.out.println("Erro: " + ex);
         }
         return lista;
     }
 
+    // Define a lista de amigos na classe.
     public void setMinhaLista(ArrayList<Amigos> lista) {
         this.lista = lista;
     }
 
-    /**
-     * Retorna o maior id de um aluno.
-     */
+    // Retorna o maior id do banco de dados.
     public int maiorID() {
         int maiorID = 0;
         try {
             Statement stmt = this.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM tb_alunos");
+            ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM tb_amigos");
             res.next();
-            maiorID = res.getInt("id");
-            stmt.close();
+            maiorID = res.getInt("id");  // Obtém o maior ID.
+            stmt.close();  // Fecha Statement após o uso.
         } catch (SQLException ex) {
-            System.out.println("Erro:" + ex);
+            System.out.println("Erro: " + ex);
         }
         return maiorID;
     }
 
-    /**
-     * Retorna uma conexão com o banco de dados.
-     */
+    // Tenta estabelecer conexão com o banco de dados.
     public Connection getConexao() {
-
-        Connection connection = null;  //instância da conexão
+        Connection connection = null;
         try {
-            // Carregamento do JDBC Driver
+            // Carregamento do driver JDBC.
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_emprestimoferramentas?useTimezone=true&serverTimezone=UTC", "root", "1234");
-            // Testando..
+            connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/db_emprestimoferramentas?useTimezone=true&serverTimezone=UTC", 
+                "root", "1234"
+            );
+
+            // Testa a conexão.
             if (connection != null) {
                 System.out.println("Conectado com sucesso!");
             } else {
@@ -70,92 +69,86 @@ public class AmigoDAO {
             }
             return connection;
 
-        } catch (ClassNotFoundException e) {  //Driver não encontrado
+        } catch (ClassNotFoundException e) {  // Driver não encontrado.
             System.out.println("Driver não encontrado: " + e.getMessage());
             return null;
-        } catch (SQLException e) {
-            System.out.println("Não foi possível conectar.");
+        } catch (SQLException e) {  // Erro na conexão com o banco de dados.
+            System.out.println("Não foi possível conectar: " + e.getMessage());
             return null;
         }
     }
 
-    // Cadastra um novo amigo
+    // Cadastra um novo amigo no banco de dados.
     public boolean insertAmigoBD(Amigos objeto) {
-        String sql = "INSERT INTO tb_amigos (id,nome,telefone) VALUES(?,?,?)";
+        String sql = "INSERT INTO tb_amigos (id, nome, telefone) VALUES (?, ?, ?)";
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
 
-            stmt.setInt(1, objeto.getId());
-            stmt.setString(2, objeto.getNome());
-            stmt.setString(3, objeto.getTelefone());
+            stmt.setInt(1, objeto.getId());  // Define o ID do amigo.
+            stmt.setString(2, objeto.getNome());  // Define o nome do amigo.
+            stmt.setString(3, objeto.getTelefone());  // Define o telefone do amigo.
 
-            stmt.execute();
-            stmt.close();
+            stmt.execute();  // Executa a inserção no banco de dados.
+            stmt.close();  // Fecha Statement após o uso.
 
             return true;
         } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
-            throw new RuntimeException(erro);
+            System.out.println("Erro: " + erro);
+            return false;
         }
     }
 
-    /**
-     * Deleta um aluno específico pelo seu campo ID
-     */
+    // Deleta um amigo do banco de dados pelo seu id.
     public boolean deleteAmigoBD(int id) {
         try {
             Statement stmt = this.getConexao().createStatement();
-            stmt.executeUpdate("DELETE FROM tb_amigos WHERE id = " + id);
-            stmt.close();
+            stmt.executeUpdate("DELETE FROM tb_amigos WHERE id = " + id);  // Deleta o amigo pelo ID.
+            stmt.close();  // Fecha Statement após o uso.
+            return true;
 
         } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
+            System.out.println("Erro: " + erro);
+            return false;
         }
-        return true;
     }
 
-    /**
-     * Edita um aluno específico pelo seu campo ID
-     */
+    // Atualiza os dados de um amigo no banco de dados.
     public boolean updateAmigoBD(Amigos objeto) {
-
-        String sql = "UPDATE tb_amigos set nome = ? ,telefone = ? WHERE id = ?";
+        String sql = "UPDATE tb_amigos SET nome = ?, telefone = ? WHERE id = ?";
 
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
 
-            stmt.setString(1, objeto.getNome());
-            stmt.setString(2, objeto.getTelefone());
-            stmt.setInt(5, objeto.getId());
+            stmt.setString(1, objeto.getNome());  // Atualiza o nome do amigo.
+            stmt.setString(2, objeto.getTelefone());  // Atualiza o telefone do amigo.
+            stmt.setInt(3, objeto.getId());  // Atualiza o ID do amigo.
 
-            stmt.execute();
-            stmt.close();
+            stmt.execute();  // Executa a atualização no banco de dados.
+            stmt.close();  // Fecha PreparedStatement após o uso.
 
             return true;
 
         } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
-            throw new RuntimeException(erro);
+            System.out.println("Erro: " + erro);
+            return false;
         }
     }
-
-    /**
-     * Carrega um aluno pelo ID
-     */
+    
+    // Carrega um amigo pelo seu id
     public Amigos carregaAmigo(int id) {
         Amigos objeto = new Amigos();
-        objeto.setId(id);
+        objeto.setId(id);  // Define o ID do amigo.
+
         try {
             Statement stmt = this.getConexao().createStatement();
-
             ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos WHERE id = " + id);
-            res.next();
+            res.next();  // Avança para o resultado.
 
-            objeto.setNome(res.getString("nome"));
-            objeto.setTelefone(res.getString("telefone"));
-            stmt.close();
+            objeto.setNome(res.getString("nome"));  // Define o nome do amigo.
+            objeto.setTelefone(res.getString("telefone"));  // Define o telefone do amigo.
+            stmt.close();  // Fecha o Statement após o uso.
         } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
+            System.out.println("Erro: " + erro);
         }
         return objeto;
     }
