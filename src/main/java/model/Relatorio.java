@@ -141,7 +141,6 @@ public class Relatorio {
      * Método toString.
      * Retorna uma representação em formato de String da instância de Relatorio,
      * incluindo todos os atributos com seus valores.
-     *
      * @return String representando o objeto Relatorio
      */
     @Override
