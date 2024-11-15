@@ -1,11 +1,19 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package view;
 
-public class RelatorioDeEmprestimos extends javax.swing.JFrame {
+/**
+ *
+ * @author victo
+ */
+public class RelatoriosGerais extends javax.swing.JFrame {
 
     /**
-     * Creates new form RelatorioDeEmprestimos
+     * Creates new form RelatoriosGerais
      */
-    public RelatorioDeEmprestimos() {
+    public RelatoriosGerais() {
         initComponents();
     }
 
@@ -18,16 +26,15 @@ public class RelatorioDeEmprestimos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JBRelatorioEmprestimosVoltar = new javax.swing.JButton();
+        JBRelatoriosGeraisVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Relatório de Empréstimos");
 
-        JBRelatorioEmprestimosVoltar.setText("VOLTAR");
-        JBRelatorioEmprestimosVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JBRelatorioEmprestimosVoltar.addActionListener(new java.awt.event.ActionListener() {
+        JBRelatoriosGeraisVoltar.setText("VOLTAR");
+        JBRelatoriosGeraisVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBRelatoriosGeraisVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBRelatorioEmprestimosVoltarActionPerformed(evt);
+                JBRelatoriosGeraisVoltarActionPerformed(evt);
             }
         });
 
@@ -36,24 +43,24 @@ public class RelatorioDeEmprestimos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(JBRelatorioEmprestimosVoltar)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addGap(121, 121, 121)
+                .addComponent(JBRelatoriosGeraisVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(242, Short.MAX_VALUE)
-                .addComponent(JBRelatorioEmprestimosVoltar)
-                .addGap(36, 36, 36))
+                .addContainerGap(221, Short.MAX_VALUE)
+                .addComponent(JBRelatoriosGeraisVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBRelatorioEmprestimosVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatorioEmprestimosVoltarActionPerformed
+    private void JBRelatoriosGeraisVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatoriosGeraisVoltarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_JBRelatorioEmprestimosVoltarActionPerformed
+    }//GEN-LAST:event_JBRelatoriosGeraisVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,25 +79,25 @@ public class RelatorioDeEmprestimos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RelatorioDeEmprestimos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatoriosGerais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RelatorioDeEmprestimos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatoriosGerais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RelatorioDeEmprestimos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatoriosGerais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RelatorioDeEmprestimos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatoriosGerais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RelatorioDeEmprestimos().setVisible(true);
+                new RelatoriosGerais().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBRelatorioEmprestimosVoltar;
+    private javax.swing.JButton JBRelatoriosGeraisVoltar;
     // End of variables declaration//GEN-END:variables
 }
