@@ -69,6 +69,8 @@ public class CadastroAmigos extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Telefone");
 
+        JBCadastroAmigosVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        JBCadastroAmigosVoltar.setForeground(new java.awt.Color(0, 0, 0));
         JBCadastroAmigosVoltar.setText("VOLTAR");
         JBCadastroAmigosVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCadastroAmigosVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +79,8 @@ public class CadastroAmigos extends javax.swing.JFrame {
             }
         });
 
+        JBCadastroAmigosInserir.setBackground(new java.awt.Color(255, 255, 255));
+        JBCadastroAmigosInserir.setForeground(new java.awt.Color(0, 0, 0));
         JBCadastroAmigosInserir.setText("INSERIR");
         JBCadastroAmigosInserir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCadastroAmigosInserir.addActionListener(new java.awt.event.ActionListener() {

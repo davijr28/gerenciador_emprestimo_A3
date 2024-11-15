@@ -49,6 +49,8 @@ public class CadastroFerramentas extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Marca");
 
+        JBCadastroFerramentasVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        JBCadastroFerramentasVoltar.setForeground(new java.awt.Color(0, 0, 0));
         JBCadastroFerramentasVoltar.setText("VOLTAR");
         JBCadastroFerramentasVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCadastroFerramentasVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +59,8 @@ public class CadastroFerramentas extends javax.swing.JFrame {
             }
         });
 
+        JBCadastroFerramentasInserir.setBackground(new java.awt.Color(255, 255, 255));
+        JBCadastroFerramentasInserir.setForeground(new java.awt.Color(0, 0, 0));
         JBCadastroFerramentasInserir.setText("INSERIR");
         JBCadastroFerramentasInserir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBCadastroFerramentasInserir.addActionListener(new java.awt.event.ActionListener() {

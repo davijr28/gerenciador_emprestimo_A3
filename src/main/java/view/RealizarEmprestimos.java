@@ -19,14 +19,16 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
     private void initComponents() {
 
         JBRealizarEmprestimosVoltar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        JBNovosEmprestimos = new javax.swing.JButton();
+        JBEmprestimosRealizados = new javax.swing.JButton();
+        JBEmprestimosAtivos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Realizar Empréstimos");
 
+        JBRealizarEmprestimosVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        JBRealizarEmprestimosVoltar.setForeground(new java.awt.Color(0, 0, 0));
         JBRealizarEmprestimosVoltar.setText("VOLTAR");
         JBRealizarEmprestimosVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBRealizarEmprestimosVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -35,16 +37,28 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Novos Empréstimos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBNovosEmprestimos.setBackground(new java.awt.Color(255, 255, 255));
+        JBNovosEmprestimos.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        JBNovosEmprestimos.setForeground(new java.awt.Color(0, 0, 0));
+        JBNovosEmprestimos.setText("Novos Empréstimos");
+        JBNovosEmprestimos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBNovosEmprestimos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBNovosEmprestimosActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Empréstimos Realizados");
+        JBEmprestimosRealizados.setBackground(new java.awt.Color(255, 255, 255));
+        JBEmprestimosRealizados.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        JBEmprestimosRealizados.setForeground(new java.awt.Color(0, 0, 0));
+        JBEmprestimosRealizados.setText("Empréstimos Realizados");
+        JBEmprestimosRealizados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButton3.setText("Empréstimos Ativos ");
+        JBEmprestimosAtivos.setBackground(new java.awt.Color(255, 255, 255));
+        JBEmprestimosAtivos.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        JBEmprestimosAtivos.setForeground(new java.awt.Color(0, 0, 0));
+        JBEmprestimosAtivos.setText("Empréstimos Ativos ");
+        JBEmprestimosAtivos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
@@ -65,9 +79,9 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(JBNovosEmprestimos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JBEmprestimosRealizados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JBEmprestimosAtivos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -76,11 +90,11 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JBNovosEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JBEmprestimosRealizados, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JBEmprestimosAtivos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(JBRealizarEmprestimosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -93,9 +107,9 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_JBRealizarEmprestimosVoltarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JBNovosEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNovosEmprestimosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JBNovosEmprestimosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,10 +147,10 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBEmprestimosAtivos;
+    private javax.swing.JButton JBEmprestimosRealizados;
+    private javax.swing.JButton JBNovosEmprestimos;
     private javax.swing.JButton JBRealizarEmprestimosVoltar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
