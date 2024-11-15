@@ -1,9 +1,15 @@
 package view;
 
+import javax.swing.JOptionPane;
+import model.Amigos;
+
 public class CadastroAmigos extends javax.swing.JFrame {
+
+    private Amigos objetoamigo;// Declara um objeto da classe Amigos;
 
     public CadastroAmigos() {
         initComponents();
+        this.objetoamigo = new Amigos();
     }
 
     /**
@@ -153,7 +159,43 @@ public class CadastroAmigos extends javax.swing.JFrame {
     }//GEN-LAST:event_JBCadastroAmigosVoltarActionPerformed
 
     private void JBCadastroAmigosInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastroAmigosInserirActionPerformed
-        // TODO add your handling code here:
+        try {
+            // Lê e valida os dados inseridos na interface.
+            String nome = "";
+            String telefone = "";
+
+            if (this.JTFNome.getText().length() < 2) {
+                JOptionPane.showMessageDialog(null, "Nome deve conter ao menos 2 caracteres.");
+            } else {
+                nome = this.JTFNome.getText();
+            }
+
+            if (this.JTFTelefone.getText().length() != 9) {
+                JOptionPane.showMessageDialog(null, "Número de telefone deve conter 9 dígitos.");
+            } else {
+                telefone = this.JTFTelefone.getText();
+            }
+
+            // Envia os dados para cadastrar
+            if (this.objetoamigo.insertAmigoBD(nome, telefone)) {
+                JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso!");
+                // Limpa as caixas de texto
+                this.JTFNome.setText("");
+                this.JTFTelefone.setText("");
+            }
+            // Exibe o amigo cadastrado no console
+            System.out.println(this.objetoamigo.getAmigos().toString());
+
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Erro: Objeto não inicializado corretamente.");
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, "Erro de entrada: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado: " + e.getMessage());
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_JBCadastroAmigosInserirActionPerformed
 
     /**
