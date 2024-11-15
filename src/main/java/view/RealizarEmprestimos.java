@@ -53,12 +53,22 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
         JBEmprestimosRealizados.setForeground(new java.awt.Color(0, 0, 0));
         JBEmprestimosRealizados.setText("Empréstimos Realizados");
         JBEmprestimosRealizados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBEmprestimosRealizados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBEmprestimosRealizadosActionPerformed(evt);
+            }
+        });
 
         JBEmprestimosAtivos.setBackground(new java.awt.Color(255, 255, 255));
         JBEmprestimosAtivos.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         JBEmprestimosAtivos.setForeground(new java.awt.Color(0, 0, 0));
         JBEmprestimosAtivos.setText("Empréstimos Ativos ");
         JBEmprestimosAtivos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBEmprestimosAtivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBEmprestimosAtivosActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
@@ -108,8 +118,22 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
     }//GEN-LAST:event_JBRealizarEmprestimosVoltarActionPerformed
 
     private void JBNovosEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNovosEmprestimosActionPerformed
-        // TODO add your handling code here:
+        NovosEmprestimos objeto = new NovosEmprestimos();
+        objeto.setVisible(true);
+        objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBNovosEmprestimosActionPerformed
+
+    private void JBEmprestimosRealizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosRealizadosActionPerformed
+        EmprestimosRealizados objeto = new EmprestimosRealizados();
+        objeto.setVisible(true);
+        objeto.setLocationRelativeTo(null);
+    }//GEN-LAST:event_JBEmprestimosRealizadosActionPerformed
+
+    private void JBEmprestimosAtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosAtivosActionPerformed
+        EmprestimosAtivos objeto = new EmprestimosAtivos();
+        objeto.setVisible(true);
+        objeto.setLocationRelativeTo(null);
+    }//GEN-LAST:event_JBEmprestimosAtivosActionPerformed
 
     /**
      * @param args the command line arguments

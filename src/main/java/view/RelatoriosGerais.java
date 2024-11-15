@@ -110,11 +110,15 @@ public class RelatoriosGerais extends javax.swing.JFrame {
     }//GEN-LAST:event_JBRelatoriosGeraisVoltarActionPerformed
 
     private void JBRelatoriosDeAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatoriosDeAmigosActionPerformed
-        // TODO add your handling code here:
+        RelatoriosDeAmigos objeto = new RelatoriosDeAmigos();
+        objeto.setVisible(true);
+        objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBRelatoriosDeAmigosActionPerformed
 
     private void JBRelatoriosDeFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatoriosDeFerramentasActionPerformed
-        // TODO add your handling code here:
+        RelatoriosDeFerramentas objeto = new RelatoriosDeFerramentas();
+        objeto.setVisible(true);
+        objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBRelatoriosDeFerramentasActionPerformed
 
     /**
