@@ -9,13 +9,13 @@ public class AmigoDAO {
     public ArrayList<Amigos> lista = new ArrayList<>();
 
     // Obtém todos os amigos do banco de dados.
-    public ArrayList<Amigos> getAmigos() {
+    public ArrayList<Amigos> getAmigosLista() {
         lista.clear();  // Limpa a lista antes de preenchê-la com os dados mais recentes.
         try {
             Statement stmt = this.getConexao().createStatement();
             ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos");
             while (res.next()) {
-                int id = res.getInt("id");
+                int id = res.getInt("id_amigo");
                 String nome = res.getString("nome");
                 String telefone = res.getString("telefone");
 
@@ -40,9 +40,9 @@ public class AmigoDAO {
         int maiorID = 0;
         try {
             Statement stmt = this.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM tb_amigos");
+            ResultSet res = stmt.executeQuery("SELECT MAX(id_amigo) id_amigo FROM tb_amigos");
             res.next();
-            maiorID = res.getInt("id");  // Obtém o maior ID.
+            maiorID = res.getInt("id_amigo");  // Obtém o maior ID.
             stmt.close();  // Fecha Statement após o uso.
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex);
@@ -80,7 +80,7 @@ public class AmigoDAO {
 
     // Cadastra um novo amigo no banco de dados.
     public boolean insertAmigoBD(Amigos objeto) {
-        String sql = "INSERT INTO tb_amigos (id, nome, telefone) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO tb_amigos (id_amigo, nome, telefone) VALUES (?, ?, ?)";
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
 
@@ -102,7 +102,7 @@ public class AmigoDAO {
     public boolean deleteAmigoBD(int id) {
         try {
             Statement stmt = this.getConexao().createStatement();
-            stmt.executeUpdate("DELETE FROM tb_amigos WHERE id = " + id);  // Deleta o amigo pelo ID.
+            stmt.executeUpdate("DELETE FROM tb_amigos WHERE id_amigo = " + id);  // Deleta o amigo pelo ID.
             stmt.close();  // Fecha Statement após o uso.
             return true;
 
@@ -114,7 +114,7 @@ public class AmigoDAO {
 
     // Atualiza os dados de um amigo no banco de dados.
     public boolean updateAmigoBD(Amigos objeto) {
-        String sql = "UPDATE tb_amigos SET nome = ?, telefone = ? WHERE id = ?";
+        String sql = "UPDATE tb_amigos SET nome = ?, telefone = ? WHERE id_amigo = ?";
 
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
@@ -141,7 +141,7 @@ public class AmigoDAO {
 
         try {
             Statement stmt = this.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos WHERE id = " + id);
+            ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos WHERE id_amigo = " + id);
             res.next();  // Avança para o resultado.
 
             objeto.setNome(res.getString("nome"));  // Define o nome do amigo.

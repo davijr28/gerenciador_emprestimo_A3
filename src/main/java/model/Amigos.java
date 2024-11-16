@@ -9,7 +9,7 @@ public class Amigos {
     private int id; // Id único do amigo
     private String nome; // Nome do amigo
     private String telefone; // Telefone do amigo
-    private AmigoDAO dao;
+    private AmigoDAO dao; // Objeto dao acessado pela classe amigo
 
     // Construtor sem parâmetros, inicia com valores padrão
     public Amigos() {
@@ -21,6 +21,7 @@ public class Amigos {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
+        this.dao = new AmigoDAO();
     }
 
     // getters e setters pra acessar/modificar atributos
@@ -55,7 +56,7 @@ public class Amigos {
     }
 
     public ArrayList<Amigos> getAmigos() {
-        return dao.getAmigos();
+        return dao.getAmigosLista();
     }
 
     public boolean insertAmigoBD(String nome, String telefone) {
