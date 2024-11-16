@@ -1,22 +1,38 @@
 package model;
 
+import dao.FerramentaDAO;
+import java.util.ArrayList;
+
 public class Ferramentas {
 
+    private int id;
     private String nome;
     private String marca;
-    private double custo;
-    private boolean emprestado;
+    private double preco;
+    private FerramentaDAO dao;
 
     public Ferramentas() {
-        this("", "", 0, false);
+        this(0, "", "", 0);
 
     }
 
-    public Ferramentas(String nome, String marca, double custo, boolean emprestado) {
+    public Ferramentas(int id, String nome, String marca, double preco) {
+        this.id = id;
         this.nome = nome;
         this.marca = marca;
-        this.custo = custo;
-        this.emprestado = emprestado;
+        this.preco = preco;
+        this.dao = new FerramentaDAO();
+    }
+
+    // getters e setters pra acessar/modificar atributos
+    // retorna o ID da ferramenta
+    public int getId() {
+        return id;
+    }
+
+    // define o ID da ferramenta
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -35,19 +51,41 @@ public class Ferramentas {
         this.marca = marca;
     }
 
-    public double getCusto() {
-        return custo;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setCusto(double custo) {
-        this.custo = custo;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
-    public boolean isEmprestado() {
-        return emprestado;
+    public ArrayList<Ferramentas> getFerramentas() {
+        return dao.getFerramentasLista();
     }
 
-    public void setEmprestado(boolean emprestado) {
-        this.emprestado = emprestado;
+    public boolean insertFerramentaBD(String nome, String marca, double preco) {
+        int id = this.maiorID() + 1;
+        Ferramentas objeto = new Ferramentas(id, nome, marca, preco);
+        dao.insertFerramentaBD(objeto);
+        return true;
+    }
+
+    public boolean deleteFerramentaBD(int id) {
+        dao.deleteFerramentaBD(id);
+        return true;
+    }
+
+    public boolean updateFerramentaBD(int id, String nome, String marca, double preco) {
+        Ferramentas objeto = new Ferramentas(id, nome, marca, preco);
+        dao.updateFerramentaBD(objeto);
+        return true;
+    }
+
+    public Ferramentas carregaFerramenta(int id) {
+        return dao.carregaFerramenta(id);
+    }
+
+    public int maiorID() {
+        return dao.maiorID();
     }
 }

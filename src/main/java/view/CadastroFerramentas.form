@@ -43,7 +43,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="JTFNome" alignment="0" max="32767" attributes="0"/>
                           <Component id="JTFMarca" alignment="0" max="32767" attributes="0"/>
-                          <Component id="JTFCustoDeAquisicao" alignment="0" max="32767" attributes="0"/>
+                          <Component id="JTFPreco" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="JBCadastroFerramentasVoltar" min="-2" max="-2" attributes="0"/>
@@ -75,7 +75,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="JTFCustoDeAquisicao" min="-2" max="-2" attributes="0"/>
+              <Component id="JTFPreco" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="55" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JBCadastroFerramentasVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -160,9 +160,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFNomeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFCustoDeAquisicao">
+    <Component class="javax.swing.JTextField" name="JTFPreco">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFCustoDeAquisicaoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFPrecoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
