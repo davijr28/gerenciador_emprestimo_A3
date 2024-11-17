@@ -1,20 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
-/**
- *
- * @author victo
- */
+import model.Ferramentas;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RelatoriosDeFerramentas
-     */
+    private Ferramentas objetoferramenta;
+
     public RelatoriosDeFerramentas() {
         initComponents();
+        this.objetoferramenta = new Ferramentas();
+        this.carregarTabela();
     }
 
     /**
@@ -27,7 +25,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        JTTabelaRelatorioDeFerramentas = new javax.swing.JTable();
+        JTableFerramentas = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         JBVoltar = new javax.swing.JButton();
         JBAlterar = new javax.swing.JButton();
@@ -35,9 +33,9 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        JTTabelaRelatorioDeFerramentas.setBackground(new java.awt.Color(255, 255, 255));
-        JTTabelaRelatorioDeFerramentas.setForeground(new java.awt.Color(0, 0, 0));
-        JTTabelaRelatorioDeFerramentas.setModel(new javax.swing.table.DefaultTableModel(
+        JTableFerramentas.setBackground(new java.awt.Color(255, 255, 255));
+        JTableFerramentas.setForeground(new java.awt.Color(0, 0, 0));
+        JTableFerramentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -60,12 +58,12 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        JTTabelaRelatorioDeFerramentas.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTableFerramentas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTTabelaRelatorioDeFerramentasMouseClicked(evt);
+                JTableFerramentasMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(JTTabelaRelatorioDeFerramentas);
+        jScrollPane2.setViewportView(JTableFerramentas);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -136,9 +134,13 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTTabelaRelatorioDeFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTTabelaRelatorioDeFerramentasMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTTabelaRelatorioDeFerramentasMouseClicked
+    private void JTableFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableFerramentasMouseClicked
+        if (this.JTableFerramentas.getSelectedRow() != -1) {
+            String nome = this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 1).toString();
+            String marca = this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 2).toString();
+            String preco = this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 3).toString();
+
+        }    }//GEN-LAST:event_JTableFerramentasMouseClicked
 
     private void JBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBVoltarActionPerformed
         this.dispose();
@@ -149,37 +151,50 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     }//GEN-LAST:event_JBAlterarActionPerformed
 
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JBApagarActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+            // validando dados da interface gráfica.
+            int id = 0;
+            if (this.JTableFerramentas.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(null,"Primeiro selecione uma ferramenta para APAGAR.");
+            } else {
+                id = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
+            }
+
+            // retorna 0 -> primeiro botão | 1 -> segundo botão | 2 -> terceiro botão
+            int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar esta ferramenta?");
+
+            if (respostaUsuario == 0) {// clicou em SIM
+                // envia os dados para o Aluno processar
+                if (this.objetoferramenta.deleteFerramentaBD(id)) {
+                    JOptionPane.showMessageDialog(rootPane, "Ferramenta apagada com Sucesso!");
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RelatoriosDeFerramentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RelatoriosDeFerramentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RelatoriosDeFerramentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RelatoriosDeFerramentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            // atualiza a tabela.
+            System.out.println(this.objetoferramenta.getFerramentas().toString());
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } finally {
+            // atualiza a tabela.
+            carregarTabela();
         }
-        //</editor-fold>
+    }//GEN-LAST:event_JBApagarActionPerformed
 
-        /* Create and display the form */
+    public void carregarTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) this.JTableFerramentas.getModel();
+        modelo.setNumRows(0); // Posiciona na primeira linha da tabela
+        // Carrega a lista de ferramentas
+        ArrayList<Ferramentas> minhaLista = objetoferramenta.getFerramentas();
+        for (Ferramentas a : minhaLista) {
+            modelo.addRow(new Object[]{
+                a.getId(),
+                a.getNome(),
+                a.getMarca(),
+                a.getPreco()
+            });
+        }
+    }
+
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RelatoriosDeFerramentas().setVisible(true);
@@ -191,7 +206,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     private javax.swing.JButton JBAlterar;
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBVoltar;
-    private javax.swing.JTable JTTabelaRelatorioDeFerramentas;
+    private javax.swing.JTable JTableFerramentas;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
