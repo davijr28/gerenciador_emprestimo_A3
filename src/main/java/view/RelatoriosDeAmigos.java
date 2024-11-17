@@ -1,20 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
-/**
- *
- * @author victo
- */
+import model.Amigos;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class RelatoriosDeAmigos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RelatoriosDeAmigos
-     */
+    private Amigos objetoamigo;
+
     public RelatoriosDeAmigos() {
         initComponents();
+        this.objetoamigo = new Amigos();
+        this.carregarTabela();
     }
 
     /**
@@ -32,7 +30,7 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
         JBAlterar = new javax.swing.JButton();
         JBApagar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        JTTabelaRelatorioDeAmigos = new javax.swing.JTable();
+        JTableAmigos = new javax.swing.JTable();
 
         jMenu1.setText("jMenu1");
 
@@ -74,9 +72,9 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
             }
         });
 
-        JTTabelaRelatorioDeAmigos.setBackground(new java.awt.Color(255, 255, 255));
-        JTTabelaRelatorioDeAmigos.setForeground(new java.awt.Color(0, 0, 0));
-        JTTabelaRelatorioDeAmigos.setModel(new javax.swing.table.DefaultTableModel(
+        JTableAmigos.setBackground(new java.awt.Color(255, 255, 255));
+        JTableAmigos.setForeground(new java.awt.Color(0, 0, 0));
+        JTableAmigos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -99,12 +97,12 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        JTTabelaRelatorioDeAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTableAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTTabelaRelatorioDeAmigosMouseClicked(evt);
+                JTableAmigosMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(JTTabelaRelatorioDeAmigos);
+        jScrollPane2.setViewportView(JTableAmigos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,41 +146,54 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
     }//GEN-LAST:event_JBAlterarActionPerformed
 
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JBApagarActionPerformed
-
-    private void JTTabelaRelatorioDeAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTTabelaRelatorioDeAmigosMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTTabelaRelatorioDeAmigosMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RelatoriosDeAmigos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RelatoriosDeAmigos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RelatoriosDeAmigos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RelatoriosDeAmigos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+            // Valida os dados da interface.
+            int id = 0;
+            if (this.JTableAmigos.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(null, "Primeiro selecione um amigo para APAGAR.");
+            } else {
+                id = Integer.parseInt(this.JTableAmigos.getValueAt(this.JTableAmigos.getSelectedRow(), 0).toString());
 
-        /* Create and display the form */
+                int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar este amigo?");
+
+                if (respostaUsuario == 0) {// Clicou em SIM.
+                    // Chama método para apagar o amigo do banco de dados. 
+                    if (this.objetoamigo.deleteAmigoBD(id)) {
+                        JOptionPane.showMessageDialog(rootPane, "Amigo apagado com Sucesso!");
+                    }
+                }
+                System.out.println(this.objetoamigo.getAmigos().toString());
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+            erro.printStackTrace();
+        } finally {
+            // Atualiza a tabela.
+            carregarTabela();
+        }    }//GEN-LAST:event_JBApagarActionPerformed
+
+    private void JTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableAmigosMouseClicked
+        if (this.JTableAmigos.getSelectedRow() != -1) {
+            String nome = this.JTableAmigos.getValueAt(this.JTableAmigos.getSelectedRow(), 1).toString();
+            String telefone = this.JTableAmigos.getValueAt(this.JTableAmigos.getSelectedRow(), 2).toString();
+        }
+     }//GEN-LAST:event_JTableAmigosMouseClicked
+
+    public void carregarTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) this.JTableAmigos.getModel();
+        modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
+        // Carrega a lista de amigos.
+        ArrayList<Amigos> minhaLista = objetoamigo.getAmigos();
+        for (Amigos a : minhaLista) {
+            modelo.addRow(new Object[]{
+                a.getId(),
+                a.getNome(),
+                a.getTelefone()
+            });
+        }
+    }
+
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RelatoriosDeAmigos().setVisible(true);
@@ -194,7 +205,7 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
     private javax.swing.JButton JBAlterar;
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBVoltar;
-    private javax.swing.JTable JTTabelaRelatorioDeAmigos;
+    private javax.swing.JTable JTableAmigos;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane2;
