@@ -35,8 +35,8 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        JTFDatadoEmprestimo = new javax.swing.JTextField();
-        JTFDataDevolução = new javax.swing.JTextField();
+        JTFDatadoEmprestimo = new javax.swing.JFormattedTextField();
+        JTFDataDevolução = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,9 +87,12 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel5.setText("Data Devolução:");
 
-        JTFDatadoEmprestimo.addActionListener(new java.awt.event.ActionListener() {
+        JTFDatadoEmprestimo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        JTFDataDevolução.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        JTFDataDevolução.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFDatadoEmprestimoActionPerformed(evt);
+                JTFDataDevoluçãoActionPerformed(evt);
             }
         });
 
@@ -103,20 +106,12 @@ public class NovosEmprestimos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(JBNovosEmpréstimosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(JBNovosEmprestimosCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFDataDevolução, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFDatadoEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -125,8 +120,16 @@ public class NovosEmprestimos extends javax.swing.JFrame {
                                 .addComponent(JCParaAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JCFerramentaEmprestada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(JCFerramentaEmprestada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JTFDataDevolução, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JTFDatadoEmprestimo)))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,9 +174,9 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JCFerramentaEmprestadaActionPerformed
 
-    private void JTFDatadoEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDatadoEmprestimoActionPerformed
+    private void JTFDataDevoluçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDataDevoluçãoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTFDatadoEmprestimoActionPerformed
+    }//GEN-LAST:event_JTFDataDevoluçãoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,8 +218,8 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     private javax.swing.JButton JBNovosEmpréstimosVoltar;
     private javax.swing.JComboBox<String> JCFerramentaEmprestada;
     private javax.swing.JComboBox<String> JCParaAmigo;
-    private javax.swing.JTextField JTFDataDevolução;
-    private javax.swing.JTextField JTFDatadoEmprestimo;
+    private javax.swing.JFormattedTextField JTFDataDevolução;
+    private javax.swing.JFormattedTextField JTFDatadoEmprestimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
