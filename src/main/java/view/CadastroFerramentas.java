@@ -24,7 +24,7 @@ public class CadastroFerramentas extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         JTFNome = new javax.swing.JFormattedTextField();
         JTFMarca = new javax.swing.JFormattedTextField();
-        JTFCustodeAquisição = new javax.swing.JFormattedTextField();
+        JTFCusto = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Ferramentas");
@@ -73,7 +73,7 @@ public class CadastroFerramentas extends javax.swing.JFrame {
             }
         });
 
-        JTFCustodeAquisição.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        JTFCusto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,7 +103,7 @@ public class CadastroFerramentas extends javax.swing.JFrame {
                                     .addGap(29, 29, 29))
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
                             .addComponent(JTFMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JTFCustodeAquisição, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(JTFCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -122,7 +122,7 @@ public class CadastroFerramentas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JTFCustodeAquisição, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTFCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBCadastroFerramentasVoltar)
@@ -143,33 +143,42 @@ public class CadastroFerramentas extends javax.swing.JFrame {
             String nome = "";
             String marca = "";
             double preco = 0.0;
+            boolean validacao = true;
 
             if (this.JTFNome.getText().length() < 2) {
                 JOptionPane.showMessageDialog(null, "Nome deve conter ao menos 2 caracteres.");
+                validacao = false;
             } else {
                 nome = this.JTFNome.getText();
             }
             if (this.JTFMarca.getText().length() < 2) {
                 JOptionPane.showMessageDialog(null, "Nome da marca deve conter 2 caracteres.");
+                validacao = false;
             } else {
                 marca = this.JTFMarca.getText();
             }
-            if (this.JTFCustodeAquisição.getText().length() <= 0) {
+            if (this.JTFCusto.getText().length() < 0.01) {
                 JOptionPane.showMessageDialog(null, "Valor do custo deve ser maior que zero.");
+                validacao = false;
+            } else if (this.JTFCusto.getText().charAt(this.JTFCusto.getText().length() - 3) != '.' ) {
+                JOptionPane.showMessageDialog(null, "O valor deve conter apenas 2 casas decimais.\n Utilize '.' para indicar valor decimal.");
+                validacao = false;
             } else {
-                preco = Double.parseDouble(this.JTFCustodeAquisição.getText());
+                preco = Double.parseDouble(this.JTFCusto.getText());
             }
 
-            // Envia os dados para cadastrar
-            if (this.objetoferramenta.insertFerramentaBD(nome, marca, preco)) {
-                JOptionPane.showMessageDialog(null, "Ferramenta cadastrada com sucesso!");
-                // Limpa as caixas de texto
-                this.JTFNome.setText("");
-                this.JTFMarca.setText("");
-                this.JTFCustodeAquisição.setText("");
+            if (validacao == true) {
+                // Envia os dados para cadastrar
+                if (this.objetoferramenta.insertFerramentaBD(nome, marca, preco)) {
+                    JOptionPane.showMessageDialog(null, "Ferramenta cadastrada com sucesso!");
+                    // Limpa as caixas de texto
+                    this.JTFNome.setText("");
+                    this.JTFMarca.setText("");
+                    this.JTFCusto.setText("");
+                }
+                // Exibe o amigo cadastrado no console
+                System.out.println(this.objetoferramenta.getFerramentas().toString());
             }
-            // Exibe o amigo cadastrado no console
-            System.out.println(this.objetoferramenta.getFerramentas().toString());
 
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Erro: Objeto não inicializado corretamente.");
@@ -224,7 +233,7 @@ public class CadastroFerramentas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCadastroFerramentasInserir;
     private javax.swing.JButton JBCadastroFerramentasVoltar;
-    private javax.swing.JFormattedTextField JTFCustodeAquisição;
+    private javax.swing.JFormattedTextField JTFCusto;
     private javax.swing.JFormattedTextField JTFMarca;
     private javax.swing.JFormattedTextField JTFNome;
     private javax.swing.JLabel jLabel1;

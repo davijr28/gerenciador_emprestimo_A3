@@ -203,7 +203,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
             });
             totalGasto += a.getPreco();
         }
-        JLTotalGasto.setText("R$: " + String.valueOf(totalGasto));
+        JLTotalGasto.setText("R$: " + String.format("%.2f",totalGasto));
     }
 
     public static void main(String args[]) {
