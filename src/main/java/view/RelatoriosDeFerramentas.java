@@ -25,6 +25,8 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         JBVoltar = new javax.swing.JButton();
         JBAlterar = new javax.swing.JButton();
         JBApagar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        JTFTotalGastoemFerramentas = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,13 +90,15 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
         JBApagar.setBackground(new java.awt.Color(255, 255, 255));
         JBApagar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        JBApagar.setForeground(new java.awt.Color(0, 0, 0));
+        JBApagar.setForeground(new java.awt.Color(255, 0, 0));
         JBApagar.setText("Apagar");
         JBApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBApagarActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("TOTAL GASTO EM FERRAMENTAS: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,11 +108,17 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(JBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(JBApagar)
-                .addGap(46, 46, 46)
-                .addComponent(JBAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JTFTotalGastoemFerramentas))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(JBApagar)
+                        .addGap(46, 46, 46)
+                        .addComponent(JBAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,7 +128,11 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(JTFTotalGastoemFerramentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBVoltar)
                     .addComponent(JBAlterar)
@@ -199,7 +213,9 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     private javax.swing.JButton JBAlterar;
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBVoltar;
+    private javax.swing.JFormattedTextField JTFTotalGastoemFerramentas;
     private javax.swing.JTable JTableFerramentas;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
