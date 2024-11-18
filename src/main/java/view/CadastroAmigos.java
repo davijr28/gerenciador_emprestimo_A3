@@ -1,15 +1,25 @@
 package view;
 
+import java.text.ParseException;
 import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 import model.Amigos;
 
 public class CadastroAmigos extends javax.swing.JFrame {
 
     private Amigos objetoamigo; // Declara um objeto da classe Amigos.
+    private MaskFormatter mftelefone;
 
     public CadastroAmigos() {
         initComponents();
         this.objetoamigo = new Amigos();
+        try {
+            mftelefone = new MaskFormatter("+55 (##) #####-####");
+            JTFTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mftelefone));
+        } catch (ParseException e) {
+            System.out.println("Ocorreu um erro inesperado.");
+            e.printStackTrace();
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -28,7 +38,7 @@ public class CadastroAmigos extends javax.swing.JFrame {
         JBCadastroAmigosVoltar = new javax.swing.JButton();
         JBCadastroAmigosInserir = new javax.swing.JButton();
         JTFNome = new javax.swing.JFormattedTextField();
-        JTFTelefone = new javax.swing.JFormattedTextField();
+        JTFTelefone = new javax.swing.JFormattedTextField(mftelefone);
         jMenuBar1 = new javax.swing.JMenuBar();
 
         jMenu1.setText("File");
@@ -144,28 +154,31 @@ public class CadastroAmigos extends javax.swing.JFrame {
             // Lê e valida os dados inseridos na interface.
             String nome = "";
             String telefone = "";
+            boolean validacao = true;
 
             if (this.JTFNome.getText().length() < 2) {
                 JOptionPane.showMessageDialog(null, "Nome deve conter ao menos 2 caracteres.");
+                validacao = false;
             } else {
                 nome = this.JTFNome.getText();
             }
-
-            if (this.JTFTelefone.getText().length() != 9) {
-                JOptionPane.showMessageDialog(null, "Número de telefone deve conter 9 dígitos.");
+            if (this.JTFTelefone.getText().length() != 19) {
+                JOptionPane.showMessageDialog(null, "Número de telefone deve conter DDD mais 9 dígitos.");
+                validacao = false;
             } else {
-                telefone = this.JTFTelefone.getText();
+                telefone = ((String) this.JTFTelefone.getValue()).substring(4);
             }
-
-            // Envia os dados para cadastrar
-            if (this.objetoamigo.insertAmigoBD(nome, telefone)) {
-                JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso!");
-                // Limpa as caixas de texto
-                this.JTFNome.setText("");
-                this.JTFTelefone.setText("");
+            if (validacao == true) {
+                // Envia os dados para cadastrar
+                if (this.objetoamigo.insertAmigoBD(nome, telefone)) {
+                    JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso!");
+                    // Limpa as caixas de texto
+                    this.JTFNome.setText("");
+                    this.JTFTelefone.setText("");
+                }
+                // Exibe o amigo cadastrado no console
+                System.out.println(this.objetoamigo.getAmigos().toString());
             }
-            // Exibe o amigo cadastrado no console
-            System.out.println(this.objetoamigo.getAmigos().toString());
 
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Erro: Objeto não inicializado corretamente.");

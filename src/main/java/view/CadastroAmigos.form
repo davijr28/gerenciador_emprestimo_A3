@@ -190,6 +190,9 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(mftelefone)"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
