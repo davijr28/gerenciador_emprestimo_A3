@@ -27,10 +27,10 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        JBRealizarEmprestimosVoltar = new javax.swing.JButton();
-        JBRealizarEmprestimosVoltar1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        JBNovosEmpréstimosVoltar = new javax.swing.JButton();
+        JBNovosEmprestimosCadastrar = new javax.swing.JButton();
+        JCFerramentaEmprestada = new javax.swing.JComboBox<>();
+        JCParaAmigo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -42,34 +42,34 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         jLabel1.setText("NOVOS EMPRÉSTIMOS");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        JBRealizarEmprestimosVoltar.setBackground(new java.awt.Color(255, 255, 255));
-        JBRealizarEmprestimosVoltar.setForeground(new java.awt.Color(0, 0, 0));
-        JBRealizarEmprestimosVoltar.setText("VOLTAR");
-        JBRealizarEmprestimosVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JBRealizarEmprestimosVoltar.addActionListener(new java.awt.event.ActionListener() {
+        JBNovosEmpréstimosVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        JBNovosEmpréstimosVoltar.setForeground(new java.awt.Color(0, 0, 0));
+        JBNovosEmpréstimosVoltar.setText("VOLTAR");
+        JBNovosEmpréstimosVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBNovosEmpréstimosVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBRealizarEmprestimosVoltarActionPerformed(evt);
+                JBNovosEmpréstimosVoltarActionPerformed(evt);
             }
         });
 
-        JBRealizarEmprestimosVoltar1.setBackground(new java.awt.Color(255, 255, 255));
-        JBRealizarEmprestimosVoltar1.setForeground(new java.awt.Color(0, 0, 0));
-        JBRealizarEmprestimosVoltar1.setText("CADASTRAR");
-        JBRealizarEmprestimosVoltar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JBRealizarEmprestimosVoltar1.addActionListener(new java.awt.event.ActionListener() {
+        JBNovosEmprestimosCadastrar.setBackground(new java.awt.Color(255, 255, 255));
+        JBNovosEmprestimosCadastrar.setForeground(new java.awt.Color(0, 0, 0));
+        JBNovosEmprestimosCadastrar.setText("CADASTRAR");
+        JBNovosEmprestimosCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBNovosEmprestimosCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBRealizarEmprestimosVoltar1ActionPerformed(evt);
+                JBNovosEmprestimosCadastrarActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        JCFerramentaEmprestada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCFerramentaEmprestada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                JCFerramentaEmprestadaActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCParaAmigo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel2.setText("Ferramenta Emprestada: ");
@@ -86,9 +86,9 @@ public class NovosEmprestimos extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(JBRealizarEmprestimosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JBNovosEmpréstimosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(JBRealizarEmprestimosVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JBNovosEmprestimosCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
@@ -96,10 +96,10 @@ public class NovosEmprestimos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JCParaAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JCFerramentaEmprestada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,33 +109,33 @@ public class NovosEmprestimos extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JCFerramentaEmprestada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JCParaAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBRealizarEmprestimosVoltar)
-                    .addComponent(JBRealizarEmprestimosVoltar1))
+                    .addComponent(JBNovosEmpréstimosVoltar)
+                    .addComponent(JBNovosEmprestimosCadastrar))
                 .addGap(34, 34, 34))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBRealizarEmprestimosVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRealizarEmprestimosVoltarActionPerformed
+    private void JBNovosEmpréstimosVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNovosEmpréstimosVoltarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_JBRealizarEmprestimosVoltarActionPerformed
+    }//GEN-LAST:event_JBNovosEmpréstimosVoltarActionPerformed
 
-    private void JBRealizarEmprestimosVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRealizarEmprestimosVoltar1ActionPerformed
+    private void JBNovosEmprestimosCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNovosEmprestimosCadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JBRealizarEmprestimosVoltar1ActionPerformed
+    }//GEN-LAST:event_JBNovosEmprestimosCadastrarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void JCFerramentaEmprestadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCFerramentaEmprestadaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_JCFerramentaEmprestadaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,10 +173,10 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBRealizarEmprestimosVoltar;
-    private javax.swing.JButton JBRealizarEmprestimosVoltar1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton JBNovosEmprestimosCadastrar;
+    private javax.swing.JButton JBNovosEmpréstimosVoltar;
+    private javax.swing.JComboBox<String> JCFerramentaEmprestada;
+    private javax.swing.JComboBox<String> JCParaAmigo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
