@@ -64,7 +64,7 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
 
         JBApagar.setBackground(new java.awt.Color(255, 255, 255));
         JBApagar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        JBApagar.setForeground(new java.awt.Color(0, 0, 0));
+        JBApagar.setForeground(new java.awt.Color(255, 0, 0));
         JBApagar.setText("Apagar");
         JBApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
