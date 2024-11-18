@@ -26,7 +26,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         JBAlterar = new javax.swing.JButton();
         JBApagar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        JTFTotalGastoemFerramentas = new javax.swing.JFormattedTextField();
+        JLTotalGasto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +100,8 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
         jLabel1.setText("TOTAL GASTO EM FERRAMENTAS: ");
 
+        JLTotalGasto.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,11 +110,11 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFTotalGastoemFerramentas))
+                        .addGap(18, 18, 18)
+                        .addComponent(JLTotalGasto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(JBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
@@ -128,11 +130,11 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(JTFTotalGastoemFerramentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                    .addComponent(JLTotalGasto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBVoltar)
                     .addComponent(JBAlterar)
@@ -187,6 +189,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     }//GEN-LAST:event_JBApagarActionPerformed
 
     public void carregarTabela() {
+        double totalGasto = 0;
         DefaultTableModel modelo = (DefaultTableModel) this.JTableFerramentas.getModel();
         modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
         // Carrega a lista de ferramentas.
@@ -198,7 +201,9 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
                 a.getMarca(),
                 a.getPreco()
             });
+            totalGasto += a.getPreco();
         }
+        JLTotalGasto.setText("R$: " + String.valueOf(totalGasto));
     }
 
     public static void main(String args[]) {
@@ -213,7 +218,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     private javax.swing.JButton JBAlterar;
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBVoltar;
-    private javax.swing.JFormattedTextField JTFTotalGastoemFerramentas;
+    private javax.swing.JLabel JLTotalGasto;
     private javax.swing.JTable JTableFerramentas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;

@@ -27,11 +27,11 @@
           <Component id="jScrollPane2" alignment="0" pref="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JTFTotalGastoemFerramentas" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="JLTotalGasto" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="JBVoltar" min="-2" pref="94" max="-2" attributes="0"/>
@@ -52,12 +52,12 @@
               <Component id="jLabel4" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="174" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFTotalGastoemFerramentas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLTotalGasto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JBVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JBAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -168,7 +168,10 @@
         <Property name="text" type="java.lang.String" value="TOTAL GASTO EM FERRAMENTAS: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="JTFTotalGastoemFerramentas">
+    <Component class="javax.swing.JLabel" name="JLTotalGasto">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel2"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
