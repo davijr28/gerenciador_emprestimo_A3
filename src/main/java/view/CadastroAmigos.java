@@ -3,16 +3,16 @@ package view;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
-import model.Amigos;
+import model.Amigo;
 
 public class CadastroAmigos extends javax.swing.JFrame {
 
-    private Amigos objetoamigo; // Declara um objeto da classe Amigos.
+    private Amigo objetoamigo; // Declara um objeto da classe Amigo.
     private MaskFormatter mftelefone;
 
     public CadastroAmigos() {
         initComponents();
-        this.objetoamigo = new Amigos();
+        this.objetoamigo = new Amigo();
         try {
             mftelefone = new MaskFormatter("+55 (##) #####-####");
             JTFTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mftelefone));

@@ -6,15 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import model.Amigos;
+import model.Amigo;
 import java.util.ArrayList;
 
 public class AmigoDAO {
 
-    public ArrayList<Amigos> lista = new ArrayList<>();
+    public ArrayList<Amigo> lista = new ArrayList<>();
 
     // Obtém todos os amigos do banco de dados.
-    public ArrayList<Amigos> getAmigosLista() {
+    public ArrayList<Amigo> getAmigosLista() {
         lista.clear();  // Limpa a lista antes de preenchê-la com os dados mais recentes.
         try {
             Statement stmt = this.getConexao().createStatement();
@@ -24,7 +24,7 @@ public class AmigoDAO {
                 String nome = res.getString("nome");
                 String telefone = res.getString("telefone");
 
-                Amigos objeto = new Amigos(id, nome, telefone);  // Cria o objeto Amigos com os dados do banco.
+                Amigo objeto = new Amigo(id, nome, telefone);  // Cria o objeto Amigos com os dados do banco.
                 lista.add(objeto);  // Adiciona o objeto à lista.
             }
             stmt.close();  // Fecha Statement após o uso.
@@ -36,7 +36,7 @@ public class AmigoDAO {
     }
 
     // Define a lista de amigos na classe.
-    public void setMinhaLista(ArrayList<Amigos> lista) {
+    public void setMinhaLista(ArrayList<Amigo> lista) {
         this.lista = lista;
     }
 
@@ -84,7 +84,7 @@ public class AmigoDAO {
     }
 
     // Cadastra um novo amigo no banco de dados.
-    public boolean insertAmigoBD(Amigos objeto) {
+    public boolean insertAmigoBD(Amigo objeto) {
         String sql = "INSERT INTO tb_amigos (id_amigo, nome, telefone) VALUES (?, ?, ?)";
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
@@ -118,7 +118,7 @@ public class AmigoDAO {
     }
 
     // Atualiza os dados de um amigo no banco de dados.
-    public boolean updateAmigoBD(Amigos objeto) {
+    public boolean updateAmigoBD(Amigo objeto) {
         String sql = "UPDATE tb_amigos SET nome = ?, telefone = ? WHERE id_amigo = ?";
 
         try {
@@ -140,8 +140,8 @@ public class AmigoDAO {
     }
     
     // Carrega um amigo pelo seu id
-    public Amigos carregaAmigo(int id) {
-        Amigos objeto = new Amigos();
+    public Amigo carregaAmigo(int id) {
+        Amigo objeto = new Amigo();
         objeto.setId(id);  // Define o ID do amigo.
 
         try {

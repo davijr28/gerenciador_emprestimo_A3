@@ -1,15 +1,15 @@
 package view;
 
 import javax.swing.JOptionPane;
-import model.Ferramentas;
+import model.Ferramenta;
 
 public class CadastroFerramentas extends javax.swing.JFrame {
 
-    private Ferramentas objetoferramenta; // Declara um objeto da classe Ferramentas.
+    private Ferramenta objetoferramenta; // Declara um objeto da classe Ferramenta.
 
     public CadastroFerramentas() {
         initComponents();
-        this.objetoferramenta = new Ferramentas();
+        this.objetoferramenta = new Ferramenta();
     }
 
     @SuppressWarnings("unchecked")

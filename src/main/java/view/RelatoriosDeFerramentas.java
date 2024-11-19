@@ -1,18 +1,18 @@
 package view;
 
-import model.Ferramentas;
+import model.Ferramenta;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
-    public Ferramentas objetoferramenta;
+    public Ferramenta objetoferramenta;
     public int id = 0;
 
     public RelatoriosDeFerramentas() {
         initComponents();
-        this.objetoferramenta = new Ferramentas();
+        this.objetoferramenta = new Ferramenta();
         this.carregarTabela();
     }
 
@@ -189,8 +189,8 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) this.JTableFerramentas.getModel();
         modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
         // Carrega a lista de ferramentas.
-        ArrayList<Ferramentas> minhaLista = objetoferramenta.getFerramentas();
-        for (Ferramentas a : minhaLista) {
+        ArrayList<Ferramenta> minhaLista = objetoferramenta.getFerramentas();
+        for (Ferramenta a : minhaLista) {
             modelo.addRow(new Object[]{
                 a.getId(),
                 a.getNome(),

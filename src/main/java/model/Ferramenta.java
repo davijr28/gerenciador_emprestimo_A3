@@ -3,7 +3,7 @@ package model;
 import dao.FerramentaDAO;
 import java.util.ArrayList;
 
-public class Ferramentas {
+public class Ferramenta {
 
     private int id;
     private String nome;
@@ -11,12 +11,12 @@ public class Ferramentas {
     private double preco;
     private FerramentaDAO dao;
 
-    public Ferramentas() {
+    public Ferramenta() {
         this(0, "", "", 0);
 
     }
 
-    public Ferramentas(int id, String nome, String marca, double preco) {
+    public Ferramenta(int id, String nome, String marca, double preco) {
         this.id = id;
         this.nome = nome;
         this.marca = marca;
@@ -59,13 +59,13 @@ public class Ferramentas {
         this.preco = preco;
     }
 
-    public ArrayList<Ferramentas> getFerramentas() {
+    public ArrayList<Ferramenta> getFerramentas() {
         return dao.getFerramentasLista();
     }
 
     public boolean insertFerramentaBD(String nome, String marca, double preco) {
         int id = this.maiorID() + 1;
-        Ferramentas objeto = new Ferramentas(id, nome, marca, preco);
+        Ferramenta objeto = new Ferramenta(id, nome, marca, preco);
         dao.insertFerramentaBD(objeto);
         return true;
     }
@@ -76,12 +76,12 @@ public class Ferramentas {
     }
 
     public boolean updateFerramentaBD(int id, String nome, String marca, double preco) {
-        Ferramentas objeto = new Ferramentas(id, nome, marca, preco);
+        Ferramenta objeto = new Ferramenta(id, nome, marca, preco);
         dao.updateFerramentaBD(objeto);
         return true;
     }
 
-    public Ferramentas carregaFerramenta(int id) {
+    public Ferramenta carregaFerramenta(int id) {
         return dao.carregaFerramenta(id);
     }
 

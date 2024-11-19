@@ -1,18 +1,18 @@
 package view;
 
-import model.Amigos;
+import model.Amigo;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class RelatoriosDeAmigos extends javax.swing.JFrame {
 
-    public Amigos objetoamigo;
+    public Amigo objetoamigo;
     public int id = 0;
 
     public RelatoriosDeAmigos() {
         initComponents();
-        this.objetoamigo = new Amigos();
+        this.objetoamigo = new Amigo();
         this.carregarTabela();
     }
     
@@ -173,8 +173,8 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) this.JTableAmigos.getModel();
         modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
         // Carrega a lista de amigos.
-        ArrayList<Amigos> minhaLista = objetoamigo.getAmigos();
-        for (Amigos a : minhaLista) {
+        ArrayList<Amigo> minhaLista = objetoamigo.getAmigos();
+        for (Amigo a : minhaLista) {
             modelo.addRow(new Object[]{
                 a.getId(),
                 a.getNome(),

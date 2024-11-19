@@ -3,21 +3,21 @@ package model;
 import dao.AmigoDAO;
 import java.util.ArrayList;
 
-public class Amigos {
+public class Amigo {
 
-    // Atributos da classe Amigos
+    // Atributos da classe Amigo
     private int id; // Id único do amigo
     private String nome; // Nome do amigo
     private String telefone; // Telefone do amigo
     private AmigoDAO dao; // Objeto dao acessado pela classe amigo
 
     // Construtor sem parâmetros, inicia com valores padrão
-    public Amigos() {
+    public Amigo() {
         this(0, "", "");
     }
 
     // Construtor com parâmetros, permite criar objetos com valores específicos
-    public Amigos(int id, String nome, String telefone) {
+    public Amigo(int id, String nome, String telefone) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
@@ -55,13 +55,13 @@ public class Amigos {
         this.telefone = telefone;
     }
 
-    public ArrayList<Amigos> getAmigos() {
+    public ArrayList<Amigo> getAmigos() {
         return dao.getAmigosLista();
     }
 
     public boolean insertAmigoBD(String nome, String telefone) {
         int id = this.maiorID() + 1;
-        Amigos objeto = new Amigos(id, nome, telefone);
+        Amigo objeto = new Amigo(id, nome, telefone);
         dao.insertAmigoBD(objeto);
         return true;
     }
@@ -72,12 +72,12 @@ public class Amigos {
     }
 
     public boolean updateAmigoBD(int id, String nome, String telefone) {
-        Amigos objeto = new Amigos(id, nome, telefone);
+        Amigo objeto = new Amigo(id, nome, telefone);
         dao.updateAmigoBD(objeto);
         return true;
     }
 
-    public Amigos carregaAmigo(int id) {
+    public Amigo carregaAmigo(int id) {
         return dao.carregaAmigo(id);
     }
 

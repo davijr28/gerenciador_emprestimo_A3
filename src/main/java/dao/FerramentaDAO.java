@@ -8,13 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Ferramentas;
+import model.Ferramenta;
 
 public class FerramentaDAO {
 
-    public ArrayList<Ferramentas> lista = new ArrayList<>();
+    public ArrayList<Ferramenta> lista = new ArrayList<>();
 
-    public ArrayList<Ferramentas> getFerramentasLista() {
+    public ArrayList<Ferramenta> getFerramentasLista() {
         lista.clear();
         try {
             Statement stmt = this.getConexao().createStatement();
@@ -25,7 +25,7 @@ public class FerramentaDAO {
                 String marca = res.getString("marca");
                 double preco = res.getDouble("preco");
 
-                Ferramentas objeto = new Ferramentas(id, nome, marca, preco);  // Cria o objeto Ferramentas com os dados do banco.
+                Ferramenta objeto = new Ferramenta(id, nome, marca, preco);  // Cria o objeto Ferramentas com os dados do banco.
                 lista.add(objeto);  // Adiciona o objeto à lista.
             }
             stmt.close();  // Fecha Statement após o uso.
@@ -38,7 +38,7 @@ public class FerramentaDAO {
     }
 
     // Define a lista de ferramentas na classe.
-    public void setMinhaLista(ArrayList<Ferramentas> lista) {
+    public void setMinhaLista(ArrayList<Ferramenta> lista) {
         this.lista = lista;
     }
 
@@ -89,7 +89,7 @@ public class FerramentaDAO {
     }
 
     // Cadastra uma nova ferramenta no banco de dados.
-    public boolean insertFerramentaBD(Ferramentas objeto) {
+    public boolean insertFerramentaBD(Ferramenta objeto) {
         String sql = "INSERT INTO tb_ferramentas (id_ferramenta, nome, marca, preco) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
@@ -126,7 +126,7 @@ public class FerramentaDAO {
     }
 
     // Atualiza os dados de uma ferramenta no banco de dados.
-    public boolean updateFerramentaBD(Ferramentas objeto) {
+    public boolean updateFerramentaBD(Ferramenta objeto) {
         String sql = "UPDATE tb_ferramentas SET nome = ?, marca = ?, preco = ? WHERE id_ferramenta = ?";
 
         try {
@@ -150,8 +150,8 @@ public class FerramentaDAO {
     }
 
     // Carrega uma ferramenta pelo seu id
-    public Ferramentas carregaFerramenta(int id) {
-        Ferramentas objeto = new Ferramentas();
+    public Ferramenta carregaFerramenta(int id) {
+        Ferramenta objeto = new Ferramenta();
         objeto.setId(id);  // Define o ID da ferramenta.
 
         try {
