@@ -7,8 +7,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
-    private Ferramentas objetoferramenta;
-
+    public Ferramentas objetoferramenta;
+    public int id = 0;
+    
     public RelatoriosDeFerramentas() {
         initComponents();
         this.objetoferramenta = new Ferramentas();
@@ -157,13 +158,20 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     }//GEN-LAST:event_JBVoltarActionPerformed
 
     private void JBAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAlterarActionPerformed
-        // TODO add your handling code here:
+            if (this.JTableFerramentas.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(null, "Primeiro selecione uma ferramenta para alterar.");
+            }else{
+                id = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
+                AlterarFerramentas objeto = new AlterarFerramentas(this);
+                objeto.setVisible(true);
+                objeto.setLocationRelativeTo(null);
+            }
     }//GEN-LAST:event_JBAlterarActionPerformed
 
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
         try {
             // Valida os dados da interface.
-            int id = 0;
+ 
             if (this.JTableFerramentas.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(null, "Primeiro selecione uma ferramenta para APAGAR.");
             } else {
@@ -203,7 +211,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
             });
             totalGasto += a.getPreco();
         }
-        JLTotalGasto.setText("R$: " + String.format("%.2f",totalGasto));
+        JLTotalGasto.setText("R$: " + String.format("%.2f", totalGasto));
     }
 
     public static void main(String args[]) {
@@ -219,7 +227,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBVoltar;
     private javax.swing.JLabel JLTotalGasto;
-    private javax.swing.JTable JTableFerramentas;
+    public javax.swing.JTable JTableFerramentas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
