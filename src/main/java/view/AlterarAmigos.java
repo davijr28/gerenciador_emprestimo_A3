@@ -123,11 +123,11 @@ public class AlterarAmigos extends javax.swing.JFrame {
                 telefone = ((String) this.telefone.getValue()).substring(4);
             }
             if (validacao == true) {
-                // Envia os dados para cadastrar
+                // Envia os dados para atualizar amigo.
                 if (objeto.objetoamigo.updateAmigoBD(objeto.id, nome, telefone)) {
                     JOptionPane.showMessageDialog(null, "Amigo atualizado com sucesso!");
                 }
-                // Exibe o amigo cadastrado no console
+                // Exibe o amigo no console.
                 System.out.println(objeto.objetoamigo.getAmigos().toString());
             }
         } catch (NullPointerException e) {
@@ -141,7 +141,6 @@ public class AlterarAmigos extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jToggleButton2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton jToggleButton2;

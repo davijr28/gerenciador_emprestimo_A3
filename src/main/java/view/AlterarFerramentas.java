@@ -132,7 +132,7 @@ public class AlterarFerramentas extends javax.swing.JFrame {
             } else {
                 preco = Double.parseDouble(this.custo.getText());
             }
-            
+
             if (validacao == true) {
                 // Envia os dados para serem atualizados.
                 if (objeto.objetoferramenta.updateFerramentaBD(objeto.id, nome, marca, preco)) {

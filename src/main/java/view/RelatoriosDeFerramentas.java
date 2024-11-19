@@ -56,11 +56,6 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        JTableFerramentas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTableFerramentasMouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(JTableFerramentas);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
@@ -145,10 +140,6 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JTableFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableFerramentasMouseClicked
-        {
-        }    }//GEN-LAST:event_JTableFerramentasMouseClicked
 
     private void JBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBVoltarActionPerformed
         this.dispose();
