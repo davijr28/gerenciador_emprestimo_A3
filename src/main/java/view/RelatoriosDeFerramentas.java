@@ -9,7 +9,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
     public Ferramentas objetoferramenta;
     public int id = 0;
-    
+
     public RelatoriosDeFerramentas() {
         initComponents();
         this.objetoferramenta = new Ferramentas();
@@ -147,10 +147,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JTableFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableFerramentasMouseClicked
-        if (this.JTableFerramentas.getSelectedRow() != -1) {
-            String nome = this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 1).toString();
-            String marca = this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 2).toString();
-            String preco = this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 3).toString();
+        {
         }    }//GEN-LAST:event_JTableFerramentasMouseClicked
 
     private void JBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBVoltarActionPerformed
@@ -158,20 +155,20 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     }//GEN-LAST:event_JBVoltarActionPerformed
 
     private void JBAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAlterarActionPerformed
-            if (this.JTableFerramentas.getSelectedRow() == -1) {
-                JOptionPane.showMessageDialog(null, "Primeiro selecione uma ferramenta para alterar.");
-            }else{
-                id = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
-                AlterarFerramentas objeto = new AlterarFerramentas(this);
-                objeto.setVisible(true);
-                objeto.setLocationRelativeTo(null);
-            }
+        if (this.JTableFerramentas.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(null, "Primeiro selecione uma ferramenta para alterar.");
+        } else {
+            id = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
+            AlterarFerramentas objeto = new AlterarFerramentas(this);
+            objeto.setVisible(true);
+            objeto.setLocationRelativeTo(null);
+        }
     }//GEN-LAST:event_JBAlterarActionPerformed
 
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
         try {
             // Valida os dados da interface.
- 
+
             if (this.JTableFerramentas.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(null, "Primeiro selecione uma ferramenta para APAGAR.");
             } else {

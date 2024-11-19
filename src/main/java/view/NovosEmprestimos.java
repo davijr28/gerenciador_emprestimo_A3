@@ -67,6 +67,12 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         });
 
         JCFerramentaEmprestada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCFerramentaEmprestada.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JCFerramentaEmprestada.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                JCFerramentaEmprestadaComponentHidden(evt);
+            }
+        });
         JCFerramentaEmprestada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCFerramentaEmprestadaActionPerformed(evt);
@@ -87,8 +93,10 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel5.setText("Data Devolução:");
 
+        JTFDatadoEmprestimo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         JTFDatadoEmprestimo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        JTFDataDevolução.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         JTFDataDevolução.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         JTFDataDevolução.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,6 +185,10 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     private void JTFDataDevoluçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDataDevoluçãoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFDataDevoluçãoActionPerformed
+
+    private void JCFerramentaEmprestadaComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_JCFerramentaEmprestadaComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCFerramentaEmprestadaComponentHidden
 
     /**
      * @param args the command line arguments

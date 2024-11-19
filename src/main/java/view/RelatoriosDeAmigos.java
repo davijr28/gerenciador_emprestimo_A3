@@ -7,7 +7,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class RelatoriosDeAmigos extends javax.swing.JFrame {
 
-    private Amigos objetoamigo;
+    public Amigos objetoamigo;
+    public int id = 0;
 
     public RelatoriosDeAmigos() {
         initComponents();
@@ -142,13 +143,19 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
     }//GEN-LAST:event_JBVoltarActionPerformed
 
     private void JBAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAlterarActionPerformed
-        // TODO add your handling code here:
+        if (this.JTableAmigos.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(null, "Primeiro selecione um amigo para alterar.");
+        } else {
+            id = Integer.parseInt(this.JTableAmigos.getValueAt(this.JTableAmigos.getSelectedRow(), 0).toString());
+            AlterarAmigos objeto = new AlterarAmigos(this);
+            objeto.setVisible(true);
+            objeto.setLocationRelativeTo(null);
+        }
     }//GEN-LAST:event_JBAlterarActionPerformed
 
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
         try {
             // Valida os dados da interface.
-            int id = 0;
             if (this.JTableAmigos.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(null, "Primeiro selecione um amigo para APAGAR.");
             } else {
@@ -173,10 +180,7 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
         }    }//GEN-LAST:event_JBApagarActionPerformed
 
     private void JTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableAmigosMouseClicked
-        if (this.JTableAmigos.getSelectedRow() != -1) {
-            String nome = this.JTableAmigos.getValueAt(this.JTableAmigos.getSelectedRow(), 1).toString();
-            String telefone = this.JTableAmigos.getValueAt(this.JTableAmigos.getSelectedRow(), 2).toString();
-        }
+
      }//GEN-LAST:event_JTableAmigosMouseClicked
 
     public void carregarTabela() {
@@ -205,7 +209,7 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
     private javax.swing.JButton JBAlterar;
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBVoltar;
-    private javax.swing.JTable JTableAmigos;
+    public javax.swing.JTable JTableAmigos;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane2;
