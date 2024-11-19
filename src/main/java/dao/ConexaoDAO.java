@@ -16,4 +16,32 @@ public class ConexaoDAO {
             return null;
         }
     }
+    
+    // Tenta estabelecer conexão com o banco de dados.
+    public Connection getConexao() {
+        Connection connection = null;
+        try {
+            // Carregamento do driver JDBC.
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/db_emprestimoferramentas?useTimezone=true&serverTimezone=UTC", 
+                "root", "1234"
+            );
+
+            // Testa a conexão.
+            if (connection != null) {
+                System.out.println("Conectado com sucesso!");
+            } else {
+                System.out.println("Não foi possível conectar!");
+            }
+            return connection;
+
+        } catch (ClassNotFoundException e) {  // Driver não encontrado.
+            System.out.println("Driver não encontrado: " + e.getMessage());
+            return null;
+        } catch (SQLException e) {  // Erro na conexão com o banco de dados.
+            System.out.println("Não foi possível conectar: " + e.getMessage());
+            return null;
+        }
+    }
 }
