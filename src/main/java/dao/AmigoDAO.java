@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class AmigoDAO {
 
     public ArrayList<Amigo> lista = new ArrayList<>();
-    private ConexaoDAO dao = new ConexaoDAO();
+    private final ConexaoDAO dao = new ConexaoDAO();
 
     // Obtém todos os amigos do banco de dados.
     public ArrayList<Amigo> getAmigosLista() {

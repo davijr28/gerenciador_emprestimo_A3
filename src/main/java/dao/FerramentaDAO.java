@@ -1,6 +1,5 @@
 package dao;
 
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +10,7 @@ import model.Ferramenta;
 public class FerramentaDAO {
 
     public ArrayList<Ferramenta> lista = new ArrayList<>();
-    private ConexaoDAO dao = new ConexaoDAO();
+    private final ConexaoDAO dao = new ConexaoDAO();
 
     public ArrayList<Ferramenta> getFerramentasLista() {
         lista.clear();
