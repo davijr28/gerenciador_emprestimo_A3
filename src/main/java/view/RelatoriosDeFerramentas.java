@@ -68,6 +68,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         JBVoltar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         JBVoltar.setForeground(new java.awt.Color(0, 0, 0));
         JBVoltar.setText("Voltar");
+        JBVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBVoltarActionPerformed(evt);
@@ -78,6 +79,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         JBAlterar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         JBAlterar.setForeground(new java.awt.Color(0, 0, 0));
         JBAlterar.setText("Alterar");
+        JBAlterar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBAlterarActionPerformed(evt);
@@ -88,6 +90,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         JBApagar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         JBApagar.setForeground(new java.awt.Color(255, 0, 0));
         JBApagar.setText("Apagar");
+        JBApagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBApagarActionPerformed(evt);
