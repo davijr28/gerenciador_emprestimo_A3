@@ -1,9 +1,21 @@
 package view;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import model.Amigo;
+import model.Ferramenta;
+
 public class NovosEmprestimos extends javax.swing.JFrame {
+
+    private Ferramenta objetoferramenta;
+    private Amigo objetoamigo;
 
     public NovosEmprestimos() {
         initComponents();
+        this.objetoamigo = new Amigo();
+        this.objetoferramenta = new Ferramenta();
+        this.carregarAmigos();
+        this.carregarFerramentas();
     }
 
     @SuppressWarnings("unchecked")
@@ -50,20 +62,12 @@ public class NovosEmprestimos extends javax.swing.JFrame {
             }
         });
 
-        JCFerramentaEmprestada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCFerramentaEmprestada.setModel(JCFerramentaEmprestada.getModel());
         JCFerramentaEmprestada.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JCFerramentaEmprestada.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                JCFerramentaEmprestadaComponentHidden(evt);
-            }
-        });
-        JCFerramentaEmprestada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JCFerramentaEmprestadaActionPerformed(evt);
-            }
-        });
+        JCFerramentaEmprestada.setFocusable(false);
 
-        JCParaAmigo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCParaAmigo.setFocusable(false);
+        JCParaAmigo.setRequestFocusEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel2.setText("Ferramenta Emprestada: ");
@@ -103,16 +107,11 @@ public class NovosEmprestimos extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JCParaAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2))
+                        .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JCFerramentaEmprestada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JCFerramentaEmprestada, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -120,8 +119,12 @@ public class NovosEmprestimos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFDatadoEmprestimo)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                        .addComponent(JTFDatadoEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JCParaAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,17 +165,31 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JBNovosEmprestimosCadastrarActionPerformed
 
-    private void JCFerramentaEmprestadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCFerramentaEmprestadaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JCFerramentaEmprestadaActionPerformed
-
     private void JTFDataDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDataDevolucaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFDataDevolucaoActionPerformed
 
-    private void JCFerramentaEmprestadaComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_JCFerramentaEmprestadaComponentHidden
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JCFerramentaEmprestadaComponentHidden
+    public void carregarFerramentas() {
+        DefaultComboBoxModel modeloFerramentas = (DefaultComboBoxModel) this.JCFerramentaEmprestada.getModel();
+        modeloFerramentas.setSelectedItem(0);
+        ArrayList<Ferramenta> minhaLista = objetoferramenta.getFerramentas();
+        if (minhaLista != null) {
+            for (Ferramenta a : minhaLista) {
+                modeloFerramentas.addElement(a.getNome());
+            }
+        }
+    }
+
+    public void carregarAmigos() {
+        DefaultComboBoxModel modeloAmigos = (DefaultComboBoxModel) this.JCParaAmigo.getModel();
+        modeloAmigos.setSelectedItem(0);
+        ArrayList<Amigo> minhaLista = objetoamigo.getAmigos();
+        if (minhaLista != null) {
+            for (Amigo a : minhaLista) {
+                modeloAmigos.addElement(a.getNome());
+            }
+        }
+    }
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
