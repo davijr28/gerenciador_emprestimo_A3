@@ -3,47 +3,49 @@ package model;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+/**
+ * Classe que representa um relatório de empréstimo de ferramentas.
+ */
 public class Relatorio {
-    // id único amigo que pegou ferramenta
+    /** ID único do amigo que pegou a ferramenta */
     private int idAmigo;
-    
-    // nome amigo
+
+    /** Nome do amigo */
     private String nomeAmigo;
-    
-    // telefone amigo
+
+    /** Telefone do amigo */
     private String telefoneAmigo;
-    
-    // Id único ferramenta emprestada
+
+    /** ID único da ferramenta emprestada */
     private int idFerramenta;
-    
-    // Nome ferramenta emprestada
+
+    /** Nome da ferramenta emprestada */
     private String nomeFerramenta;
-    
-    // Preço ferramenta em dinheiro
+
+    /** Preço da ferramenta em dinheiro */
     private double precoFerramenta;
-    
-    // Data e hora que o empréstimo foi feito
+
+    /** Data e hora em que o empréstimo foi feito */
     private Timestamp dataEmprestimo;
-    
-    // Data que ferramenta foi devolvida (podendo ser null se ainda não devolvida)
+
+    /** Data em que a ferramenta foi devolvida (pode ser null se ainda não devolvida) */
     private Date dataDevolucao;
-    
-    // ferramenta foi devolvida(true) ainda está com amigo(false)
+
+    /** Status do empréstimo: devolvida (true) ou ainda com o amigo (false) */
     private boolean entregue;
 
     /**
      * Construtor da classe Relatorio.
-     * Inicializa todos os atributos com os valores fornecidos.
      * 
-     * @param idAmigo Identificador do amigo
-     * @param nomeAmigo Nome do amigo
-     * @param telefoneAmigo Telefone do amigo
-     * @param idFerramenta Identificador da ferramenta
-     * @param nomeFerramenta Nome da ferramenta
+     * @param idAmigo         Identificador do amigo
+     * @param nomeAmigo       Nome do amigo
+     * @param telefoneAmigo   Telefone do amigo
+     * @param idFerramenta    Identificador da ferramenta
+     * @param nomeFerramenta  Nome da ferramenta
      * @param precoFerramenta Preço da ferramenta
-     * @param dataEmprestimo Data e hora do empréstimo
-     * @param dataDevolucao Data de devolução (pode ser null)
-     * @param entregue Status do empréstimo (entregue ou não)
+     * @param dataEmprestimo  Data e hora do empréstimo
+     * @param dataDevolucao   Data de devolução (pode ser null)
+     * @param entregue        Status do empréstimo (entregue ou não)
      */
     public Relatorio(int idAmigo, String nomeAmigo, String telefoneAmigo, int idFerramenta, 
                      String nomeFerramenta, double precoFerramenta, Timestamp dataEmprestimo, 
@@ -59,12 +61,22 @@ public class Relatorio {
         this.entregue = entregue;
     }
 
+    /**
+     * Construtor alternativo para a classe Relatorio.
+     * Este construtor foi gerado, mas ainda não está implementado.
+     * 
+     * @param nomeAmigo       Nome do amigo
+     * @param nomeFerramenta  Nome da ferramenta
+     * @param telefoneAmigo   Telefone do amigo
+     * @param preco           Preço da ferramenta
+     */
     public Relatorio(String nomeAmigo, String nomeFerramenta, String telefoneAmigo, double preco) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    // getters e setters para cada campo da classe, getters permitem acessar os valores dos atributos fora da classe, os setters permitem modificar eles
-    
+    /** Métodos getters e setters
+     * @return  */
+
     public int getIdAmigo() {
         return idAmigo;
     }
@@ -138,9 +150,8 @@ public class Relatorio {
     }
 
     /**
-     * Método toString.
-     * Retorna uma representação em formato de String da instância de Relatorio,
-     * incluindo todos os atributos com seus valores.
+     * Retorna uma representação em formato de String da instância de Relatorio.
+     * 
      * @return String representando o objeto Relatorio
      */
     @Override
