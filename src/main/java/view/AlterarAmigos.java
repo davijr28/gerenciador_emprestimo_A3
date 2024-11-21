@@ -32,10 +32,13 @@ public class AlterarAmigos extends javax.swing.JFrame {
 
         nome = new javax.swing.JTextField();
         telefone = new javax.swing.JFormattedTextField(mftelefone);
-        voltar = new javax.swing.JToggleButton();
+        JBVoltar = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ALTERAÇÃO DE AMIGOS");
 
         nome.setText("nome");
         nome.addActionListener(new java.awt.event.ActionListener() {
@@ -46,49 +49,65 @@ public class AlterarAmigos extends javax.swing.JFrame {
 
         telefone.setText("telefone");
 
-        voltar.setText("voltar");
-        voltar.addActionListener(new java.awt.event.ActionListener() {
+        JBVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        JBVoltar.setForeground(new java.awt.Color(0, 0, 0));
+        JBVoltar.setText("VOLTAR");
+        JBVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                voltarActionPerformed(evt);
+                JBVoltarActionPerformed(evt);
             }
         });
 
-        jToggleButton2.setText("ok");
+        jToggleButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jToggleButton2.setText("CONFIRMAR");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton2ActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 15)); // NOI18N
+        jLabel1.setText("Digite o novo telefone:");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 15)); // NOI18N
+        jLabel2.setText("Digite o novo nome:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nome)
-                    .addComponent(telefone, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
-                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(37, 37, 37)
+                .addComponent(JBVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton2)
-                    .addComponent(voltar))
-                .addGap(14, 14, 14))
+                    .addComponent(JBVoltar)
+                    .addComponent(jToggleButton2))
+                .addGap(40, 40, 40))
         );
 
         pack();
@@ -98,10 +117,10 @@ public class AlterarAmigos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeActionPerformed
 
-    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+    private void JBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBVoltarActionPerformed
         objeto.carregarTabela();
         this.dispose();
-    }//GEN-LAST:event_voltarActionPerformed
+    }//GEN-LAST:event_JBVoltarActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         try {
@@ -143,9 +162,11 @@ public class AlterarAmigos extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton JBVoltar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JTextField nome;
     private javax.swing.JFormattedTextField telefone;
-    private javax.swing.JToggleButton voltar;
     // End of variables declaration//GEN-END:variables
 }
