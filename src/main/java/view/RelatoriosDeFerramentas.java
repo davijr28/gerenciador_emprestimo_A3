@@ -30,6 +30,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         JLTotalGasto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RELATÓRIOS DE FERRAMENTAS CADASTRADAS");
 
         JTableFerramentas.setBackground(new java.awt.Color(255, 255, 255));
         JTableFerramentas.setForeground(new java.awt.Color(0, 0, 0));

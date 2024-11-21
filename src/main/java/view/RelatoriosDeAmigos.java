@@ -31,6 +31,7 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RELATÓRIOS DE AMIGOS CADASTRADOS");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

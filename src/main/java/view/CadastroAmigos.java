@@ -54,7 +54,7 @@ public class CadastroAmigos extends javax.swing.JFrame {
         jMenuBar3.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de Amigos");
+        setTitle("CADASTRO DE AMIGOS");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
