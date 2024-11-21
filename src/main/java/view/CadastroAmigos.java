@@ -89,18 +89,8 @@ public class CadastroAmigos extends javax.swing.JFrame {
         });
 
         JTFNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        JTFNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFNomeActionPerformed(evt);
-            }
-        });
 
         JTFTelefone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        JTFTelefone.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                JTFTelefoneFocusLost(evt);
-            }
-        });
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -195,14 +185,6 @@ public class CadastroAmigos extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_JBCadastroAmigosInserirActionPerformed
-
-    private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFNomeActionPerformed
-
-    private void JTFTelefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTFTelefoneFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFTelefoneFocusLost
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

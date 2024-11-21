@@ -67,11 +67,6 @@ public class CadastroFerramentas extends javax.swing.JFrame {
         JTFNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         JTFMarca.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        JTFMarca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFMarcaActionPerformed(evt);
-            }
-        });
 
         JTFCusto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
@@ -190,10 +185,6 @@ public class CadastroFerramentas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado: " + e.getMessage());
             e.printStackTrace();
         }    }//GEN-LAST:event_JBCadastroFerramentasInserirActionPerformed
-
-    private void JTFMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFMarcaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFMarcaActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

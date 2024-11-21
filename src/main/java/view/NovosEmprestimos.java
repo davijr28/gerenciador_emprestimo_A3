@@ -1,7 +1,9 @@
 package view;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.text.MaskFormatter;
 import model.Amigo;
 import model.Ferramenta;
 
@@ -9,6 +11,7 @@ public class NovosEmprestimos extends javax.swing.JFrame {
 
     private Ferramenta objetoferramenta;
     private Amigo objetoamigo;
+    private MaskFormatter mfdata;
 
     public NovosEmprestimos() {
         initComponents();
@@ -16,6 +19,14 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         this.objetoferramenta = new Ferramenta();
         this.carregarAmigos();
         this.carregarFerramentas();
+        try {
+            mfdata = new MaskFormatter("##/##/####");
+            JTFDatadoEmprestimo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mfdata));
+            JTFDataDevolucao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mfdata));
+        } catch (ParseException e) {
+            System.out.println("Ocorreu um erro inesperado.");
+            e.printStackTrace();
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -87,11 +98,6 @@ public class NovosEmprestimos extends javax.swing.JFrame {
 
         JTFDataDevolucao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         JTFDataDevolucao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        JTFDataDevolucao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFDataDevolucaoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,13 +172,9 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JBNovosEmprestimosCadastrarActionPerformed
 
-    private void JTFDataDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDataDevolucaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFDataDevolucaoActionPerformed
-
     public void carregarFerramentas() {
         DefaultComboBoxModel modeloFerramentas = (DefaultComboBoxModel) this.JCFerramentaEmprestada.getModel();
-        modeloFerramentas.setSelectedItem(0);
+        modeloFerramentas.setSelectedItem("Selecione");
         ArrayList<Ferramenta> minhaLista = objetoferramenta.getFerramentas();
         if (minhaLista != null) {
             for (Ferramenta a : minhaLista) {
@@ -183,7 +185,7 @@ public class NovosEmprestimos extends javax.swing.JFrame {
 
     public void carregarAmigos() {
         DefaultComboBoxModel modeloAmigos = (DefaultComboBoxModel) this.JCParaAmigo.getModel();
-        modeloAmigos.setSelectedItem(0);
+        modeloAmigos.setSelectedItem("Selecione");
         ArrayList<Amigo> minhaLista = objetoamigo.getAmigos();
         if (minhaLista != null) {
             for (Amigo a : minhaLista) {
