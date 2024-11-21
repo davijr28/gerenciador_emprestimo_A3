@@ -41,11 +41,6 @@ public class AlterarAmigos extends javax.swing.JFrame {
         setTitle("ALTERAÇÃO DE AMIGOS");
 
         nome.setText("nome");
-        nome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeActionPerformed(evt);
-            }
-        });
 
         telefone.setText("telefone");
 
@@ -112,10 +107,6 @@ public class AlterarAmigos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeActionPerformed
 
     private void JBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBVoltarActionPerformed
         objeto.carregarTabela();

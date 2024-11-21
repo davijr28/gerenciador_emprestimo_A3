@@ -37,11 +37,6 @@ public class AlterarFerramentas extends javax.swing.JFrame {
         nome.setText("nome");
 
         marca.setText("marca");
-        marca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                marcaActionPerformed(evt);
-            }
-        });
 
         custo.setText("preço");
 
@@ -123,10 +118,6 @@ public class AlterarFerramentas extends javax.swing.JFrame {
         objeto.carregarTabela();
         this.dispose();
     }//GEN-LAST:event_voltarActionPerformed
-
-    private void marcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_marcaActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         try {

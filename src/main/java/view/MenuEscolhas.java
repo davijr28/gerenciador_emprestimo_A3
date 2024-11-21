@@ -32,11 +32,6 @@ public class MenuEscolhas extends javax.swing.JFrame {
         );
 
         jButton6.setText("Cadastro de Amigos");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GERENCIADOR");
@@ -166,10 +161,6 @@ public class MenuEscolhas extends javax.swing.JFrame {
     private void JBMenuEscolhasVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMenuEscolhasVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_JBMenuEscolhasVoltarActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void JBRealizarEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRealizarEmprestimosActionPerformed
         RealizarEmprestimos objeto = new RealizarEmprestimos();

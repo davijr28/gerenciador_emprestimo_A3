@@ -23,9 +23,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastro de Amigos"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
-      </Events>
     </Component>
   </NonVisualComponents>
   <Properties>
