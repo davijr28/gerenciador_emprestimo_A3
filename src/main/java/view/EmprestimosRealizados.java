@@ -28,11 +28,11 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         JBEmprestimosRealizadosVoltar = new javax.swing.JButton();
-        JTFTotaldeEmprestimosRealizados = new javax.swing.JTextField();
-        JTFQuemFezMaisEmprestimos = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         JTTabelaQuemNuncaDevolveu = new javax.swing.JTable();
+        JLTotalEmprestimos = new javax.swing.JLabel();
+        JLMaisEmprestimos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EMPRÉSTIMOS REALIZADOS");
@@ -87,18 +87,6 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
             }
         });
 
-        JTFTotaldeEmprestimosRealizados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFTotaldeEmprestimosRealizadosActionPerformed(evt);
-            }
-        });
-
-        JTFQuemFezMaisEmprestimos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFQuemFezMaisEmprestimosActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Quem nunca devolveu:");
 
         JTTabelaQuemNuncaDevolveu.setModel(new javax.swing.table.DefaultTableModel(
@@ -129,6 +117,10 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(JTTabelaQuemNuncaDevolveu);
 
+        JLTotalEmprestimos.setText("jLabel5");
+
+        JLMaisEmprestimos.setText("jLabel5");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,21 +130,26 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFTotaldeEmprestimosRealizados))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFQuemFezMaisEmprestimos))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JBEmprestimosRealizadosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE))
+                                .addGap(0, 160, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JLMaisEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JLTotalEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(110, 110, 110))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -166,20 +163,20 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(JTFTotaldeEmprestimosRealizados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(JLTotalEmprestimos, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(JTFQuemFezMaisEmprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JLMaisEmprestimos, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                         .addComponent(JBEmprestimosRealizadosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))))
         );
@@ -191,17 +188,12 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_JBEmprestimosRealizadosVoltarActionPerformed
 
-    private void JTFTotaldeEmprestimosRealizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTotaldeEmprestimosRealizadosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFTotaldeEmprestimosRealizadosActionPerformed
-
-    private void JTFQuemFezMaisEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFQuemFezMaisEmprestimosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFQuemFezMaisEmprestimosActionPerformed
-
     public void carregarTabela() {
         DefaultTableModel modeloFinalizados = (DefaultTableModel) this.JTTabelaEmprestimoRealizados.getModel();
         DefaultTableModel modeloNaoDevolvidos = (DefaultTableModel) this.JTTabelaQuemNuncaDevolveu.getModel();
+        int totalEmprestimos = 0;
+        int maisEmprestimos = 0;
+        String amigoMaisEmprestimos = "";
         modeloFinalizados.setNumRows(0); // Posiciona na primeira linha da tabela.
         modeloNaoDevolvidos.setNumRows(0);
         // Carrega a lista de Empréstimos.
@@ -222,7 +214,14 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
                     a.objetoFerramenta.getNome()
                 });
             }
+            totalEmprestimos += a.objetoAmigo.getContadorEmprestimos();
+            if(a.objetoAmigo.getContadorEmprestimos() > maisEmprestimos){
+                maisEmprestimos = a.objetoAmigo.getContadorEmprestimos();
+                amigoMaisEmprestimos = a.objetoAmigo.getNome();
+            }
         }
+        JLTotalEmprestimos.setText(Integer.toString(totalEmprestimos));
+        JLMaisEmprestimos.setText(amigoMaisEmprestimos);
     }
 
     public static void main(String args[]) {
@@ -236,8 +235,8 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBEmprestimosRealizadosVoltar;
-    private javax.swing.JTextField JTFQuemFezMaisEmprestimos;
-    private javax.swing.JTextField JTFTotaldeEmprestimosRealizados;
+    private javax.swing.JLabel JLMaisEmprestimos;
+    private javax.swing.JLabel JLTotalEmprestimos;
     private javax.swing.JTable JTTabelaEmprestimoRealizados;
     private javax.swing.JTable JTTabelaQuemNuncaDevolveu;
     private javax.swing.JLabel jLabel1;
