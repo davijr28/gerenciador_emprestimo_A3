@@ -14,7 +14,6 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTTabelaEmprestimoAtivos = new javax.swing.JTable();
         JBEmprestimosAtivosVoltar = new javax.swing.JButton();
-        JBEmprestimosAtivosApagar = new javax.swing.JButton();
         JBEmprestimosAtivosReceber = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,16 +65,6 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
             }
         });
 
-        JBEmprestimosAtivosApagar.setBackground(new java.awt.Color(255, 255, 255));
-        JBEmprestimosAtivosApagar.setForeground(new java.awt.Color(255, 0, 51));
-        JBEmprestimosAtivosApagar.setText("APAGAR");
-        JBEmprestimosAtivosApagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JBEmprestimosAtivosApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBEmprestimosAtivosApagarActionPerformed(evt);
-            }
-        });
-
         JBEmprestimosAtivosReceber.setBackground(new java.awt.Color(255, 255, 255));
         JBEmprestimosAtivosReceber.setForeground(new java.awt.Color(0, 0, 0));
         JBEmprestimosAtivosReceber.setText("RECEBER");
@@ -95,9 +84,7 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
                 .addComponent(JBEmprestimosAtivosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(JBEmprestimosAtivosApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(217, 217, 217)
                 .addComponent(JBEmprestimosAtivosReceber, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
         );
@@ -111,7 +98,6 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBEmprestimosAtivosVoltar)
-                    .addComponent(JBEmprestimosAtivosApagar)
                     .addComponent(JBEmprestimosAtivosReceber))
                 .addGap(34, 34, 34))
         );
@@ -122,10 +108,6 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
     private void JBEmprestimosAtivosVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosAtivosVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_JBEmprestimosAtivosVoltarActionPerformed
-
-    private void JBEmprestimosAtivosApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosAtivosApagarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JBEmprestimosAtivosApagarActionPerformed
 
     private void JBEmprestimosAtivosReceberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosAtivosReceberActionPerformed
         // TODO add your handling code here:
@@ -140,7 +122,6 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBEmprestimosAtivosApagar;
     private javax.swing.JButton JBEmprestimosAtivosReceber;
     private javax.swing.JButton JBEmprestimosAtivosVoltar;
     private javax.swing.JTable JTTabelaEmprestimoAtivos;

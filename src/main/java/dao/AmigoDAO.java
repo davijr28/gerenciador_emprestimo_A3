@@ -36,7 +36,6 @@ public class AmigoDAO {
                     Amigo objeto = new Amigo(id, nome, telefone); // Cria o objeto Amigo com os dados do banco.
                     lista.add(objeto); // Adiciona o objeto à lista.
                 }
-                // Fecha Statement após o uso.
             }
         } catch (SQLException ex) {
             System.out.println("Erro ao carregar a lista de amigos: " + ex.getMessage());
@@ -150,7 +149,6 @@ public class AmigoDAO {
     public Amigo carregaAmigo(int id) {
         Amigo objeto = new Amigo();
         objeto.setId(id); // Define o ID do amigo.
-
         try {
             try (Statement stmt = dao.getConexao().createStatement()) {
                 ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos WHERE id_amigo = " + id);

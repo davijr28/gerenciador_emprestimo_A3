@@ -114,7 +114,7 @@ public class Amigo {
      * @return true se o amigo foi inserido com sucesso
      */
     public boolean insertAmigoBD(String nome, String telefone) {
-        int novoId = this.maiorID() + 1; // Renomeia a variável para evitar conflito
+        int novoId = this.maiorID() + 1; // Define o id a partir do último id
         Amigo objeto = new Amigo(novoId, nome, telefone);
         dao.insertAmigoBD(objeto);
         return true;

@@ -37,7 +37,6 @@ public class FerramentaDAO {
                     Ferramenta objeto = new Ferramenta(id, nome, marca, preco); // Cria o objeto Ferramenta com os dados do banco.
                     lista.add(objeto); // Adiciona o objeto à lista.
                 }
-                // Fecha Statement após o uso.
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex);
@@ -92,7 +91,6 @@ public class FerramentaDAO {
                 stmt.execute(); // Executa a inserção no banco de dados.
                 // Fecha Statement após o uso.
             }
-
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
