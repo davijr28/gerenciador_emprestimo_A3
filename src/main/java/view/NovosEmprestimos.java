@@ -1,22 +1,28 @@
 package view;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import model.Amigo;
+import model.Emprestimo;
 import model.Ferramenta;
 
 public class NovosEmprestimos extends javax.swing.JFrame {
 
-    private Ferramenta objetoferramenta;
-    private Amigo objetoamigo;
+    private Ferramenta objetoFerramenta;
+    private Amigo objetoAmigo;
+    private Emprestimo objetoEmprestimo;
     private MaskFormatter mfdata;
+    public int contador;
 
     public NovosEmprestimos() {
         initComponents();
-        this.objetoamigo = new Amigo();
-        this.objetoferramenta = new Ferramenta();
+        this.objetoAmigo = new Amigo();
+        this.objetoFerramenta = new Ferramenta();
         this.carregarAmigos();
         this.carregarFerramentas();
         try {
@@ -74,10 +80,16 @@ public class NovosEmprestimos extends javax.swing.JFrame {
             }
         });
 
-        JCFerramentaEmprestada.setModel(JCFerramentaEmprestada.getModel());
+        JCFerramentaEmprestada.setMaximumRowCount(50);
         JCFerramentaEmprestada.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JCFerramentaEmprestada.setFocusable(false);
+        JCFerramentaEmprestada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCFerramentaEmprestadaActionPerformed(evt);
+            }
+        });
 
+        JCParaAmigo.setMaximumRowCount(50);
         JCParaAmigo.setFocusable(false);
         JCParaAmigo.setRequestFocusEnabled(false);
 
@@ -118,20 +130,23 @@ public class NovosEmprestimos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JCFerramentaEmprestada, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JCFerramentaEmprestada, 0, 161, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFDatadoEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JCParaAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JTFDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JTFDatadoEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JCParaAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,16 +184,51 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     }//GEN-LAST:event_JBNovosEmpréstimosVoltarActionPerformed
 
     private void JBNovosEmprestimosCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNovosEmprestimosCadastrarActionPerformed
-        // TODO add your handling code here:
+       /* try {
+            // Lê e valida os dados inseridos na interface.
+            Amigo objetoAmigo;
+            Ferramenta objetoFerramenta;
+            Timestamp dataEmprestimo;
+            Date dataDevolucao;
+            boolean validacao = true;
+            if (this.JCFerramentaEmprestada.getSelectedItem) {
+                if (validacao == true) {
+                    // Envia os dados para cadastrar
+                    if (this.objetoEmprestimo.insertEmprestimoBD(objetoAmigo, objetoFerramenta, dataEmprestimo, dataDevolucao)) {
+                        JOptionPane.showMessageDialog(null, "Empréstimo cadastrado com sucesso!");
+                        // Limpa as caixas de texto
+                        this.JCFerramentaEmprestada.setSelectedItem("Selecione");
+                        this.JCParaAmigo.setSelectedItem("Selecione");
+                        this.JTFDatadoEmprestimo.setText("");
+                        this.JTFDataDevolucao.setText("");
+                    }
+                    // Exibe o empréstimo cadastrado no console
+                    System.out.println(this.objetoEmprestimo.getEmprestimos().toString());
+                }
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Erro: Objeto não inicializado corretamente.");
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, "Erro de entrada: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado: " + e.getMessage());
+            e.printStackTrace();
+        }*/
     }//GEN-LAST:event_JBNovosEmprestimosCadastrarActionPerformed
+
+    private void JCFerramentaEmprestadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCFerramentaEmprestadaActionPerformed
+        
+    }//GEN-LAST:event_JCFerramentaEmprestadaActionPerformed
 
     public void carregarFerramentas() {
         DefaultComboBoxModel modeloFerramentas = (DefaultComboBoxModel) this.JCFerramentaEmprestada.getModel();
         modeloFerramentas.setSelectedItem("Selecione");
-        ArrayList<Ferramenta> minhaLista = objetoferramenta.getFerramentas();
+        ArrayList<Ferramenta> minhaLista = objetoFerramenta.getFerramentas();
         if (minhaLista != null) {
             for (Ferramenta a : minhaLista) {
-                modeloFerramentas.addElement(a.getNome());
+                modeloFerramentas.addElement("ID: "+ a.getId() + " - " + a.getNome());
             }
         }
     }
@@ -186,10 +236,10 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     public void carregarAmigos() {
         DefaultComboBoxModel modeloAmigos = (DefaultComboBoxModel) this.JCParaAmigo.getModel();
         modeloAmigos.setSelectedItem("Selecione");
-        ArrayList<Amigo> minhaLista = objetoamigo.getAmigos();
+        ArrayList<Amigo> minhaLista = objetoAmigo.getAmigos();
         if (minhaLista != null) {
             for (Amigo a : minhaLista) {
-                modeloAmigos.addElement(a.getNome());
+                modeloAmigos.addElement("ID: " + a.getId() + " - " + a.getNome());
             }
         }
     }

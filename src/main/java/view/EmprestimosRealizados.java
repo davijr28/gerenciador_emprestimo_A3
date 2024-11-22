@@ -1,9 +1,17 @@
 package view;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import model.Emprestimo;
+
 public class EmprestimosRealizados extends javax.swing.JFrame {
+    
+    private Emprestimo objetoEmprestimo;
 
     public EmprestimosRealizados() {
         initComponents();
+        this.objetoEmprestimo = new Emprestimo();
+        this.carregarTabela();
     }
 
     @SuppressWarnings("unchecked")
@@ -16,7 +24,6 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         JBEmprestimosRealizadosVoltar = new javax.swing.JButton();
-        JBEmprestimosRealizadosApagar = new javax.swing.JButton();
         JTFTotaldeEmprestimosRealizados = new javax.swing.JTextField();
         JTFQuemFezMaisEmprestimos = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -73,16 +80,6 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
         JBEmprestimosRealizadosVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBEmprestimosRealizadosVoltarActionPerformed(evt);
-            }
-        });
-
-        JBEmprestimosRealizadosApagar.setBackground(new java.awt.Color(255, 255, 255));
-        JBEmprestimosRealizadosApagar.setForeground(new java.awt.Color(255, 0, 51));
-        JBEmprestimosRealizadosApagar.setText("APAGAR");
-        JBEmprestimosRealizadosApagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JBEmprestimosRealizadosApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBEmprestimosRealizadosApagarActionPerformed(evt);
             }
         });
 
@@ -153,8 +150,7 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(JBEmprestimosRealizadosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JBEmprestimosRealizadosApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(110, 110, 110))
         );
         layout.setVerticalGroup(
@@ -180,9 +176,7 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBEmprestimosRealizadosVoltar)
-                    .addComponent(JBEmprestimosRealizadosApagar))
+                .addComponent(JBEmprestimosRealizadosVoltar)
                 .addGap(41, 41, 41))
         );
 
@@ -193,10 +187,6 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_JBEmprestimosRealizadosVoltarActionPerformed
 
-    private void JBEmprestimosRealizadosApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosRealizadosApagarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JBEmprestimosRealizadosApagarActionPerformed
-
     private void JTFTotaldeEmprestimosRealizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTotaldeEmprestimosRealizadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFTotaldeEmprestimosRealizadosActionPerformed
@@ -205,6 +195,22 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFQuemFezMaisEmprestimosActionPerformed
 
+    public void carregarTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) this.JTTabelaEmprestimoRealizados.getModel();
+        modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
+        // Carrega a lista de Empréstimos.
+        ArrayList<Emprestimo> minhaLista = objetoEmprestimo.getEmprestimos();
+        for (Emprestimo a : minhaLista) {
+            modelo.addRow(new Object[]{
+                a.getId(),
+                a.objetoAmigo.getNome(),
+                a.objetoFerramenta.getNome(),
+                a.getDataEmprestimo(),
+                a.getDataDevolucao()
+            });
+        }
+    }
+    
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -215,7 +221,6 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBEmprestimosRealizadosApagar;
     private javax.swing.JButton JBEmprestimosRealizadosVoltar;
     private javax.swing.JTextField JTFQuemFezMaisEmprestimos;
     private javax.swing.JTextField JTFTotaldeEmprestimosRealizados;
