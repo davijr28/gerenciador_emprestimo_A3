@@ -2,7 +2,6 @@ package model;
 
 import dao.EmprestimoDAO;
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +27,7 @@ public class Emprestimo {
     /**
      * Data e hora em que o empréstimo foi feito
      */
-    private Timestamp dataEmprestimo;
+    private Date dataEmprestimo;
 
     /**
      * Data em que a ferramenta deverá ser devolvida
@@ -68,7 +67,7 @@ public class Emprestimo {
      * @param entregue Status do empréstimo (entregue ou não)
      * @param dataFinalizado Data da entrega
      */
-    public Emprestimo(int id, Amigo objetoAmigo, Ferramenta objetoFerramenta, Timestamp dataEmprestimo,
+    public Emprestimo(int id, Amigo objetoAmigo, Ferramenta objetoFerramenta, Date dataEmprestimo,
             Date dataDevolucao, boolean entregue, Date dataFinalizado) {
         this.id = id;
         this.objetoAmigo = objetoAmigo;
@@ -93,11 +92,11 @@ public class Emprestimo {
         this.id = id;
     }
 
-    public Timestamp getDataEmprestimo() {
+    public Date getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public void setDataEmprestimo(Timestamp dataEmprestimo) {
+    public void setDataEmprestimo(Date dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }
 
@@ -129,7 +128,7 @@ public class Emprestimo {
         return dao.getEmprestimosLista();
     }
 
-    public boolean insertEmprestimoBD(Amigo objetoAmigo, Ferramenta objetoFerramenta, Timestamp dataEmprestimo, Date dataDevolucao) {
+    public boolean insertEmprestimoBD(Amigo objetoAmigo, Ferramenta objetoFerramenta, Date dataEmprestimo, Date dataDevolucao) {
         int novoId = this.maiorID() + 1; // Define o id a partir do último id
         Emprestimo objeto = new Emprestimo(novoId, objetoAmigo, objetoFerramenta, dataEmprestimo, dataDevolucao, false, null);
         dao.insertEmprestimoBD(objeto);

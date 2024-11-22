@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import model.*;
 
@@ -31,7 +30,7 @@ public class EmprestimoDAO {
                     int idEmprestimo = res.getInt("id_emprestimo");
                     int idAmigo = res.getInt("id_amigo");
                     int idFerramenta = res.getInt("id_ferramenta");
-                    Timestamp dataEmprestimo = res.getTimestamp("data_emprestimo");
+                    Date dataEmprestimo = res.getDate("data_emprestimo");
                     Date dataDevolucao = res.getDate("data_devolucao");
                     boolean entregue = res.getBoolean("entregue");
                     Date dataFinalizado = res.getDate("data_finalizado");
@@ -83,7 +82,7 @@ public class EmprestimoDAO {
                 stmt.setInt(1, objeto.getId());
                 stmt.setInt(2, objeto.objetoAmigo.getId());
                 stmt.setInt(3, objeto.objetoFerramenta.getId());
-                stmt.setTimestamp(4, objeto.getDataEmprestimo());
+                stmt.setDate(4, objeto.getDataEmprestimo());
                 stmt.setDate(5, objeto.getDataDevolucao());
                 stmt.setBoolean(6, false);
                 stmt.setDate(7, null);
@@ -122,7 +121,7 @@ public class EmprestimoDAO {
                 if (res.next()) {
                     objeto.objetoAmigo.setId(res.getInt("id_amigo"));
                     objeto.objetoFerramenta.setId(res.getInt("id_ferramenta"));
-                    objeto.setDataEmprestimo(res.getTimestamp("data_emprestimo"));
+                    objeto.setDataEmprestimo(res.getDate("data_emprestimo"));
                     objeto.setDataDevolucao(res.getDate("data_devolucao"));
                     objeto.setEntregue(res.getBoolean("entregue"));
                     objeto.setDataFinalizado(res.getDate("data_finalizado"));
