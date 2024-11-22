@@ -1,12 +1,16 @@
 package view;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 import model.Emprestimo;
 
 public class EmprestimosRealizados extends javax.swing.JFrame {
-    
+
     private Emprestimo objetoEmprestimo;
+    private Calendar calendario = Calendar.getInstance();
+    private Date hoje = new Date(calendario.getTimeInMillis());
 
     public EmprestimosRealizados() {
         initComponents();
@@ -43,20 +47,20 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
         JTTabelaEmprestimoRealizados.setForeground(new java.awt.Color(0, 0, 0));
         JTTabelaEmprestimoRealizados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Amigo", "Ferramenta", "Data Inicial", "Data Final"
+                "Id", "Amigo", "Ferramenta", "Data Inicial", "Data Final", "Data de Devolução"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -130,9 +134,6 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,14 +145,16 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JTFQuemFezMaisEmprestimos))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(JBEmprestimosRealizadosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(JBEmprestimosRealizadosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(110, 110, 110))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,13 +174,14 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(JBEmprestimosRealizadosVoltar)
-                .addGap(41, 41, 41))
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addComponent(JBEmprestimosRealizadosVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56))))
         );
 
         pack();
@@ -196,21 +200,31 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFQuemFezMaisEmprestimosActionPerformed
 
     public void carregarTabela() {
-        DefaultTableModel modelo = (DefaultTableModel) this.JTTabelaEmprestimoRealizados.getModel();
-        modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
+        DefaultTableModel modeloFinalizados = (DefaultTableModel) this.JTTabelaEmprestimoRealizados.getModel();
+        DefaultTableModel modeloNaoDevolvidos = (DefaultTableModel) this.JTTabelaQuemNuncaDevolveu.getModel();
+        modeloFinalizados.setNumRows(0); // Posiciona na primeira linha da tabela.
+        modeloNaoDevolvidos.setNumRows(0);
         // Carrega a lista de Empréstimos.
         ArrayList<Emprestimo> minhaLista = objetoEmprestimo.getEmprestimos();
         for (Emprestimo a : minhaLista) {
-            modelo.addRow(new Object[]{
-                a.getId(),
-                a.objetoAmigo.getNome(),
-                a.objetoFerramenta.getNome(),
-                a.getDataEmprestimo(),
-                a.getDataDevolucao()
-            });
+            if (a.isEntregue()) {
+                modeloFinalizados.addRow(new Object[]{
+                    a.getId(),
+                    a.objetoAmigo.getNome(),
+                    a.objetoFerramenta.getNome(),
+                    a.getDataEmprestimo(),
+                    a.getDataDevolucao(),
+                    a.getDataFinalizado()
+                });
+            } else if (a.getDataDevolucao().before(hoje)) {
+                modeloNaoDevolvidos.addRow(new Object[]{
+                    a.objetoAmigo.getNome(),
+                    a.objetoFerramenta.getNome()
+                });
+            }
         }
     }
-    
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
