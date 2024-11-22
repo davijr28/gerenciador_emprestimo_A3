@@ -36,7 +36,16 @@ public class EmprestimoDAO {
                     boolean entregue = res.getBoolean("entregue");
                     Date dataFinalizado = res.getDate("data_finalizado");
 
-                    Emprestimo objeto = new Emprestimo(idEmprestimo, objetoAmigo.carregaAmigo(idAmigo), objetoFerramenta.carregaFerramenta(idFerramenta), dataEmprestimo,
+                    // Inicializa os objetos Amigo e Ferramenta
+                    Amigo amigo = new Amigo();
+                    Ferramenta ferramenta = new Ferramenta();
+
+                    // Carrega os dados dos objetos Amigo e Ferramenta a partir dos IDs
+                    amigo = amigo.carregaAmigo(idAmigo);  // Retorna o objeto Amigo com os dados preenchidos
+                    ferramenta = ferramenta.carregaFerramenta(idFerramenta);  // Retorna o objeto Ferramenta com os dados preenchidos
+
+                    // Cria o objeto Emprestimo com os objetos carregados
+                    Emprestimo objeto = new Emprestimo(idEmprestimo, amigo, ferramenta, dataEmprestimo,
                             dataDevolucao, entregue, dataFinalizado);
                     lista.add(objeto);
                 }

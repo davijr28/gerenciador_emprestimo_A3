@@ -71,8 +71,8 @@ public class Emprestimo {
     public Emprestimo(int id, Amigo objetoAmigo, Ferramenta objetoFerramenta, Timestamp dataEmprestimo,
             Date dataDevolucao, boolean entregue, Date dataFinalizado) {
         this.id = id;
-        this.objetoAmigo = new Amigo();
-        this.objetoFerramenta = new Ferramenta();
+        this.objetoAmigo = objetoAmigo;
+        this.objetoFerramenta = objetoFerramenta;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
         this.entregue = entregue;
