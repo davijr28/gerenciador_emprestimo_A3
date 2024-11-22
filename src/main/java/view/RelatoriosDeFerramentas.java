@@ -7,12 +7,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
-    public Ferramenta objetoferramenta;
+    public Ferramenta objetoFerramenta;
     public int id = 0;
 
     public RelatoriosDeFerramentas() {
         initComponents();
-        this.objetoferramenta = new Ferramenta();
+        this.objetoFerramenta = new Ferramenta();
         this.carregarTabela();
     }
 
@@ -39,14 +39,14 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome", "Marca", "Custo"
+                "Id", "Nome", "Marca", "Custo", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false
+                true, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -154,30 +154,41 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Primeiro selecione uma ferramenta para alterar.");
         } else {
             id = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
-            AlterarFerramentas objeto = new AlterarFerramentas(this);
-            objeto.setVisible(true);
-            objeto.setLocationRelativeTo(null);
+            Ferramenta ferramentaSelecionada = objetoFerramenta.carregaFerramenta(id); // Método para recuperar a ferramenta pelo ID
+            if (ferramentaSelecionada.isEmprestada()) {
+                JOptionPane.showMessageDialog(null, "Não é possível alterar uma ferramenta que atualmente está emprestada.");
+            } else {
+                AlterarFerramentas objeto = new AlterarFerramentas(this);
+                objeto.setVisible(true);
+                objeto.setLocationRelativeTo(null);
+            }
         }
     }//GEN-LAST:event_JBAlterarActionPerformed
 
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
         try {
             // Valida os dados da interface.
-
             if (this.JTableFerramentas.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(null, "Primeiro selecione uma ferramenta para APAGAR.");
             } else {
+                // Obtém o ID da ferramenta selecionada na tabela.
                 id = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
 
-                int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar esta ferramenta?");
-
-                if (respostaUsuario == 0) {// Clicou em SIM.
-                    // Chama método para apagar a ferramenta do banco de dados. 
-                    if (this.objetoferramenta.deleteFerramentaBD(id)) {
-                        JOptionPane.showMessageDialog(rootPane, "Ferramenta apagada com Sucesso!");
+                // Verifica se a ferramenta selecionada está emprestada.
+                Ferramenta ferramentaSelecionada = objetoFerramenta.carregaFerramenta(id); // Método para recuperar a ferramenta pelo ID
+                if (ferramentaSelecionada.isEmprestada()) {
+                    JOptionPane.showMessageDialog(null, "Não é possível apagar uma ferramenta que atualmente está emprestada.");
+                } else {
+                    // Confirmação de exclusão
+                    int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar esta ferramenta?");
+                    if (respostaUsuario == 0) { // Clicou em SIM.
+                        // Chama método para apagar a ferramenta do banco de dados. 
+                        if (this.objetoFerramenta.deleteFerramentaBD(id)) {
+                            JOptionPane.showMessageDialog(rootPane, "Ferramenta apagada com Sucesso!");
+                        }
                     }
+                    System.out.println(this.objetoFerramenta.getFerramentas().toString());
                 }
-                System.out.println(this.objetoferramenta.getFerramentas().toString());
             }
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
@@ -193,13 +204,14 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) this.JTableFerramentas.getModel();
         modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
         // Carrega a lista de ferramentas.
-        ArrayList<Ferramenta> minhaLista = objetoferramenta.getFerramentas();
+        ArrayList<Ferramenta> minhaLista = objetoFerramenta.getFerramentas();
         for (Ferramenta a : minhaLista) {
             modelo.addRow(new Object[]{
                 a.getId(),
                 a.getNome(),
                 a.getMarca(),
-                a.getPreco()
+                a.getPreco(),
+                (a.isEmprestada() ? "Emprestada" : "Disponível")
             });
             totalGasto += a.getPreco();
         }

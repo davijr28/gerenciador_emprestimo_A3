@@ -134,11 +134,11 @@ public class AlterarAmigos extends javax.swing.JFrame {
             }
             if (validacao == true) {
                 // Envia os dados para atualizar amigo.
-                if (objeto.objetoamigo.updateAmigoBD(objeto.id, nome, telefone)) {
+                if (objeto.objetoAmigo.updateAmigoBD(objeto.id, nome, telefone, objeto.objetoAmigo.getContadorEmprestimos(), objeto.objetoAmigo.isEmprestimoAtivo())) {
                     JOptionPane.showMessageDialog(null, "Amigo atualizado com sucesso!");
                 }
                 // Exibe o amigo no console.
-                System.out.println(objeto.objetoamigo.getAmigos().toString());
+                System.out.println(objeto.objetoAmigo.getAmigos().toString());
             }
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Erro: Objeto não inicializado corretamente.");

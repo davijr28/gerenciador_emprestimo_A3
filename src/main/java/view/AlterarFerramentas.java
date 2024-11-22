@@ -153,11 +153,11 @@ public class AlterarFerramentas extends javax.swing.JFrame {
 
             if (validacao == true) {
                 // Envia os dados para serem atualizados.
-                if (objeto.objetoferramenta.updateFerramentaBD(objeto.id, nome, marca, preco)) {
+                if (objeto.objetoFerramenta.updateFerramentaBD(objeto.id, nome, marca, preco)) {
                     JOptionPane.showMessageDialog(null, "Ferramenta atualizada com Sucesso!");
                 }
                 // Exibe a ferramenta no console.
-                System.out.println(objeto.objetoferramenta.getFerramentas().toString());
+                System.out.println(objeto.objetoFerramenta.getFerramentas().toString());
             }
         } catch (HeadlessException | NumberFormatException erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());

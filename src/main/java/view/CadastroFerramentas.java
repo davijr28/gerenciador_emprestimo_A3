@@ -5,11 +5,11 @@ import model.Ferramenta;
 
 public class CadastroFerramentas extends javax.swing.JFrame {
 
-    private Ferramenta objetoferramenta; // Declara um objeto da classe Ferramenta.
+    private Ferramenta objetoFerramenta; // Declara um objeto da classe Ferramenta.
 
     public CadastroFerramentas() {
         initComponents();
-        this.objetoferramenta = new Ferramenta();
+        this.objetoFerramenta = new Ferramenta();
     }
 
     @SuppressWarnings("unchecked")
@@ -164,7 +164,7 @@ public class CadastroFerramentas extends javax.swing.JFrame {
 
             if (validacao == true) {
                 // Envia os dados para cadastrar
-                if (this.objetoferramenta.insertFerramentaBD(nome, marca, preco)) {
+                if (this.objetoFerramenta.insertFerramentaBD(nome, marca, preco, false)) {
                     JOptionPane.showMessageDialog(null, "Ferramenta cadastrada com sucesso!");
                     // Limpa as caixas de texto
                     this.JTFNome.setText("");
@@ -172,7 +172,7 @@ public class CadastroFerramentas extends javax.swing.JFrame {
                     this.JTFCusto.setText("");
                 }
                 // Exibe o amigo cadastrado no console
-                System.out.println(this.objetoferramenta.getFerramentas().toString());
+                System.out.println(this.objetoFerramenta.getFerramentas().toString());
             }
 
         } catch (NullPointerException e) {

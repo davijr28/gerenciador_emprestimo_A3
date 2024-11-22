@@ -7,15 +7,15 @@ import javax.swing.table.DefaultTableModel;
 
 public class RelatoriosDeAmigos extends javax.swing.JFrame {
 
-    public Amigo objetoamigo;
+    public Amigo objetoAmigo;
     public int id = 0;
 
     public RelatoriosDeAmigos() {
         initComponents();
-        this.objetoamigo = new Amigo();
+        this.objetoAmigo = new Amigo();
         this.carregarTabela();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -154,16 +154,20 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Primeiro selecione um amigo para APAGAR.");
             } else {
                 id = Integer.parseInt(this.JTableAmigos.getValueAt(this.JTableAmigos.getSelectedRow(), 0).toString());
+                Amigo amigoSelecionado = objetoAmigo.carregaAmigo(id);
+                if (amigoSelecionado.isEmprestimoAtivo()) {
+                    JOptionPane.showMessageDialog(null, "Não é possível apagar um amigo que possui empréstimo ativo.");
+                } else {
+                    int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar este amigo?");
 
-                int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar este amigo?");
-
-                if (respostaUsuario == 0) {// Clicou em SIM.
-                    // Chama método para apagar o amigo do banco de dados. 
-                    if (this.objetoamigo.deleteAmigoBD(id)) {
-                        JOptionPane.showMessageDialog(rootPane, "Amigo apagado com Sucesso!");
+                    if (respostaUsuario == 0) {// Clicou em SIM.
+                        // Chama método para apagar o amigo do banco de dados. 
+                        if (this.objetoAmigo.deleteAmigoBD(id)) {
+                            JOptionPane.showMessageDialog(rootPane, "Amigo apagado com Sucesso!");
+                        }
                     }
+                    System.out.println(this.objetoAmigo.getAmigos().toString());
                 }
-                System.out.println(this.objetoamigo.getAmigos().toString());
             }
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
@@ -177,7 +181,7 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) this.JTableAmigos.getModel();
         modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
         // Carrega a lista de amigos.
-        ArrayList<Amigo> minhaLista = objetoamigo.getAmigos();
+        ArrayList<Amigo> minhaLista = objetoAmigo.getAmigos();
         for (Amigo a : minhaLista) {
             modelo.addRow(new Object[]{
                 a.getId(),

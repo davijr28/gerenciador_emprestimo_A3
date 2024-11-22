@@ -7,12 +7,12 @@ import model.Amigo;
 
 public class CadastroAmigos extends javax.swing.JFrame {
 
-    private Amigo objetoamigo; // Declara um objeto da classe Amigo.
+    private Amigo objetoAmigo; // Declara um objeto da classe Amigo.
     private MaskFormatter mftelefone;
 
     public CadastroAmigos() {
         initComponents();
-        this.objetoamigo = new Amigo();
+        this.objetoAmigo = new Amigo();
         try {
             mftelefone = new MaskFormatter("+55 (##) #####-####");
             JTFTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mftelefone));
@@ -165,14 +165,14 @@ public class CadastroAmigos extends javax.swing.JFrame {
             }
             if (validacao == true) {
                 // Envia os dados para cadastrar
-                if (this.objetoamigo.insertAmigoBD(nome, telefone)) {
+                if (this.objetoAmigo.insertAmigoBD(nome, telefone, 0)) {
                     JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso!");
                     // Limpa as caixas de texto
                     this.JTFNome.setText("");
                     this.JTFTelefone.setText("");
                 }
                 // Exibe o amigo cadastrado no console
-                System.out.println(this.objetoamigo.getAmigos().toString());
+                System.out.println(this.objetoAmigo.getAmigos().toString());
             }
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Erro: Objeto não inicializado corretamente.");
