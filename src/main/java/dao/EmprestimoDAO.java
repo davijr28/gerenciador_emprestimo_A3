@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -92,11 +93,11 @@ public class EmprestimoDAO {
             }
             try ( PreparedStatement stmt = dao.getConexao().prepareStatement(sqlAmigos)) {
                 stmt.setInt(1, objeto.objetoAmigo.getId());
-                stmt.execute(); // Executa a atualização do amigo no banco de dados.
+                stmt.executeUpdate(); // Executa a atualização do amigo no banco de dados.
             }
             try ( PreparedStatement stmt = dao.getConexao().prepareStatement(sqlFerramentas)) {
                 stmt.setInt(1, objeto.objetoFerramenta.getId());
-                stmt.execute(); // Executa a atualização da ferramenta no banco de dados.
+                stmt.executeUpdate(); // Executa a atualização da ferramenta no banco de dados.
             }
             return true;
         } catch (SQLException erro) {
@@ -107,14 +108,23 @@ public class EmprestimoDAO {
     }
 
     public boolean updateEmprestimoBD(Emprestimo objeto) {
-        String sql = "UPDATE tb_emprestimos SET entregue = ?, data_finalizado = ? WHERE id_emprestimo = ?";
+        String sqlEmprestimo = "UPDATE tb_emprestimos SET entregue = true, data_finalizado = ? WHERE id_emprestimo = ?";
+        String sqlAmigos = "UPDATE tb_amigos SET emprestimo_ativo = false WHERE id_amigo = ?";
+        String sqlFerramentas = "UPDATE tb_ferramentas SET emprestada = false WHERE id_ferramenta = ?";
         try {
-            try ( PreparedStatement stmt = dao.getConexao().prepareStatement(sql)) {
-                stmt.setBoolean(1, true);
-                stmt.setDate(2, objeto.getDataFinalizado());
-                stmt.setInt(3, objeto.getId());
-                stmt.execute(); // Executa a atualização no banco de dados.
+            try ( PreparedStatement stmt = dao.getConexao().prepareStatement(sqlEmprestimo)) {
+                stmt.setDate(1, objeto.getDataFinalizado());
+                stmt.setInt(2, objeto.getId());
+                stmt.executeUpdate(); // Executa a atualização no banco de dados.
             } // Atualiza o status do empréstimo para finalizado.
+            try ( PreparedStatement stmt = dao.getConexao().prepareStatement(sqlAmigos)) {
+                stmt.setInt(1, objeto.objetoAmigo.getId());
+                stmt.executeUpdate(); // Executa a atualização no banco de dados.
+            }
+            try ( PreparedStatement stmt = dao.getConexao().prepareStatement(sqlFerramentas)) {
+                stmt.setInt(1, objeto.objetoFerramenta.getId());
+                stmt.executeUpdate(); // Executa a atualização no banco de dados.
+            }
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro ao atualizar amigo: " + erro.getMessage());
@@ -125,6 +135,8 @@ public class EmprestimoDAO {
 
     public Emprestimo carregaEmprestimo(int id) {
         Emprestimo objeto = new Emprestimo();
+        objeto.objetoAmigo = new Amigo();
+        objeto.objetoFerramenta = new Ferramenta();
         objeto.setId(id); // Define o ID do empréstimo.
         try {
             try ( Statement stmt = dao.getConexao().createStatement()) {
@@ -137,9 +149,11 @@ public class EmprestimoDAO {
                     objeto.setEntregue(res.getBoolean("entregue"));
                     objeto.setDataFinalizado(res.getDate("data_finalizado"));
                 }
+                objeto.objetoAmigo.carregaAmigo(objeto.objetoAmigo.getId());
+                objeto.objetoFerramenta.carregaFerramenta(objeto.objetoFerramenta.getId());
             }
         } catch (SQLException erro) {
-            System.out.println("Erro ao carregar amigo: " + erro.getMessage());
+            System.out.println("Erro ao carregar empréstimo: " + erro.getMessage());
             erro.printStackTrace();
         }
         return objeto;

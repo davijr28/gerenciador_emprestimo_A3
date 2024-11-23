@@ -137,9 +137,11 @@ public class Emprestimo {
 
     public boolean updateEmprestimoBD(int id, boolean entregue, Date dataFinalizado) {
         Emprestimo objeto = new Emprestimo();
-        objeto.carregaEmprestimo(id);
+        objeto = objeto.carregaEmprestimo(id);
         objeto.setEntregue(entregue);
         objeto.setDataFinalizado(dataFinalizado);
+        objeto.objetoAmigo.setEmprestimoAtivo(false);
+        objeto.objetoFerramenta.setEmprestada(false);
         dao.updateEmprestimoBD(objeto);
         return true;
     }

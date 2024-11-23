@@ -1,9 +1,22 @@
 package view;
 
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Emprestimo;
+
 public class EmprestimosAtivos extends javax.swing.JFrame {
+
+    private Emprestimo objetoEmprestimo;
+    private Calendar calendario = Calendar.getInstance();
+    private Date hoje = new Date(calendario.getTimeInMillis());
 
     public EmprestimosAtivos() {
         initComponents();
+        this.objetoEmprestimo = new Emprestimo();
+        this.carregarTabela();
     }
 
     @SuppressWarnings("unchecked")
@@ -29,20 +42,20 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
         JTTabelaEmprestimoAtivos.setForeground(new java.awt.Color(0, 0, 0));
         JTTabelaEmprestimoAtivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Id", "Amigo", "Ferramenta", "Data de Empréstimo"
+                "Id", "Amigo", "Ferramenta", "Data do Empréstimo", "Data de Devolução"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -110,8 +123,37 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
     }//GEN-LAST:event_JBEmprestimosAtivosVoltarActionPerformed
 
     private void JBEmprestimosAtivosReceberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosAtivosReceberActionPerformed
-        // TODO add your handling code here:
+        if (this.JTTabelaEmprestimoAtivos.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(null, "Primeiro selecione uma ferramenta para receber.");
+        } else {
+            int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja receber esta ferramenta e concluir o empréstimo?");
+            if (respostaUsuario == 0) {
+                int id = Integer.parseInt(this.JTTabelaEmprestimoAtivos.getValueAt(this.JTTabelaEmprestimoAtivos.getSelectedRow(), 0).toString());
+                Emprestimo objeto = objetoEmprestimo.carregaEmprestimo(id);
+                if (objeto.updateEmprestimoBD(id, true, hoje)) {
+                    JOptionPane.showMessageDialog(null, "Empréstimo finalizado com sucesso!");
+                    this.carregarTabela();
+                }
+            }
+        }
     }//GEN-LAST:event_JBEmprestimosAtivosReceberActionPerformed
+
+    public void carregarTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) this.JTTabelaEmprestimoAtivos.getModel();
+        modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
+        // Carrega a lista de empréstimos.
+        ArrayList<Emprestimo> minhaLista = objetoEmprestimo.getEmprestimos();
+        for (Emprestimo a : minhaLista) {
+            if (a.isEntregue() == false) {
+                modelo.addRow(new Object[]{
+                    a.getId(),
+                    a.objetoAmigo.getNome(),
+                    a.objetoFerramenta.getNome(),
+                    a.getDataEmprestimo(),
+                    a.getDataDevolucao(),});
+            }
+        }
+    }
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

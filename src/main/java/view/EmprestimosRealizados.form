@@ -132,9 +132,9 @@
                 <Column editable="false" title="Id" type="java.lang.Integer"/>
                 <Column editable="false" title="Amigo" type="java.lang.String"/>
                 <Column editable="false" title="Ferramenta" type="java.lang.Object"/>
-                <Column editable="false" title="Data Inicial" type="java.lang.Object"/>
-                <Column editable="false" title="Data Final" type="java.lang.Object"/>
+                <Column editable="false" title="Data do Empr&#xe9;stimo" type="java.lang.Object"/>
                 <Column editable="false" title="Data de Devolu&#xe7;&#xe3;o" type="java.lang.Object"/>
+                <Column editable="false" title="Data da Entrega" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

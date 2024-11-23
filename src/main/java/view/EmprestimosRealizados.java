@@ -53,7 +53,7 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Amigo", "Ferramenta", "Data Inicial", "Data Final", "Data de Devolução"
+                "Id", "Amigo", "Ferramenta", "Data do Empréstimo", "Data de Devolução", "Data da Entrega"
             }
         ) {
             Class[] types = new Class [] {
