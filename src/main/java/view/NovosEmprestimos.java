@@ -14,7 +14,7 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     private Ferramenta objetoFerramenta;
     private Amigo objetoAmigo;
     private Emprestimo objetoEmprestimo;
-    private MaskFormatter mfdata;
+    private MaskFormatter mfdata; // Formatador da caixa de texto
     Date hoje = new Date(System.currentTimeMillis()); // Data atual
 
     public NovosEmprestimos() {
@@ -83,11 +83,6 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         JCFerramentaEmprestada.setMaximumRowCount(50);
         JCFerramentaEmprestada.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JCFerramentaEmprestada.setFocusable(false);
-        JCFerramentaEmprestada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JCFerramentaEmprestadaActionPerformed(evt);
-            }
-        });
 
         JCParaAmigo.setMaximumRowCount(50);
         JCParaAmigo.setFocusable(false);
@@ -244,12 +239,12 @@ public class NovosEmprestimos extends javax.swing.JFrame {
                     int respostaUsuario = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja cadastrar mesmo assim?");
                     if (respostaUsuario == 0) {
                         // Envia os dados para cadastrar o empréstimo
-                        if (this.objetoEmprestimo.EmprestimoBD(amigo, ferramenta, dataEmprestimoDate, dataDevolucaoDate)) {
+                        if (this.objetoEmprestimo.insertEmprestimoBD(amigo, ferramenta, dataEmprestimoDate, dataDevolucaoDate)) {
                             JOptionPane.showMessageDialog(null, "Empréstimo cadastrado com sucesso!");
                         }
                     }
                 } else {
-                    if (this.objetoEmprestimo.EmprestimoBD(amigo, ferramenta, dataEmprestimoDate, dataDevolucaoDate)) {
+                    if (this.objetoEmprestimo.insertEmprestimoBD(amigo, ferramenta, dataEmprestimoDate, dataDevolucaoDate)) {
                         JOptionPane.showMessageDialog(null, "Empréstimo cadastrado com sucesso!");
                     }
 
@@ -274,10 +269,6 @@ public class NovosEmprestimos extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_JBNovosEmprestimosCadastrarActionPerformed
-
-    private void JCFerramentaEmprestadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCFerramentaEmprestadaActionPerformed
-
-    }//GEN-LAST:event_JCFerramentaEmprestadaActionPerformed
 
     public void carregarFerramentas() {
         DefaultComboBoxModel modeloFerramentas = (DefaultComboBoxModel) this.JCFerramentaEmprestada.getModel();
@@ -307,26 +298,25 @@ public class NovosEmprestimos extends javax.swing.JFrame {
 
     public static Date stringToDate(String dataTexto) {
         try {
-            // Criando o SimpleDateFormat para converter a data
+            // Cria o SimpleDateFormat para converter a data inserida
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date data = sdf.parse(dataTexto);
 
-            // Convertendo para java.sql.Date
+            // Converte para java.sql.Date
             return new java.sql.Date(data.getTime());
         } catch (ParseException e) {
-            e.printStackTrace();
             return null;
         }
     }
 
     public static boolean isDataValida(String dataTexto) {
         try {
-            // Criando um SimpleDateFormat para passar a data no formato yyyy-MM-dd
+            // Cria um SimpleDateFormat para passar a data no formato AAAA-MM-DD
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             sdf.setLenient(false); // Desativa a leniência para datas inválidas
             java.util.Date data = sdf.parse(dataTexto);
 
-            // Verifica se a data foi realmente convertida para um objeto Date
+            // Verifica se a data foi convertida corretamente para um objeto Date
             return dataTexto.equals(sdf.format(data)); // Verifica se o formato da data é o mesmo
         } catch (ParseException e) {
             return false; // Se ocorrer exceção, a data não é válida
