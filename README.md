@@ -25,7 +25,7 @@ Cadastro e gerenciamento de informações como nome, marca e custo.
 Realizar novo Empréstimos, Empréstimos Realizados, Empréstimos Ativos.
 
 4 - Relatórios:
-Relatório de amigos cadastrados no sistema e Relatório de ferramentas e cálculo do valor total.
+Relatório de Empréstimos, Relatório de amigos cadastrados no sistema, Relatório de ferramentas e cálculo do valor total do mesmo.
 
 
 ### Requisitos Funcionais
@@ -51,8 +51,7 @@ Relatório de amigos cadastrados no sistema e Relatório de ferramentas e cálcu
 <li> RNF004 - O código deve ser claro e bem documentado para facilitar futuras alterações </li>
 <li> RNF005 - O sistema deve garantir que todas as operações sejam registradas corretamente e sem falhas</li>
 <li> RNF006 - Quando o sistema for registrar o empréstimo, ele deve dizer a data</li>
-<li> RNF007 - O sistema deve estar disponível em português, com suporte para idiomas adicionais no futuro, se necessário </li>
-<li> RNF008 - O software deve ser eficiente no consumo de recursos do computador, utilizando pouca memória e CPU.</li>
+<li> RNF007 - O software deve ser eficiente no consumo de recursos do computador, utilizando pouca memória e CPU.</li>
 
 
 ### Configuração do Ambiente
@@ -82,7 +81,7 @@ Para o desenvolvimento e execução deste projeto, utilizamos o ambiente e as te
 
 Copie o código [https://github.com/davijr28/gerenciador_emprestimo_A3]
 
-Configure o banco de dados usando o script fornecido em database.sql.
+Configure o banco de dados usando o script fornecido em banco.sql
 
 Estrutura do Banco de Dados
 
@@ -119,8 +118,10 @@ Para executar o projeto, compile o código na IDE e certifique-se de que o banco
 A apresentação do projeto estara disponível em um link de vídeo no YouTube assim que o projeto for finalizado.
 
 ### Alunos:
-• Victor de Melo da Rosa | RA: 162211386
 
 • Davi Jordani Ramos | RA: 162211818
 
-• Isaque	Fabro | RA: 162321239
+• Isaque Fabro | RA: 162321239
+
+• Victor de Melo da Rosa | RA: 162211386
+
