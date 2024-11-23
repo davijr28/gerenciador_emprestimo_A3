@@ -2,13 +2,12 @@ package view;
 
 import java.sql.Date;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
-import model.Amigo;
-import model.Emprestimo;
-import model.Ferramenta;
+import model.*;
 
 public class NovosEmprestimos extends javax.swing.JFrame {
 
@@ -16,22 +15,24 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     private Amigo objetoAmigo;
     private Emprestimo objetoEmprestimo;
     private MaskFormatter mfdata;
-    public int contador;
+    Date hoje = new Date(System.currentTimeMillis()); // Data atual
 
     public NovosEmprestimos() {
         initComponents();
         this.objetoAmigo = new Amigo();
         this.objetoFerramenta = new Ferramenta();
+        this.objetoEmprestimo = new Emprestimo();
         this.carregarAmigos();
         this.carregarFerramentas();
         try {
-            mfdata = new MaskFormatter("##/##/####");
+            mfdata = new MaskFormatter("####-##-##");
             JTFDatadoEmprestimo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mfdata));
             JTFDataDevolucao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mfdata));
         } catch (ParseException e) {
             System.out.println("Ocorreu um erro inesperado.");
             e.printStackTrace();
         }
+        this.JTFDatadoEmprestimo.setText(hoje.toString());
     }
 
     @SuppressWarnings("unchecked")
@@ -183,27 +184,84 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     }//GEN-LAST:event_JBNovosEmpréstimosVoltarActionPerformed
 
     private void JBNovosEmprestimosCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNovosEmprestimosCadastrarActionPerformed
-       /* try {
+        try {
             // Lê e valida os dados inseridos na interface.
-            Amigo objetoAmigo;
-            Ferramenta objetoFerramenta;
-            Timestamp dataEmprestimo;
-            Date dataDevolucao;
+            Ferramenta ferramenta = new Ferramenta();
+            Amigo amigo = new Amigo();
+            String dataEmprestimo = this.JTFDatadoEmprestimo.getText();
+            Date dataEmprestimoDate = stringToDate(dataEmprestimo);
+            String dataDevolucao = this.JTFDataDevolucao.getText();
+            Date dataDevolucaoDate = stringToDate(dataDevolucao);
             boolean validacao = true;
-            if (this.JCFerramentaEmprestada.getSelectedItem) {
-                if (validacao == true) {
-                    // Envia os dados para cadastrar
-                    if (this.objetoEmprestimo.insertEmprestimoBD(objetoAmigo, objetoFerramenta, dataEmprestimo, dataDevolucao)) {
-                        JOptionPane.showMessageDialog(null, "Empréstimo cadastrado com sucesso!");
-                        // Limpa as caixas de texto
-                        this.JCFerramentaEmprestada.setSelectedItem("Selecione");
-                        this.JCParaAmigo.setSelectedItem("Selecione");
-                        this.JTFDatadoEmprestimo.setText("");
-                        this.JTFDataDevolucao.setText("");
-                    }
-                    // Exibe o empréstimo cadastrado no console
-                    System.out.println(this.objetoEmprestimo.getEmprestimos().toString());
+
+            if (this.JCFerramentaEmprestada.getSelectedIndex() == -1) {
+                JOptionPane.showMessageDialog(null, "Selecione uma ferramenta para emprestar.");
+                validacao = false;
+            } else {
+                String idFerramenta = (String) this.JCFerramentaEmprestada.getSelectedItem();
+                int indice = idFerramenta.indexOf("-");
+                idFerramenta = idFerramenta.substring(4, indice);
+                ferramenta = ferramenta.carregaFerramenta(Integer.parseInt(idFerramenta));
+            }
+
+            if (this.JCParaAmigo.getSelectedIndex() == -1) {
+                JOptionPane.showMessageDialog(null, "Selecione um amigo para emprestar a ferramenta.");
+                validacao = false;
+            } else {
+                String idAmigo = (String) this.JCParaAmigo.getSelectedItem();
+                int indice = idAmigo.indexOf("-");
+                idAmigo = idAmigo.substring(4, indice);
+                amigo = amigo.carregaAmigo(Integer.parseInt(idAmigo));
+            }
+
+            if (!isDataValida(dataEmprestimo)) {
+                JOptionPane.showMessageDialog(null, "Data de Empréstimo inválida.\nInsira uma data válida no formato AAAA-MM-DD.");
+                validacao = false;
+            } else {
+                // Verificar se a data de empréstimo é menor ou igual à data atual
+                if (dataEmprestimoDate.after(hoje)) {
+                    JOptionPane.showMessageDialog(null, "A data de empréstimo não pode ser maior que a data atual.");
+                    validacao = false;
                 }
+            }
+
+            // Validação de data de devolução
+            if (!isDataValida(dataDevolucao)) {
+                JOptionPane.showMessageDialog(null, "Data de Devolução inválida.\nInsira uma data válida no formato AAAA-MM-DD.");
+                validacao = false;
+            } else {
+                if (dataDevolucaoDate.before(hoje)) {
+                    JOptionPane.showMessageDialog(null, "A data de devolução deve ser maior que a data atual.");
+                    validacao = false;
+                } else if (dataDevolucaoDate.before(dataEmprestimoDate)) {
+                    JOptionPane.showMessageDialog(null, "A data de devolução deve ser maior que a data de empréstimo.");
+                    validacao = false;
+                }
+            }
+
+            if (validacao == true) {
+                if (amigo.isEmprestimoAtivo()) {
+                    int respostaUsuario = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja cadastrar mesmo assim?");
+                    if (respostaUsuario == 0) {
+                        // Envia os dados para cadastrar o empréstimo
+                        if (this.objetoEmprestimo.EmprestimoBD(amigo, ferramenta, dataEmprestimoDate, dataDevolucaoDate)) {
+                            JOptionPane.showMessageDialog(null, "Empréstimo cadastrado com sucesso!");
+                        }
+                    }
+                } else {
+                    if (this.objetoEmprestimo.EmprestimoBD(amigo, ferramenta, dataEmprestimoDate, dataDevolucaoDate)) {
+                        JOptionPane.showMessageDialog(null, "Empréstimo cadastrado com sucesso!");
+                    }
+
+                }
+                // Limpa as caixas de texto.
+                this.JCFerramentaEmprestada.setSelectedItem("Selecione");
+                this.JCParaAmigo.setSelectedItem("Selecione");
+                this.JTFDatadoEmprestimo.setText(hoje.toString());
+                this.JTFDataDevolucao.setText("");
+
+                // Carrega a lista de ferramentas atualizada.
+                this.carregarFerramentas();
             }
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Erro: Objeto não inicializado corretamente.");
@@ -214,32 +272,64 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado: " + e.getMessage());
             e.printStackTrace();
-        }*/
+        }
     }//GEN-LAST:event_JBNovosEmprestimosCadastrarActionPerformed
 
     private void JCFerramentaEmprestadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCFerramentaEmprestadaActionPerformed
-        
+
     }//GEN-LAST:event_JCFerramentaEmprestadaActionPerformed
 
     public void carregarFerramentas() {
         DefaultComboBoxModel modeloFerramentas = (DefaultComboBoxModel) this.JCFerramentaEmprestada.getModel();
+        modeloFerramentas.removeAllElements();
         modeloFerramentas.setSelectedItem("Selecione");
         ArrayList<Ferramenta> minhaLista = objetoFerramenta.getFerramentas();
         if (minhaLista != null) {
             for (Ferramenta a : minhaLista) {
-                modeloFerramentas.addElement("ID: "+ a.getId() + " - " + a.getNome());
+                if (a.isEmprestada() == false) {
+                    modeloFerramentas.addElement("ID: " + a.getId() + "-  " + a.getNome());
+                }
             }
         }
     }
 
     public void carregarAmigos() {
         DefaultComboBoxModel modeloAmigos = (DefaultComboBoxModel) this.JCParaAmigo.getModel();
+        modeloAmigos.removeAllElements();
         modeloAmigos.setSelectedItem("Selecione");
         ArrayList<Amigo> minhaLista = objetoAmigo.getAmigos();
         if (minhaLista != null) {
             for (Amigo a : minhaLista) {
-                modeloAmigos.addElement("ID: " + a.getId() + " - " + a.getNome());
+                modeloAmigos.addElement("ID: " + a.getId() + "-  " + a.getNome());
             }
+        }
+    }
+
+    public static Date stringToDate(String dataTexto) {
+        try {
+            // Criando o SimpleDateFormat para converter a data
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date data = sdf.parse(dataTexto);
+
+            // Convertendo para java.sql.Date
+            return new java.sql.Date(data.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static boolean isDataValida(String dataTexto) {
+        try {
+            // Criando um SimpleDateFormat para passar a data no formato yyyy-MM-dd
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false); // Desativa a leniência para datas inválidas
+            java.util.Date data = sdf.parse(dataTexto);
+
+            // Verifica se a data foi realmente convertida para um objeto Date
+            return dataTexto.equals(sdf.format(data)); // Verifica se o formato da data é o mesmo
+        } catch (ParseException e) {
+            return false; // Se ocorrer exceção, a data não é válida
         }
     }
 
