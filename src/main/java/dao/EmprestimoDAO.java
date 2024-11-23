@@ -64,7 +64,7 @@ public class EmprestimoDAO {
         int maiorID = 0;
         try {
             try ( Statement stmt = dao.getConexao().createStatement()) {
-                ResultSet res = stmt.executeQuery("SELECT MAX(id_emprestimo) AS id_emprestimo FROM tb_emprestimoferramentas");
+                ResultSet res = stmt.executeQuery("SELECT MAX(id_emprestimo) AS id_emprestimo FROM tb_emprestimos");
                 if (res.next()) {
                     maiorID = res.getInt("id_emprestimo"); // Obtém o maior ID.
                 }
@@ -76,7 +76,9 @@ public class EmprestimoDAO {
     }
 
     public boolean insertEmprestimoBD(Emprestimo objeto) {
-        String sql = "INSERT INTO tb_emprestimoferramentas (id_emprestimo, id_amigo, id_ferramenta, data_emprestimo, data_devolucao, entregue, data_finalizado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tb_emprestimos (id_emprestimo, id_amigo, id_ferramenta, data_emprestimo, data_devolucao, entregue, data_finalizado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sqlAmigos = "UPDATE tb_amigos SET contador = contador + 1, emprestimo_ativo = true WHERE id_amigo = ?";
+        String sqlFerramentas = "UPDATE tb_ferramentas SET emprestada = true WHERE id_ferramenta = ?";
         try {
             try ( PreparedStatement stmt = dao.getConexao().prepareStatement(sql)) {
                 stmt.setInt(1, objeto.getId());
@@ -88,15 +90,24 @@ public class EmprestimoDAO {
                 stmt.setDate(7, null);
                 stmt.execute(); // Executa a inserção no banco de dados.
             }
+            try ( PreparedStatement stmt = dao.getConexao().prepareStatement(sqlAmigos)) {
+                stmt.setInt(1, objeto.objetoAmigo.getId());
+                stmt.execute(); // Executa a atualização do amigo no banco de dados.
+            }
+            try ( PreparedStatement stmt = dao.getConexao().prepareStatement(sqlFerramentas)) {
+                stmt.setInt(1, objeto.objetoFerramenta.getId());
+                stmt.execute(); // Executa a atualização da ferramenta no banco de dados.
+            }
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
+            erro.printStackTrace();
             return false;
         }
     }
 
     public boolean updateEmprestimoBD(Emprestimo objeto) {
-        String sql = "UPDATE tb_emprestimoferramentas SET entregue = ?, data_finalizado = ?, WHERE id_emprestimo = ?";
+        String sql = "UPDATE tb_emprestimos SET entregue = ?, data_finalizado = ? WHERE id_emprestimo = ?";
         try {
             try ( PreparedStatement stmt = dao.getConexao().prepareStatement(sql)) {
                 stmt.setBoolean(1, true);
@@ -117,7 +128,7 @@ public class EmprestimoDAO {
         objeto.setId(id); // Define o ID do empréstimo.
         try {
             try ( Statement stmt = dao.getConexao().createStatement()) {
-                ResultSet res = stmt.executeQuery("SELECT * FROM tb_emprestimoferramentas WHERE id_emprestimo = " + id);
+                ResultSet res = stmt.executeQuery("SELECT * FROM tb_emprestimos WHERE id_emprestimo = " + id);
                 if (res.next()) {
                     objeto.objetoAmigo.setId(res.getInt("id_amigo"));
                     objeto.objetoFerramenta.setId(res.getInt("id_ferramenta"));

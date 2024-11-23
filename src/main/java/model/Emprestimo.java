@@ -128,7 +128,7 @@ public class Emprestimo {
         return dao.getEmprestimosLista();
     }
 
-    public boolean insertEmprestimoBD(Amigo objetoAmigo, Ferramenta objetoFerramenta, Date dataEmprestimo, Date dataDevolucao) {
+    public boolean EmprestimoBD(Amigo objetoAmigo, Ferramenta objetoFerramenta, Date dataEmprestimo, Date dataDevolucao) {
         int novoId = this.maiorID() + 1; // Define o id a partir do último id
         Emprestimo objeto = new Emprestimo(novoId, objetoAmigo, objetoFerramenta, dataEmprestimo, dataDevolucao, false, null);
         dao.insertEmprestimoBD(objeto);
