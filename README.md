@@ -1,13 +1,16 @@
 # Sistema de Gerenciamento de Empréstimo de Ferramentas
 ## Curso Engenharia da Computação, Unisul continente Florianópolis
 
-Este projeto faz parte da avaliação A3 – Desempenho de Compreensão, onde desenvolvemos uma aplicação para atender a necessidade fictícia de gerenciamento de empréstimos de ferramentas. O software permite o controle de amigos e ferramentas, incluindo funcionalidades de CRUD, relatórios de empréstimos e ferramentas, além de um sistema de controle de devoluções e notificações.
+Este projeto faz parte da avaliação A3 – Desempenho de Compreensão, onde desenvolvemos uma aplicação para atender a necessidade fictícia de gerenciamento de empréstimos de ferramentas. O software permite o controle  de cadastro de novos amigos e ferramentas, incluindo também as funcionalidades de CRUD, permite uma geração de relatórios de amigos e ferramentas cadastrados no sistema, além de um sistema de controle de devoluções e notificações.
+
 
 ### Contexto
-O software foi solicitado para auxiliar um usuário em gerenciar seus empréstimos de ferramentas, oferecendo o cadastro de ferramentas e amigos, registro de empréstimos e devoluções, e geração de relatórios. Esses relatórios permitem verificar as ferramentas emprestadas, o histórico de empréstimos por amigo, além de estatísticas de uso.
+O software foi solicitado para auxiliar um usuário em gerenciar seus empréstimos de ferramentas, oferecendo o cadastro de ferramentas e amigos, registro de empréstimos e devoluções, e geração de relatórios. Esses relatórios permitem verificar as ferramentas emprestadas e a qual amigo foi emprestada, o histórico de empréstimos por amigo ao decorrer do software, além de mostrar qual amigo ainda não devolveu alguma ferramenta, e quem possui mais empréstimos realizados.
+
 
 ### Objetivo
 Desenvolver um sistema de gerenciamento de empréstimos, reforçando a capacidade de analisar problemas, interpretar requisitos e propor soluções de software aplicando CRUDs e relatórios.
+
 
 ### Funcionalidades
 O sistema possui as seguintes funcionalidades:
@@ -18,13 +21,38 @@ Cadastro e atualização de informações de contato.
 2 - Cadastro e Gerenciamento de Ferramentas:
 Cadastro e gerenciamento de informações como nome, marca e custo.
 
-3 - Registro de Empréstimos e Devoluções:
-Registro de empréstimos, notificações sobre pendências, e controle de devoluções.
+3 - Registro de Empréstimos:
+Realizar novo Empréstimos, Empréstimos Realizados, Empréstimos Ativos.
 
 4 - Relatórios:
-Relatório de ferramentas e cálculo do valor total.
+Relatório de Empréstimos, Relatório de amigos cadastrados no sistema, Relatório de ferramentas e cálculo do valor total do mesmo.
 
-Relatório de empréstimos ativos e históricos, com detalhes dos usuários mais frequentes e status de devolução.
+
+### Requisitos Funcionais
+
+<li> RF001 - Cadastro e alteração de Amigos </li>
+<li> RF002 - Cadastro e alteração de Ferramenta </li>
+<li> RF003 - Realização de Novos Empréstimos de ferramentas </li>
+<li> RF004 - Verificação de Empréstimos realizados desde da primeira inicialização do programa </li>
+<li> RF005 - Verificação de Empréstimos ativos no software </li>
+<li> RF006 - Geração de Relatórios de amigos cadastrados no sistema </li>
+<li> RF007 - Geração de Relatórios de ferramentas cadastradas no sistema </li>
+<li> RF008 - Relatório de custo total de ferramentas </li>
+<li> RF009 - Relatório de quem nunca devolveu ferramenta </li>
+<li> RF010 - Relatório de quem fez mais empréstimos </li>
+<li> RF011 - Relatório de quantidade de empréstimos realizados desde a primeira inicialização </li>
+<li> RF012 - Receber ferramenta </li>
+
+### Requisitos não funcionais
+
+<li> RNF001 - O sistema deve realizar cadastros e consultas em até 2 segundos, mesmo com muitos cadastros</li>
+<li> RNF002 - A interface deve ser simples e fácil de usar, sem exigir conhecimento técnico </li>
+<li> RNF003 - O software deve funcionar corretamente em Windows e Linux </li>
+<li> RNF004 - O código deve ser claro e bem documentado para facilitar futuras alterações </li>
+<li> RNF005 - O sistema deve garantir que todas as operações sejam registradas corretamente e sem falhas</li>
+<li> RNF006 - Quando o sistema for registrar o empréstimo, ele deve dizer a data</li>
+<li> RNF007 - O software deve ser eficiente no consumo de recursos do computador, utilizando pouca memória e CPU.</li>
+
 
 ### Configuração do Ambiente
 Para o desenvolvimento e execução deste projeto, utilizamos o ambiente e as tecnologias a seguir:
@@ -47,17 +75,13 @@ Para o desenvolvimento e execução deste projeto, utilizamos o ambiente e as te
 
 •MySQL Workbench 8.0
 
-### Para configuração inicial:
+## Para configuração inicial:
 
-### Clone o repositório:
+### Git Clone:
 
-bash
+Copie o código [https://github.com/davijr28/gerenciador_emprestimo_A3]
 
-Copiar código
-
-git clone [https://github.com/davijr28/gerenciador_emprestimo_A3]
-
-Configure o banco de dados usando o script fornecido em database.sql.
+Configure o banco de dados usando o script fornecido em banco.sql
 
 Estrutura do Banco de Dados
 
@@ -82,23 +106,6 @@ Os arquivos principais do projeto estão organizados nas seguintes pastas:
 
 •view: Interface do usuário para interação com o sistema.
 
-### Distribuição de Tarefas:
-
-Nome do Aluno	Funcionalidade	Arquivos Modificados
-
-Aluno 1	Cadastro de Amigos	Amigos.java, AmigosDAO.java
-
-Aluno 2	Cadastro de Ferramentas	Ferramentas.java, FerramentasDAO.java
-
-Aluno 3	Relatórios de Empréstimos e Devoluções	RelatorioDAO.java, RelatorioView.java
-
-Organização e Padrões de Código
-
-Padrões de Nomenclatura: Utilizamos camelCase para variáveis e métodos, e PascalCase para nomes de classes.
-
-Estrutura de Pacotes: O projeto está organizado em pacotes para separação de responsabilidades: dao, model, principal e view.
-
-Mensagens de Commits: Adotamos uma convenção de mensagens de commit para fácil entendimento e histórico do desenvolvimento.
 
 ### Execução do Projeto
 
@@ -111,8 +118,10 @@ Para executar o projeto, compile o código na IDE e certifique-se de que o banco
 A apresentação do projeto estara disponível em um link de vídeo no YouTube assim que o projeto for finalizado.
 
 ### Alunos:
-• Victor de Melo da Rosa | RA: 162211386
 
 • Davi Jordani Ramos | RA: 162211818
 
-• Isaque	Fabro | RA: 162321239
+• Isaque Fabro | RA: 162321239
+
+• Victor de Melo da Rosa | RA: 162211386
+
