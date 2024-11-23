@@ -191,8 +191,8 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
     public void carregarTabela() {
         DefaultTableModel modeloFinalizados = (DefaultTableModel) this.JTTabelaEmprestimoRealizados.getModel();
         DefaultTableModel modeloNaoDevolvidos = (DefaultTableModel) this.JTTabelaQuemNuncaDevolveu.getModel();
-        int totalEmprestimos = 0;
         int maisEmprestimos = 0;
+        int contadorEmprestimos = 0;
         String amigoMaisEmprestimos = "";
         modeloFinalizados.setNumRows(0); // Posiciona na primeira linha da tabela.
         modeloNaoDevolvidos.setNumRows(0);
@@ -214,13 +214,13 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
                     a.objetoFerramenta.getNome()
                 });
             }
-            totalEmprestimos += a.objetoAmigo.getContadorEmprestimos();
-            if(a.objetoAmigo.getContadorEmprestimos() > maisEmprestimos){
+            if (a.objetoAmigo.getContadorEmprestimos() > maisEmprestimos) {
                 maisEmprestimos = a.objetoAmigo.getContadorEmprestimos();
                 amigoMaisEmprestimos = a.objetoAmigo.getNome();
             }
+            contadorEmprestimos++;
         }
-        JLTotalEmprestimos.setText(Integer.toString(totalEmprestimos));
+        JLTotalEmprestimos.setText(Integer.toString(contadorEmprestimos));
         JLMaisEmprestimos.setText(amigoMaisEmprestimos);
     }
 
