@@ -54,6 +54,7 @@ public class Ferramenta {
      * @param nome Nome da ferramenta
      * @param marca Marca da ferramenta
      * @param preco Preço da ferramenta
+     * @param emprestada Status da ferramenta
      */
     public Ferramenta(int id, String nome, String marca, double preco, boolean emprestada) {
         this.id = id;
@@ -169,6 +170,7 @@ public class Ferramenta {
      * @param nome Nome da ferramenta
      * @param marca Marca da ferramenta
      * @param preco Preço da ferramenta
+     * @param emprestada Status da ferramenta
      * @return true se a ferramenta foi inserida com sucesso
      */
     public boolean insertFerramentaBD(String nome, String marca, double preco, boolean emprestada) {

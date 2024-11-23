@@ -54,6 +54,7 @@ public class Amigo {
      * @param nome Nome do amigo
      * @param telefone Telefone do amigo
      * @param contadorEmprestimo Número de empréstimo realizados pelo amigo
+     * @param emprestimoAtivo Indica se o amigo possui um empréstimo ativo
      */
     public Amigo(int id, String nome, String telefone, int contadorEmprestimo, boolean emprestimoAtivo) {
         this.id = id;
@@ -196,6 +197,7 @@ public class Amigo {
      * @param nome Novo nome do amigo
      * @param telefone Novo telefone do amigo
      * @param contadorEmprestimo Número total de empréstimos realizados
+     * @param emprestimoAtivo Determina se amigo possui empréstimo ativo
      * @return true se o amigo foi atualizado com sucesso
      */
     public boolean updateAmigoBD(int id, String nome, String telefone, int contadorEmprestimo, boolean emprestimoAtivo) {
