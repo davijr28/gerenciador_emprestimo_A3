@@ -112,7 +112,7 @@ Os arquivos principais do projeto estão organizados nas seguintes pastas:
 Para executar o projeto, compile o código na IDE e certifique-se de que o banco de dados esteja corretamente configurado. Em seguida, execute o método principal na classe Principal.java para iniciar a aplicação.
 
 ### Conclusão
-...
+O Sistema de Gerenciamento de Empréstimos de Ferramentas é uma solução funcional que atende aos requisitos de gerenciamento simples e eficaz de empréstimos. O projeto proporcionou aprendizado prático e nos desafiou em todas as etapas, desde a concepção até a implementação. Além de cumprir os objetivos propostos, nos motivou a pensar em expansões futuras, consolidando nossos conhecimentos e nos preparando para desafios ainda maiores na área de desenvolvimento de software.
 
 ### Apresentação em Vídeo
 A apresentação do projeto estara disponível em um link de vídeo no YouTube assim que o projeto for finalizado.
