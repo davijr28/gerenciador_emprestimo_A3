@@ -14,12 +14,12 @@ import java.util.ArrayList;
 public class AmigoDAO {
 
     /**
-     * Lista de amigos armazenados em memória
+     * Lista de amigos armazenados em memória.
      */
     public ArrayList<Amigo> lista = new ArrayList<>();
 
     /**
-     * Objeto de conexão com o banco de dados
+     * Objeto de conexão com o banco de dados.
      */
     private final ConexaoDAO dao = new ConexaoDAO();
 
@@ -39,7 +39,7 @@ public class AmigoDAO {
                     String telefone = res.getString("telefone");
                     int contadorEmprestimo = res.getInt("contador");
                     boolean emprestimoAtivo = res.getBoolean("emprestimo_ativo");
-                    
+
                     Amigo objeto = new Amigo(id, nome, telefone, contadorEmprestimo, emprestimoAtivo); // Cria o objeto Amigo com os dados do banco.
                     lista.add(objeto); // Adiciona o objeto à lista.
                 }
@@ -72,7 +72,6 @@ public class AmigoDAO {
                 if (res.next()) {
                     maiorID = res.getInt("id_amigo"); // Obtém o maior ID.
                 }
-                // Fecha Statement após o uso.
             }
         } catch (SQLException ex) {
             System.out.println("Erro ao obter o maior ID: " + ex.getMessage());
@@ -93,12 +92,10 @@ public class AmigoDAO {
                 stmt.setInt(1, objeto.getId()); // Define o ID do amigo.
                 stmt.setString(2, objeto.getNome()); // Define o nome do amigo.
                 stmt.setString(3, objeto.getTelefone()); // Define o telefone do amigo.
-                stmt.setInt(4, 0); // Define contador de empréstimos
-                stmt.setBoolean(5, false);
+                stmt.setInt(4, 0); // Define contador de empréstimos.
+                stmt.setBoolean(5, false); // Define se o amigo possui empréstimo ativo.
                 stmt.execute(); // Executa a inserção no banco de dados.
-                // Fecha PreparedStatement após o uso.
             } // Define o ID do amigo.
-
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro ao inserir amigo: " + erro.getMessage());
@@ -107,7 +104,7 @@ public class AmigoDAO {
     }
 
     /**
-     * Deleta um amigo do banco de dados pelo ID.
+     * Deleta um amigo do banco de dados pelo ID fornecido.
      *
      * @param id ID do amigo a ser deletado.
      * @return true se o amigo foi deletado com sucesso, false caso contrário.
@@ -116,8 +113,7 @@ public class AmigoDAO {
         try {
             try ( Statement stmt = dao.getConexao().createStatement()) {
                 stmt.executeUpdate("DELETE FROM tb_amigos WHERE id_amigo = " + id); // Deleta o amigo pelo ID.
-                // Fecha Statement após o uso.
-            } // Deleta o amigo pelo ID.
+            }
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro ao deletar amigo: " + erro.getMessage());
@@ -139,9 +135,7 @@ public class AmigoDAO {
                 stmt.setString(2, objeto.getTelefone()); // Atualiza o telefone do amigo.
                 stmt.setInt(3, objeto.getId()); // Define o ID do amigo.
                 stmt.execute(); // Executa a atualização no banco de dados.
-                // Fecha PreparedStatement após o uso.
-            } // Atualiza o nome do amigo.
-
+            }
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro ao atualizar amigo: " + erro.getMessage());
@@ -164,10 +158,9 @@ public class AmigoDAO {
                 if (res.next()) {
                     objeto.setNome(res.getString("nome")); // Define o nome do amigo.
                     objeto.setTelefone(res.getString("telefone")); // Define o telefone do amigo.
-                    objeto.setContadorEmprestimos(res.getInt("contador")); // Define o número de empréstimos realizados pelo amigo
-                    objeto.setEmprestimoAtivo(res.getBoolean("emprestimo_ativo"));
+                    objeto.setContadorEmprestimos(res.getInt("contador")); // Define o número de empréstimos realizados pelo amigo.
+                    objeto.setEmprestimoAtivo(res.getBoolean("emprestimo_ativo")); // Define se o amigo possui ou não um empréstimo ativo.
                 }
-                // Fecha Statement após o uso.
             }
         } catch (SQLException erro) {
             System.out.println("Erro ao carregar amigo: " + erro.getMessage());
