@@ -5,9 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Classe responsável pela conexão com o banco de dados.
- * Realiza a configuração da conexão e oferece um método para obter
- * conexão com o banco de dados.
+ * Classe responsável pela conexão com o banco de dados. Realiza a configuração
+ * da conexão e oferece um método para obter conexão com o banco de dados.
  */
 public class ConexaoDAO {
 
@@ -16,11 +15,11 @@ public class ConexaoDAO {
     private final String password = "1234";
 
     /**
-     * Método para obter a conexão com o banco de dados. Carrega o
-     * driver JDBC e tenta estabelecer a conexão com o banco de dados MySQL.
+     * Método para obter a conexão com o banco de dados. Carrega o driver JDBC e
+     * tenta estabelecer a conexão com o banco de dados MySQL.
      *
      * @return Objeto Connection representando conexão com o banco de dados.
-     * Retorna null se ocorrer algum erro.
+     * Retorna null se ocorrer algum erro
      */
     public Connection getConexao() {
         Connection connection;

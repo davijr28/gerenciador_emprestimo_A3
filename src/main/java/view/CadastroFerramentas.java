@@ -3,13 +3,21 @@ package view;
 import javax.swing.JOptionPane;
 import model.Ferramenta;
 
+/**
+ * Classe responsável pelo cadastro de novas ferramentas. Esta classe permite
+ * que o usuário insira o nome, a marca e preço de uma ferramenta, validando os
+ * dados antes de salvar no banco de dados.
+ */
 public class CadastroFerramentas extends javax.swing.JFrame {
 
     private Ferramenta objetoFerramenta; // Declara um objeto da classe Ferramenta.
 
+    /**
+     * Construtor da classe CadastroFerramentas.
+     */
     public CadastroFerramentas() {
         initComponents();
-        this.objetoFerramenta = new Ferramenta();
+        this.objetoFerramenta = new Ferramenta(); // Cria um novo objeto Ferramenta para o cadastro.
     }
 
     @SuppressWarnings("unchecked")
@@ -174,7 +182,6 @@ public class CadastroFerramentas extends javax.swing.JFrame {
                 // Exibe o amigo cadastrado no console
                 System.out.println(this.objetoFerramenta.getFerramentas().toString());
             }
-
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Erro: Objeto não inicializado corretamente.");
             e.printStackTrace();
@@ -193,7 +200,6 @@ public class CadastroFerramentas extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCadastroFerramentasInserir;
     private javax.swing.JButton JBCadastroFerramentasVoltar;

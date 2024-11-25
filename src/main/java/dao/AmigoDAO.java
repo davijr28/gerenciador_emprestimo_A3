@@ -26,7 +26,7 @@ public class AmigoDAO {
     /**
      * Obtém todos os amigos do banco de dados.
      *
-     * @return Lista de objetos Amigo carregados do banco de dados.
+     * @return Lista de objetos Amigo carregados do banco de dados
      */
     public ArrayList<Amigo> getAmigosLista() {
         lista.clear(); // Limpa a lista antes de preenchê-la com os dados mais recentes.
@@ -53,7 +53,7 @@ public class AmigoDAO {
     /**
      * Define a lista de amigos.
      *
-     * @param lista Lista de objetos Amigo a ser definida.
+     * @param lista Lista de objetos Amigo a ser definida
      */
     public void setMinhaLista(ArrayList<Amigo> lista) {
         this.lista = lista;
@@ -62,7 +62,7 @@ public class AmigoDAO {
     /**
      * Retorna o maior ID existente no banco de dados.
      *
-     * @return Maior ID encontrado na tabela de amigos.
+     * @return Maior ID encontrado na tabela de amigos
      */
     public int maiorID() {
         int maiorID = 0;
@@ -82,8 +82,8 @@ public class AmigoDAO {
     /**
      * Insere um novo amigo no banco de dados.
      *
-     * @param objeto Objeto Amigo a ser inserido.
-     * @return true se o amigo foi inserido com sucesso, false caso contrário.
+     * @param objeto Objeto Amigo a ser inserido
+     * @return true se o amigo foi inserido com sucesso, false caso contrário
      */
     public boolean insertAmigoBD(Amigo objeto) {
         String sql = "INSERT INTO tb_amigos (id_amigo, nome, telefone, contador, emprestimo_ativo) VALUES (?, ?, ?, ?, ?)";
@@ -95,7 +95,7 @@ public class AmigoDAO {
                 stmt.setInt(4, 0); // Define contador de empréstimos.
                 stmt.setBoolean(5, false); // Define se o amigo possui empréstimo ativo.
                 stmt.execute(); // Executa a inserção no banco de dados.
-            } // Define o ID do amigo.
+            }
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro ao inserir amigo: " + erro.getMessage());
@@ -106,8 +106,8 @@ public class AmigoDAO {
     /**
      * Deleta um amigo do banco de dados pelo ID fornecido.
      *
-     * @param id ID do amigo a ser deletado.
-     * @return true se o amigo foi deletado com sucesso, false caso contrário.
+     * @param id ID do amigo a ser deletado
+     * @return true se o amigo foi deletado com sucesso, false caso contrário
      */
     public boolean deleteAmigoBD(int id) {
         try {
@@ -124,8 +124,8 @@ public class AmigoDAO {
     /**
      * Atualiza os dados de um amigo no banco de dados.
      *
-     * @param objeto Objeto Amigo com os dados atualizados.
-     * @return true se o amigo foi atualizado com sucesso, false caso contrário.
+     * @param objeto Objeto Amigo com os dados atualizados
+     * @return true se o amigo foi atualizado com sucesso, false caso contrário
      */
     public boolean updateAmigoBD(Amigo objeto) {
         String sql = "UPDATE tb_amigos SET nome = ?, telefone = ? WHERE id_amigo = ?";
@@ -146,8 +146,8 @@ public class AmigoDAO {
     /**
      * Carrega os dados de um amigo específico com base no ID.
      *
-     * @param id ID do amigo a ser carregado.
-     * @return Objeto Amigo carregado do banco de dados.
+     * @param id ID do amigo a ser carregado
+     * @return Objeto Amigo carregado do banco de dados
      */
     public Amigo carregaAmigo(int id) {
         Amigo objeto = new Amigo();

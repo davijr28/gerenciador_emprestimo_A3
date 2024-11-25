@@ -4,15 +4,31 @@ import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Classe responsável pela alteração dos dados de uma ferramenta. Permite ao usuário
+ * alterar o nome, a marca e o preço de uma ferramenta selecionada na tabela da classe
+ * RelatoriosDeFerramentas.
+ */
 public class AlterarFerramentas extends javax.swing.JFrame {
 
     private RelatoriosDeFerramentas objeto;
 
+    /**
+     * Construtor da classe AlterarFerramentas. Inicializa a interface gráfica,
+     * e preenche os campos com os dados da ferramenta selecionada na tabela.
+     *
+     * @param objeto Objeto RelatoriosDeFerramentas contendo a referência à
+     * tabela de relatório de ferramentas.
+     */
     public AlterarFerramentas(RelatoriosDeFerramentas objeto) {
-        this.objeto = objeto;
+        this.objeto = objeto; // Atribui o objeto recebido como parâmetro.
         initComponents();
+        
+        // Recupera o modelo da tabela e obtém a linha selecionada
         DefaultTableModel modelo = (DefaultTableModel) objeto.JTableFerramentas.getModel();
         int selectedRow = objeto.JTableFerramentas.getSelectedRow();
+        
+        // Preenche os campos com os dados da linha selecionada.
         nome.setText(modelo.getValueAt(selectedRow, 1).toString());
         marca.setText(modelo.getValueAt(selectedRow, 2).toString());
         custo.setText(modelo.getValueAt(selectedRow, 3).toString());
@@ -156,7 +172,7 @@ public class AlterarFerramentas extends javax.swing.JFrame {
                 if (objeto.objetoFerramenta.updateFerramentaBD(objeto.id, nome, marca, preco)) {
                     JOptionPane.showMessageDialog(null, "Ferramenta atualizada com Sucesso!");
                 }
-                // Exibe a ferramenta no console.
+                // Exibe a ferramenta atualizada no console.
                 System.out.println(objeto.objetoFerramenta.getFerramentas().toString());
             }
         } catch (HeadlessException | NumberFormatException erro) {

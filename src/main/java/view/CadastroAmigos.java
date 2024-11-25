@@ -5,15 +5,25 @@ import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import model.Amigo;
 
+/**
+ * Classe responsável pelo cadastro de novos amigos. Esta classe permite que o
+ * usuário insira o nome e telefone de um amigo, aplicando uma máscara ao campo
+ * de telefone e validando os dados antes de salvar no banco de dados.
+ */
 public class CadastroAmigos extends javax.swing.JFrame {
 
     private Amigo objetoAmigo; // Declara um objeto da classe Amigo.
     private MaskFormatter mftelefone;
 
+    /**
+     * Construtor da classe CadastroAmigos. Inicializa os componentes e
+     * configura a máscara para o campo de telefone.
+     */
     public CadastroAmigos() {
         initComponents();
-        this.objetoAmigo = new Amigo();
+        this.objetoAmigo = new Amigo(); // Cria um novo objeto Amigo para o cadastro.
         try {
+            // Define a máscara de telefone para o formato brasileiro.
             mftelefone = new MaskFormatter("+55 (##) #####-####");
             JTFTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mftelefone));
         } catch (ParseException e) {

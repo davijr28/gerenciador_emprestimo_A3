@@ -14,19 +14,19 @@ import model.Ferramenta;
 public class FerramentaDAO {
 
     /**
-     * Lista de ferramentas armazenadas em memória
+     * Lista de ferramentas armazenadas em memória.
      */
     public ArrayList<Ferramenta> lista = new ArrayList<>();
 
     /**
-     * Conexão com o banco de dados
+     * Conexão com o banco de dados.
      */
     private final ConexaoDAO dao = new ConexaoDAO();
 
     /**
      * Obtém a lista de ferramentas do banco de dados.
      *
-     * @return Lista de objetos Ferramenta carregados do banco de dados.
+     * @return Lista de objetos Ferramenta carregados do banco de dados
      */
     public ArrayList<Ferramenta> getFerramentasLista() {
         lista.clear();
@@ -51,9 +51,9 @@ public class FerramentaDAO {
     }
 
     /**
-     * Define uma nova lista de ferramentas.
+     * Define uma nova lista de ferramentas na memória.
      *
-     * @param lista Lista de ferramentas a ser definida.
+     * @param lista Lista de ferramentas a ser definida
      */
     public void setMinhaLista(ArrayList<Ferramenta> lista) {
         this.lista = lista;
@@ -62,7 +62,7 @@ public class FerramentaDAO {
     /**
      * Obtém o maior ID existente no banco de dados.
      *
-     * @return O maior ID encontrado na tabela de ferramentas.
+     * @return O maior ID encontrado na tabela de ferramentas
      */
     public int maiorID() {
         int maiorID = 0;
@@ -70,9 +70,8 @@ public class FerramentaDAO {
             try ( Statement stmt = dao.getConexao().createStatement()) {
                 ResultSet res = stmt.executeQuery("SELECT MAX(id_ferramenta) AS id_ferramenta FROM tb_ferramentas");
                 if (res.next()) {
-                    maiorID = res.getInt("id_ferramenta"); // Obtém o maior ID.
+                    maiorID = res.getInt("id_ferramenta");
                 }
-                // Fecha Statement após o uso.
             }
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex);
@@ -81,11 +80,12 @@ public class FerramentaDAO {
     }
 
     /**
-     * Insere uma nova ferramenta no banco de dados.
+     * Insere uma nova ferramenta no banco de dados. Define o valor inicial de
+     * 'emprestada' como falso ao registrar a ferramenta.
      *
-     * @param objeto Objeto Ferramenta a ser inserido.
+     * @param objeto Objeto Ferramenta a ser inserido no banco de dados
      * @return true se a ferramenta foi inserida com sucesso, false caso
-     * contrário.
+     * contrário
      */
     public boolean insertFerramentaBD(Ferramenta objeto) {
         String sql = "INSERT INTO tb_ferramentas (id_ferramenta, nome, marca, preco, emprestada) VALUES (?, ?, ?, ?, ?)";
@@ -97,7 +97,6 @@ public class FerramentaDAO {
                 stmt.setDouble(4, objeto.getPreco());
                 stmt.setBoolean(5, false);
                 stmt.execute(); // Executa a inserção no banco de dados.
-                // Fecha Statement após o uso.
             }
             return true;
         } catch (SQLException erro) {
@@ -109,16 +108,15 @@ public class FerramentaDAO {
     /**
      * Deleta uma ferramenta do banco de dados com base no ID.
      *
-     * @param id ID da ferramenta a ser deletada.
+     * @param id ID da ferramenta a ser deletada
      * @return true se a ferramenta foi deletada com sucesso, false caso
-     * contrário.
+     * contrário
      */
     public boolean deleteFerramentaBD(int id) {
         try {
             try ( Statement stmt = dao.getConexao().createStatement()) {
                 stmt.executeUpdate("DELETE FROM tb_ferramentas WHERE id_ferramenta = " + id); // Deleta a ferramenta pelo ID.
-                // Fecha Statement após o uso.
-            } // Deleta a ferramenta pelo ID.
+            }
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
@@ -127,11 +125,12 @@ public class FerramentaDAO {
     }
 
     /**
-     * Atualiza os dados de uma ferramenta no banco de dados.
+     * Atualiza os dados de uma ferramenta no banco de dados. As informações de
+     * nome, marca e preço são atualizadas para os novos valores fornecidos.
      *
-     * @param objeto Objeto Ferramenta com os dados atualizados.
+     * @param objeto Objeto Ferramenta com os dados atualizados
      * @return true se a ferramenta foi atualizada com sucesso, false caso
-     * contrário.
+     * contrário
      */
     public boolean updateFerramentaBD(Ferramenta objeto) {
         String sql = "UPDATE tb_ferramentas SET nome = ?, marca = ?, preco = ? WHERE id_ferramenta = ?";
@@ -142,9 +141,7 @@ public class FerramentaDAO {
                 stmt.setDouble(3, objeto.getPreco());
                 stmt.setInt(4, objeto.getId());
                 stmt.execute(); // Executa a atualização no banco de dados.
-                // Fecha PreparedStatement após o uso.
             }
-
             return true;
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
@@ -153,10 +150,13 @@ public class FerramentaDAO {
     }
 
     /**
-     * Carrega uma ferramenta específica com base no ID.
+     * Carrega os dados de uma ferramenta específica do banco de dados com base
+     * no ID. O objeto Ferramenta é preenchido com os dados do banco e
+     * retornado.
      *
-     * @param id ID da ferramenta a ser carregada.
-     * @return Objeto Ferramenta carregado do banco de dados.
+     * @param id ID da ferramenta a ser carregada
+     * @return Objeto Ferramenta preenchido com os dados carregados do banco de
+     * dados
      */
     public Ferramenta carregaFerramenta(int id) {
         Ferramenta objeto = new Ferramenta();
@@ -171,7 +171,6 @@ public class FerramentaDAO {
                     objeto.setPreco(res.getDouble("preco"));
                     objeto.setEmprestada(res.getBoolean("emprestada"));
                 }
-                // Fecha o Statement após o uso.
             }
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);

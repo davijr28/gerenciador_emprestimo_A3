@@ -2,14 +2,21 @@ package view;
 
 import dao.ConexaoDAO;
 
+/**
+ * Classe responsável por inicializar a aplicação.
+ */
 public class MenuPrincipal extends javax.swing.JFrame {
 
+    /**
+     * Construtor da classe MenuPrincipal. Estabelece a conexão com o banco de
+     * dados.
+     */
     public MenuPrincipal() {
         try {
             // Tenta estabelecer conexão com o banco de dados.
             ConexaoDAO conexaoDAO = new ConexaoDAO();
             conexaoDAO.getConexao();
-            System.out.println("Conectado com Sucesso");
+            System.out.println("Conectado com Sucesso!");
         } catch (Exception e) {
             // Exibe diagnóstico de erro caso não consiga conectar.
             System.out.println("Programa não conectado: " + e.getMessage());

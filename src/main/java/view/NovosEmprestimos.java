@@ -9,6 +9,12 @@ import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import model.*;
 
+/**
+ * Classe responsável pela interface gráfica e lógica de cadastro de novos
+ * empréstimos de ferramentas. Permite ao usuário registrar um novo empréstimo
+ * de ferramenta para um amigo, definindo uma data de realização do empréstimo e
+ * uma data para devolução da ferramenta.
+ */
 public class NovosEmprestimos extends javax.swing.JFrame {
 
     private Ferramenta objetoFerramenta;
@@ -17,22 +23,26 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     private MaskFormatter mfdata; // Formatador da caixa de texto
     Date hoje = new Date(System.currentTimeMillis()); // Data atual
 
+    /**
+     * Construtor da classe NovosEmprestimos. Inicializa os objetos e configura
+     * os campos de data.
+     */
     public NovosEmprestimos() {
         initComponents();
         this.objetoAmigo = new Amigo();
         this.objetoFerramenta = new Ferramenta();
         this.objetoEmprestimo = new Emprestimo();
-        this.carregarAmigos();
-        this.carregarFerramentas();
+        this.carregarAmigos(); // Carrega os amigos para o ComboBox
+        this.carregarFerramentas(); // Carrega as ferramentas disponíveis para o ComboBox
         try {
-            mfdata = new MaskFormatter("####-##-##");
+            mfdata = new MaskFormatter("####-##-##"); // Define o formato da data (AAAA-MM-DD).
             JTFDatadoEmprestimo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mfdata));
             JTFDataDevolucao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mfdata));
         } catch (ParseException e) {
             System.out.println("Ocorreu um erro inesperado.");
             e.printStackTrace();
         }
-        this.JTFDatadoEmprestimo.setText(hoje.toString());
+        this.JTFDatadoEmprestimo.setText(hoje.toString()); // Define a data atual no campo de data de empréstimo.
     }
 
     @SuppressWarnings("unchecked")
@@ -220,7 +230,6 @@ public class NovosEmprestimos extends javax.swing.JFrame {
                 }
             }
 
-            // Validação de data de devolução
             if (!isDataValida(dataDevolucao)) {
                 JOptionPane.showMessageDialog(null, "Data de Devolução inválida.\nInsira uma data válida no formato AAAA-MM-DD.");
                 validacao = false;
@@ -236,7 +245,8 @@ public class NovosEmprestimos extends javax.swing.JFrame {
 
             if (validacao == true) {
                 if (amigo.isEmprestimoAtivo()) {
-                    int respostaUsuario = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja cadastrar mesmo assim?");
+                    // Confirma a ação do usuário.
+                    int respostaUsuario = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja cadastrar mesmo assim?", "Confirmar Cadastro", JOptionPane.YES_NO_OPTION);
                     if (respostaUsuario == 0) {
                         // Envia os dados para cadastrar o empréstimo
                         if (this.objetoEmprestimo.insertEmprestimoBD(amigo, ferramenta, dataEmprestimoDate, dataDevolucaoDate)) {
@@ -270,56 +280,88 @@ public class NovosEmprestimos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBNovosEmprestimosCadastrarActionPerformed
 
+    /**
+     * Carrega as ferramentas disponíveis que não estão emprestadas no
+     * JComboBox. A lista de ferramentas é obtida e cada ferramenta não
+     * emprestada é adicionada ao modelo do JComboBox para que o usuário possa
+     * selecionar.
+     */
     public void carregarFerramentas() {
         DefaultComboBoxModel modeloFerramentas = (DefaultComboBoxModel) this.JCFerramentaEmprestada.getModel();
-        modeloFerramentas.removeAllElements();
-        modeloFerramentas.setSelectedItem("Selecione");
+        modeloFerramentas.removeAllElements();// Remove todos os elementos do ComboBox.
+        modeloFerramentas.setSelectedItem("Selecione"); // Define a opção padrão como "Selecione".
+
+        // Obtém a lista de ferramentas
         ArrayList<Ferramenta> minhaLista = objetoFerramenta.getFerramentas();
-        if (minhaLista != null) {
+        if (minhaLista != null) { // Verifica se a lista não está vazia.
             for (Ferramenta a : minhaLista) {
-                if (a.isEmprestada() == false) {
-                    modeloFerramentas.addElement("ID: " + a.getId() + "-  " + a.getNome());
+                if (a.isEmprestada() == false) { // Verifica se a ferramenta está disponível.
+                    modeloFerramentas.addElement("ID: " + a.getId() + "-  " + a.getNome()); // Adiciona ferramenta à lista do ComboBox.
                 }
             }
         }
     }
 
+    /**
+     * Carrega a lista de amigos no JComboBox. A lista de amigos é obtida e cada
+     * amigo é adicionado ao modelo do JComboBox para que o usuário possa
+     * selecionar.
+     */
     public void carregarAmigos() {
         DefaultComboBoxModel modeloAmigos = (DefaultComboBoxModel) this.JCParaAmigo.getModel();
-        modeloAmigos.removeAllElements();
-        modeloAmigos.setSelectedItem("Selecione");
+        modeloAmigos.removeAllElements(); // Remove todos os elementos do ComboBox.
+        modeloAmigos.setSelectedItem("Selecione"); // Define a opção padrão como "Selecione".
+
+        //Obtém a lista de amigos.
         ArrayList<Amigo> minhaLista = objetoAmigo.getAmigos();
-        if (minhaLista != null) {
+        if (minhaLista != null) { // Verifica se a lista não está vazia.
             for (Amigo a : minhaLista) {
-                modeloAmigos.addElement("ID: " + a.getId() + "-  " + a.getNome());
+                modeloAmigos.addElement("ID: " + a.getId() + "-  " + a.getNome()); // Adiciona o amigo à lista do ComboBox.
             }
         }
     }
 
+    /**
+     * Converte uma string no formato "yyyy-MM-dd" para um objeto java.sql.Date.
+     *
+     * @param dataTexto A string contendo a data no formato "yyyy-MM-dd" a ser
+     * convertida
+     * @return Retorna a data convertida em java.sql.Date ou null se ocorrer um
+     * erro de conversão
+     */
     public static Date stringToDate(String dataTexto) {
         try {
-            // Cria o SimpleDateFormat para converter a data inserida
+            // Cria o SimpleDateFormat para converter a data inserida.
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date data = sdf.parse(dataTexto);
 
-            // Converte para java.sql.Date
+            // Converte para java.sql.Date.
             return new java.sql.Date(data.getTime());
         } catch (ParseException e) {
-            return null;
+            return null; // Retorna null caso a conversão falhar.
         }
     }
 
+    /**
+     * Verifica se uma string representa uma data válida no formato
+     * "yyyy-MM-dd".
+     *
+     * @param dataTexto A string contendo a data no formato "yyyy-MM-dd" a ser
+     * validada
+     * @return Retorna true se a data for válida e estiver no formato correto,
+     * caso contrário, retorna false
+     */
     public static boolean isDataValida(String dataTexto) {
         try {
-            // Cria um SimpleDateFormat para passar a data no formato AAAA-MM-DD
+            // Cria um SimpleDateFormat para passar a data no formato AAAA-MM-DD.
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            sdf.setLenient(false); // Desativa a leniência para datas inválidas
+            sdf.setLenient(false); // Desativa a leniência para datas inválidas.
             java.util.Date data = sdf.parse(dataTexto);
 
-            // Verifica se a data foi convertida corretamente para um objeto Date
-            return dataTexto.equals(sdf.format(data)); // Verifica se o formato da data é o mesmo
+            // Verifica se a data foi convertida corretamente para um objeto Date.
+            return dataTexto.equals(sdf.format(data)); // Verifica se o formato da data é o mesmo.
         } catch (ParseException e) {
-            return false; // Se ocorrer exceção, a data não é válida
+            return false; // Se ocorrer exceção, a data não é válida.
         }
     }
 

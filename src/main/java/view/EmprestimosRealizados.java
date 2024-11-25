@@ -6,16 +6,25 @@ import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 import model.Emprestimo;
 
+/**
+ * Classe responsável por exibir e gerenciar os empréstimos já finalizados.
+ * Mostra a lista de empréstimos concluídos, informações sobre número total de
+ * empréstimos, quem fez mais empréstimos e quem nunca devolveu as ferramentas.
+ */
 public class EmprestimosRealizados extends javax.swing.JFrame {
 
     private Emprestimo objetoEmprestimo;
     private Calendar calendario = Calendar.getInstance();
-    private Date hoje = new Date(calendario.getTimeInMillis());
+    private Date hoje = new Date(calendario.getTimeInMillis()); // Define a data atual.
 
+    /**
+     * Construtor da classe EmprestimosRealizados. Inicializa os componentes
+     * gráficos e carrega os dados na tabela.
+     */
     public EmprestimosRealizados() {
         initComponents();
         this.objetoEmprestimo = new Emprestimo();
-        this.carregarTabela();
+        this.carregarTabela(); // Carrega os dados na tabela.
     }
 
     @SuppressWarnings("unchecked")
@@ -194,12 +203,14 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
         int maisEmprestimos = 0;
         int contadorEmprestimos = 0;
         String amigoMaisEmprestimos = "";
-        modeloFinalizados.setNumRows(0); // Posiciona na primeira linha da tabela.
-        modeloNaoDevolvidos.setNumRows(0);
+
+        modeloFinalizados.setNumRows(0); // Limpa a tabela de finalizados.
+        modeloNaoDevolvidos.setNumRows(0); // Limpa a tabela de não devolvidos/
+
         // Carrega a lista de Empréstimos.
         ArrayList<Emprestimo> minhaLista = objetoEmprestimo.getEmprestimos();
         for (Emprestimo a : minhaLista) {
-            if (a.isEntregue()) {
+            if (a.isEntregue()) { // Verifica se o empréstimo foi finalizado.
                 modeloFinalizados.addRow(new Object[]{
                     a.getId(),
                     a.objetoAmigo.getNome(),
@@ -208,18 +219,22 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
                     a.getDataDevolucao(),
                     a.getDataFinalizado()
                 });
-            } else if (a.getDataDevolucao().before(hoje)) {
+            } else if (a.getDataDevolucao().before(hoje)) { // Verifica os empréstimos atrasados.
                 modeloNaoDevolvidos.addRow(new Object[]{
                     a.objetoAmigo.getNome(),
                     a.objetoFerramenta.getNome()
                 });
             }
+
+            // Atualiza o amigo com mais empréstimos
             if (a.objetoAmigo.getContadorEmprestimos() > maisEmprestimos) {
                 maisEmprestimos = a.objetoAmigo.getContadorEmprestimos();
                 amigoMaisEmprestimos = a.objetoAmigo.getNome();
             }
+            // Contador de total de empréstimos realizados.
             contadorEmprestimos++;
         }
+        // Atualiza as labels na interface com os dados calculados.
         JLTotalEmprestimos.setText(Integer.toString(contadorEmprestimos));
         JLMaisEmprestimos.setText(amigoMaisEmprestimos);
     }

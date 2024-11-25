@@ -4,44 +4,48 @@ import dao.FerramentaDAO;
 import java.util.ArrayList;
 
 /**
- * Classe que representa uma Ferramenta, com atributos básicos e métodos para
- * manipulação de dados no banco de dados.
+ * Classe que representa uma ferramenta, contendo atributos de ID, nome, marca,
+ * preço e status de empréstimo. Ela também inclui métodos para interagir com o
+ * banco de dados por meio da classe AmigoDAO, permitindo operações como
+ * inserção, atualização, exclusão e consulta de ferramentas.
  */
 public class Ferramenta {
 
     /**
-     * ID único da ferramenta
+     * ID único da ferramenta.
      */
     private int id;
 
     /**
-     * Nome da ferramenta
+     * Nome da ferramenta.
      */
     private String nome;
 
     /**
-     * Marca da ferramenta
+     * Marca da ferramenta.
      */
     private String marca;
 
     /**
-     * Preço da ferramenta
+     * Preço da ferramenta.
      */
     private double preco;
 
     /**
-     * Status da ferramenta
+     * Status de disponibilidade da ferramenta.
      */
     private boolean emprestada;
 
     /**
      * Objeto responsável pelas operações de banco de dados relacionadas à
-     * ferramenta
+     * ferramenta.
      */
     private FerramentaDAO dao;
 
     /**
-     * Construtor padrão que inicializa a ferramenta com valores padrão.
+     * Construtor que inicializa a ferramenta com valores padrão: ID igual a 0,
+     * nome e marca vazios, preço igual a 0, e status de empréstimo definido
+     * como falso (não emprestada).
      */
     public Ferramenta() {
         this(0, "", "", 0, false);
@@ -50,11 +54,12 @@ public class Ferramenta {
     /**
      * Construtor que inicializa a ferramenta com os valores fornecidos.
      *
-     * @param id ID da ferramenta
+     * @param id ID único da ferramenta
      * @param nome Nome da ferramenta
      * @param marca Marca da ferramenta
      * @param preco Preço da ferramenta
-     * @param emprestada Status da ferramenta
+     * @param emprestada Status indicando se a ferramenta foi emprestada ou está
+     * disponível para empréstimo
      */
     public Ferramenta(int id, String nome, String marca, double preco, boolean emprestada) {
         this.id = id;
@@ -77,7 +82,7 @@ public class Ferramenta {
     /**
      * Define o ID da ferramenta.
      *
-     * @param id Novo ID da ferramenta
+     * @param id ID da ferramenta
      */
     public void setId(int id) {
         this.id = id;
@@ -95,7 +100,7 @@ public class Ferramenta {
     /**
      * Define o nome da ferramenta.
      *
-     * @param nome Novo nome da ferramenta
+     * @param nome Nome da ferramenta
      */
     public void setNome(String nome) {
         this.nome = nome;
@@ -113,7 +118,7 @@ public class Ferramenta {
     /**
      * Define a marca da ferramenta.
      *
-     * @param marca Nova marca da ferramenta
+     * @param marca Marca da ferramenta
      */
     public void setMarca(String marca) {
         this.marca = marca;
@@ -131,23 +136,24 @@ public class Ferramenta {
     /**
      * Define o preço da ferramenta.
      *
-     * @param preco Novo preço da ferramenta
+     * @param preco Preço da ferramenta
      */
     public void setPreco(double preco) {
         this.preco = preco;
     }
 
     /**
-     * Determina se a ferramenta foi emprestada ou não.
+     * Determina se a ferramenta foi emprestada ou está disponível para
+     * empréstimo.
      *
-     * @return status da ferramenta
+     * @return Status da ferramenta
      */
     public boolean isEmprestada() {
         return emprestada;
     }
 
     /**
-     * Determina se a ferramenta foi emprestada ou devolvida.
+     * Define se a ferramenta foi emprestada ou devolvida.
      *
      * @param emprestada Status da ferramenta
      */
@@ -156,21 +162,25 @@ public class Ferramenta {
     }
 
     /**
-     * Obtém a lista de ferramentas do banco de dados.
+     * Obtém a lista de todas as ferramentas registradas no banco de dados. Este
+     * método consulta o banco de dados através do DAO e retorna uma lista de
+     * objetos Ferramenta.
      *
-     * @return Lista de ferramentas
+     * @return Lista de objetos Ferramenta
      */
     public ArrayList<Ferramenta> getFerramentas() {
         return dao.getFerramentasLista();
     }
 
     /**
-     * Insere uma nova ferramenta no banco de dados.
+     * Insere uma nova ferramenta no banco de dados com os dados fornecidos. O
+     * ID da ferramenta é gerado automaticamenta a partir do maior ID presente
+     * no banco.
      *
      * @param nome Nome da ferramenta
      * @param marca Marca da ferramenta
      * @param preco Preço da ferramenta
-     * @param emprestada Status da ferramenta
+     * @param emprestada Status da ferramenta (se está emprestada ou não)
      * @return true se a ferramenta foi inserida com sucesso
      */
     public boolean insertFerramentaBD(String nome, String marca, double preco, boolean emprestada) {
@@ -181,7 +191,7 @@ public class Ferramenta {
     }
 
     /**
-     * Exclui uma ferramenta do banco de dados com base no ID.
+     * Exclui uma ferramenta do banco de dados com base no ID fornecido.
      *
      * @param id ID da ferramenta a ser excluída
      * @return true se a ferramenta foi excluída com sucesso
@@ -192,7 +202,8 @@ public class Ferramenta {
     }
 
     /**
-     * Atualiza os dados de uma ferramenta no banco de dados.
+     * Atualiza os dados de uma ferramenta no banco de dados com base no ID
+     * fornecido.
      *
      * @param id ID da ferramenta a ser atualizada
      * @param nome Novo nome da ferramenta
@@ -207,7 +218,8 @@ public class Ferramenta {
     }
 
     /**
-     * Carrega os dados de uma ferramenta específica com base no ID.
+     * Carrega os dados de uma ferramenta específica com base no ID. O método
+     * retorna um objeto Ferramenta com os dados carregados do banco.
      *
      * @param id ID da ferramenta a ser carregada
      * @return Objeto Ferramenta com os dados carregados

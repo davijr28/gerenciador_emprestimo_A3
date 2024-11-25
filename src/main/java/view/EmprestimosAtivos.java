@@ -7,16 +7,24 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Emprestimo;
 
+/**
+ * Classe responsável por exibir os empréstimos ativos. Permite visualizar,
+ * gerenciar e concluir empréstimos de ferramentas.
+ */
 public class EmprestimosAtivos extends javax.swing.JFrame {
 
     private Emprestimo objetoEmprestimo;
     private Calendar calendario = Calendar.getInstance();
-    private Date hoje = new Date(calendario.getTimeInMillis());
+    private Date hoje = new Date(calendario.getTimeInMillis()); // Define a data atual.
 
+    /**
+     * Construtor da classe EmprestimosAtivos. Inicializa os componentes e
+     * carrega a tabela de empréstimos ativos.
+     */
     public EmprestimosAtivos() {
         initComponents();
-        this.objetoEmprestimo = new Emprestimo();
-        this.carregarTabela();
+        this.objetoEmprestimo = new Emprestimo(); // Cria um novo objeto Emprestimo.
+        this.carregarTabela(); // Carrega os empréstimos ativos na tabela.
     }
 
     @SuppressWarnings("unchecked")
@@ -123,28 +131,32 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
     }//GEN-LAST:event_JBEmprestimosAtivosVoltarActionPerformed
 
     private void JBEmprestimosAtivosReceberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosAtivosReceberActionPerformed
+        // Verifica se um empréstimo foi selecionado.
         if (this.JTTabelaEmprestimoAtivos.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Primeiro selecione uma ferramenta para receber.");
         } else {
-            int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja receber esta ferramenta e concluir o empréstimo?");
+            // Confirma a ação do usuário.
+            int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja receber esta ferramenta e concluir o empréstimo?", "Confirmar Finalização", JOptionPane.YES_NO_OPTION);
             if (respostaUsuario == 0) {
                 int id = Integer.parseInt(this.JTTabelaEmprestimoAtivos.getValueAt(this.JTTabelaEmprestimoAtivos.getSelectedRow(), 0).toString());
                 Emprestimo objeto = objetoEmprestimo.carregaEmprestimo(id);
-                if (objeto.updateEmprestimoBD(id, true, hoje)) {
+                if (objeto.updateEmprestimoBD(id, hoje)) {
                     JOptionPane.showMessageDialog(null, "Empréstimo finalizado com sucesso!");
-                    this.carregarTabela();
+                    this.carregarTabela(); // Recarrega os empréstimos ativos.
                 }
             }
         }
     }//GEN-LAST:event_JBEmprestimosAtivosReceberActionPerformed
 
+    // Método para carregar a tabela de empréstimos ativos.
     public void carregarTabela() {
         DefaultTableModel modelo = (DefaultTableModel) this.JTTabelaEmprestimoAtivos.getModel();
         modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
+
         // Carrega a lista de empréstimos.
         ArrayList<Emprestimo> minhaLista = objetoEmprestimo.getEmprestimos();
         for (Emprestimo a : minhaLista) {
-            if (a.isEntregue() == false) {
+            if (a.isEntregue() == false) { // Verifica se o empréstimo está ativo
                 modelo.addRow(new Object[]{
                     a.getId(),
                     a.objetoAmigo.getNome(),

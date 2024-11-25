@@ -4,44 +4,46 @@ import dao.AmigoDAO;
 import java.util.ArrayList;
 
 /**
- * Classe que representa um Amigo, contendo informações básicas como ID, nome e
- * telefone. Esta classe também interage com o banco de dados por meio da classe
- * AmigoDAO.
+ * Classe que representa um Amigo, contendo atributos de ID, nome, telefone,
+ * contador de empréstimos e situação de empréstimo ativo. Esta classe também
+ * interage com o banco de dados por meio da classe AmigoDAO.
  */
 public class Amigo {
 
     /**
-     * ID único do amigo
+     * ID único do amigo.
      */
     private int id;
 
     /**
-     * Nome do amigo
+     * Nome do amigo.
      */
     private String nome;
 
     /**
-     * Telefone do amigo
+     * Telefone do amigo.
      */
     private String telefone;
 
     /**
-     * Contador de empréstimos do amigo
+     * Contador de empréstimos do amigo.
      */
     private int contadorEmprestimos;
 
     /**
-     * Indicador para empréstimos
+     * Indicador para empréstimos.
      */
     private boolean emprestimoAtivo;
 
     /**
-     * Objeto DAO para interagir com o banco de dados
+     * Objeto DAO para interagir com o banco de dados.
      */
     private AmigoDAO dao;
 
     /**
-     * Construtor padrão. Inicializa o objeto Amigo com valores padrão.
+     * Construtor padrão. Inicializa o objeto Amigo com valores padrão: ID igual
+     * a 0, nome e telefone vazios, contador de empréstimos igual a 0, e sem
+     * empréstimos ativos.
      */
     public Amigo() {
         this(0, "", "", 0, false);
@@ -54,7 +56,8 @@ public class Amigo {
      * @param nome Nome do amigo
      * @param telefone Telefone do amigo
      * @param contadorEmprestimo Número de empréstimo realizados pelo amigo
-     * @param emprestimoAtivo Indica se o amigo possui um empréstimo ativo
+     * @param emprestimoAtivo Indica se o amigo possui um empréstimo ativo ou
+     * não
      */
     public Amigo(int id, String nome, String telefone, int contadorEmprestimo, boolean emprestimoAtivo) {
         this.id = id;
@@ -138,7 +141,7 @@ public class Amigo {
     }
 
     /**
-     * Obtém a situação de empréstimo do amigo
+     * Obtém a situação de empréstimo do amigo.
      *
      * @return Situação de empréstimos do amigo
      */
@@ -156,16 +159,17 @@ public class Amigo {
     }
 
     /**
-     * Obtém a lista de amigos do banco de dados.
+     * Obtém a lista de amigos do banco de dados através do DAO.
      *
-     * @return Lista de amigos
+     * @return Lista de objetos Amigo carregados do banco de dados
      */
     public ArrayList<Amigo> getAmigos() {
         return dao.getAmigosLista();
     }
 
     /**
-     * Insere um novo amigo no banco de dados.
+     * Insere um novo amigo no banco de dados. O ID do amigo é gerado
+     * automaticamente com base no maior ID presente no banco de dados.
      *
      * @param nome Nome do amigo
      * @param telefone Telefone do amigo
@@ -207,7 +211,9 @@ public class Amigo {
     }
 
     /**
-     * Carrega os dados de um amigo específico com base no ID.
+     * Carrega os dados de um amigo específico com base no ID. Este método
+     * consulta o banco de dados e retorna um objeto Amigo com os dados
+     * carregados.
      *
      * @param id ID do amigo a ser carregado
      * @return Objeto Amigo com os dados carregados

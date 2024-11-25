@@ -5,23 +5,40 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
+/**
+ * Classe responsável pela alteração dos dados de um amigo. Permite ao usuário
+ * alterar o nome e telefone de um amigo selecionado na tabela da classe
+ * RelatoriosDeAmigos.
+ */
 public class AlterarAmigos extends javax.swing.JFrame {
 
     private RelatoriosDeAmigos objeto;
-    private MaskFormatter mftelefone;
+    private MaskFormatter mftelefone; // Objeto para formatação da caixa de texto de telefone.
 
+    /**
+     * Construtor da classe AlterarAmigos. Inicializa os componentes da
+     * interface gráfica e aplica uma máscara no campo de telefone para exibir o
+     * número no formato específico.
+     *
+     * @param objeto Objeto RelatoriosDeAmigos contendo a referência ao amigo
+     * selecionado na tabela de relatórios.
+     */
     public AlterarAmigos(RelatoriosDeAmigos objeto) {
-        this.objeto = objeto;
+        this.objeto = objeto; // Atribui o objeto recebido como parâmetro.
         initComponents();
         try {
+            // Aplica a máscara para formatar o número de telefone conforme o padrão brasileiro.
             mftelefone = new MaskFormatter("+55 (##) #####-####");
             JTFTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(mftelefone));
         } catch (ParseException e) {
             System.out.println("Ocorreu um erro inesperado.");
             e.printStackTrace();
         }
+        // Recupera o modelo da tabela e obtém a linha selecionada.
         DefaultTableModel modelo = (DefaultTableModel) objeto.JTableAmigos.getModel();
         int selectedRow = objeto.JTableAmigos.getSelectedRow();
+
+        // Preenche os campos de texto com os dados da linha selecionada na tabela.
         JTFNome.setText(modelo.getValueAt(selectedRow, 1).toString());
         JTFTelefone.setText(modelo.getValueAt(selectedRow, 2).toString());
     }

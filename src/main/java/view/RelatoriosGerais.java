@@ -1,7 +1,14 @@
 package view;
 
+/**
+ * Classe responsável por exibir ao usuário opções para relatórios de
+ * ferramentas ou de amigos.
+ */
 public class RelatoriosGerais extends javax.swing.JFrame {
 
+    /**
+     * Construtor da classe RelatoriosGerais.
+     */
     public RelatoriosGerais() {
         initComponents();
     }

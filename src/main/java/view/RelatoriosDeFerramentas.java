@@ -5,11 +5,24 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Classe responsável pela exibição e manipulação de relatórios de ferramentas.
+ * Ela permite que o usuário visualize, altere e apague informações sobre
+ * ferramentas armazenadas no sistema.
+ */
 public class RelatoriosDeFerramentas extends javax.swing.JFrame {
 
+    // Objeto responsável por gerenciar os dados das ferramentas.
     public Ferramenta objetoFerramenta;
+
+    // ID da ferramenta, utilizado para operações de alteração e exclusão.
     public int id = 0;
 
+    /**
+     * Construtor da classe RelatoriosDeFerramentass. Inicializa os componentes
+     * gráficos e cria uma instância do objeto Ferramenta. Também carrega os
+     * dados das ferramentas na tabela.
+     */
     public RelatoriosDeFerramentas() {
         initComponents();
         this.objetoFerramenta = new Ferramenta();
@@ -153,11 +166,14 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         if (this.JTableFerramentas.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Primeiro selecione uma ferramenta para alterar.");
         } else {
+            // Obtém o ID da ferramenta.
             id = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
-            Ferramenta ferramentaSelecionada = objetoFerramenta.carregaFerramenta(id); // Método para recuperar a ferramenta pelo ID
+            Ferramenta ferramentaSelecionada = objetoFerramenta.carregaFerramenta(id); // Método para carregar a ferramenta pelo ID.
+            // Verifica se a ferramenta está emprestada.
             if (ferramentaSelecionada.isEmprestada()) {
                 JOptionPane.showMessageDialog(null, "Não é possível alterar uma ferramenta que atualmente está emprestada.");
             } else {
+                // Cria a janela para alterar a ferramenta, utilizando o objeto RelatoriosDeFerramentas como parâmetro.
                 AlterarFerramentas objeto = new AlterarFerramentas(this);
                 objeto.setVisible(true);
                 objeto.setLocationRelativeTo(null);
@@ -173,14 +189,13 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
             } else {
                 // Obtém o ID da ferramenta selecionada na tabela.
                 id = Integer.parseInt(this.JTableFerramentas.getValueAt(this.JTableFerramentas.getSelectedRow(), 0).toString());
-
+                Ferramenta ferramentaSelecionada = objetoFerramenta.carregaFerramenta(id); // Método para carregar a ferramenta pelo ID.
                 // Verifica se a ferramenta selecionada está emprestada.
-                Ferramenta ferramentaSelecionada = objetoFerramenta.carregaFerramenta(id); // Método para recuperar a ferramenta pelo ID
                 if (ferramentaSelecionada.isEmprestada()) {
                     JOptionPane.showMessageDialog(null, "Não é possível apagar uma ferramenta que atualmente está emprestada.");
                 } else {
-                    // Confirmação de exclusão
-                    int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar esta ferramenta?");
+                    // Confirma a ação do usuário.
+                    int respostaUsuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja apagar esta ferramenta?", "Confirmar Apagar", JOptionPane.YES_NO_OPTION);
                     if (respostaUsuario == 0) { // Clicou em SIM.
                         // Chama método para apagar a ferramenta do banco de dados. 
                         if (this.objetoFerramenta.deleteFerramentaBD(id)) {
@@ -199,23 +214,30 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBApagarActionPerformed
 
+    /**
+     * Carrega os dados das ferramentas na tabela. Este método recupera a lista
+     * de ferramentas e preenche a tabela com os dados de cada ferramenta (ID,
+     * nome, marca, preço e status de empréstimo).
+     */
     public void carregarTabela() {
-        double totalGasto = 0;
+        double totalGasto = 0; // Variável para armazenar o valor total gasto com ferramentas.
         DefaultTableModel modelo = (DefaultTableModel) this.JTableFerramentas.getModel();
-        modelo.setNumRows(0); // Posiciona na primeira linha da tabela.
+        modelo.setNumRows(0); // Limpa a tabela antes de carregar os dados.
+
         // Carrega a lista de ferramentas.
         ArrayList<Ferramenta> minhaLista = objetoFerramenta.getFerramentas();
         for (Ferramenta a : minhaLista) {
+            // Adiciona uma nova linha na tabela com os dados de cada ferramenta.
             modelo.addRow(new Object[]{
                 a.getId(),
                 a.getNome(),
                 a.getMarca(),
                 a.getPreco(),
-                (a.isEmprestada() ? "Emprestada" : "Disponível")
+                (a.isEmprestada() ? "Emprestada" : "Disponível") // Exibe "Emprestada" para true e "Disponível" pra false.
             });
-            totalGasto += a.getPreco();
+            totalGasto += a.getPreco(); // Acumula o valor total gasto com ferramentas.
         }
-        JLTotalGasto.setText("R$: " + String.format("%.2f", totalGasto));
+        JLTotalGasto.setText("R$: " + String.format("%.2f", totalGasto)); // Exibe o total na interface.
     }
 
     public static void main(String args[]) {

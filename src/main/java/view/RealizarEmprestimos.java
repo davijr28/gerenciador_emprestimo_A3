@@ -1,7 +1,14 @@
 package view;
 
+/**
+ * Classe responsável por exibir ao usuário opções de operações referentes à
+ * empréstimos.
+ */
 public class RealizarEmprestimos extends javax.swing.JFrame {
 
+    /**
+     * Construtor da classe RealizarEmprestimos.
+     */
     public RealizarEmprestimos() {
         initComponents();
     }

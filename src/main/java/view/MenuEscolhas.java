@@ -1,7 +1,13 @@
 package view;
 
+/**
+ * Classe responsável por exibir as opções do menu para o usuário.
+ */
 public class MenuEscolhas extends javax.swing.JFrame {
 
+    /**
+     * Construtor da classe MenuEscolhas.
+     */
     public MenuEscolhas() {
         initComponents();
     }
