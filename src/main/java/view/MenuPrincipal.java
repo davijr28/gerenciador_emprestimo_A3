@@ -6,15 +6,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal() {
         try {
-            // Tentativa de conexão com o db
+            // Tenta estabelecer conexão com o banco de dados.
             ConexaoDAO conexaoDAO = new ConexaoDAO();
-            conexaoDAO.getConnection();
+            conexaoDAO.getConexao();
             System.out.println("Conectado com Sucesso");
         } catch (Exception e) {
-            // Diagnóstico de erro
+            // Exibe diagnóstico de erro caso não consiga conectar.
             System.out.println("Programa não conectado: " + e.getMessage());
-            // Detalhes do erro para diagnóstico
         }
+        // Inicializa componentes da interface gráfica.
         initComponents();
     }
 
