@@ -26,7 +26,7 @@ CREATE TABLE tb_ferramentas (
     nome VARCHAR(50) NOT NULL,                -- Nome da ferramenta
     marca VARCHAR(50) NOT NULL,               -- Marca da ferramenta
     preco DECIMAL(7,2) NOT NULL,               -- Preço da ferramenta, com duas casas decimais
-	emprestada BOOLEAN
+	emprestada BOOLEAN                     -- Status da ferramenta (true: emprestada, false:disponível)
 );
 
 SELECT * FROM tb_ferramentas;
