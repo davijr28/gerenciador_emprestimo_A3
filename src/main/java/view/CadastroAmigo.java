@@ -13,7 +13,7 @@ import model.Amigo;
 public class CadastroAmigo extends javax.swing.JFrame {
 
     private Amigo objetoAmigo; // Declara um objeto da classe Amigo.
-    private MaskFormatter mftelefone;
+    private MaskFormatter mftelefone; // Objeto para formatação da caixa de texto de telefone.
 
     /**
      * Construtor da classe CadastroAmigo. Inicializa os componentes e

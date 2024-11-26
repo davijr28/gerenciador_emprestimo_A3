@@ -7,7 +7,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  * Classe responsável pela alteração dos dados de uma ferramenta. Permite ao usuário
  * alterar o nome, a marca e o preço de uma ferramenta selecionada na tabela da classe
- * RelatoriosDeFerramentas.
+ * RelatorioDeFerramenta.
  */
 public class AlterarFerramenta extends javax.swing.JFrame {
 

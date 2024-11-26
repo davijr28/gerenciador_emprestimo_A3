@@ -8,7 +8,7 @@ import javax.swing.text.MaskFormatter;
 /**
  * Classe responsável pela alteração dos dados de um amigo. Permite ao usuário
  * alterar o nome e telefone de um amigo selecionado na tabela da classe
- * RelatoriosDeAmigos.
+ * RelatorioDeAmigo.
  */
 public class AlterarAmigo extends javax.swing.JFrame {
 

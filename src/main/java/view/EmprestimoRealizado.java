@@ -18,7 +18,7 @@ public class EmprestimoRealizado extends javax.swing.JFrame {
     private Date hoje = new Date(calendario.getTimeInMillis()); // Define a data atual.
 
     /**
-     * Construtor da classe EmprestimosRealizado. Inicializa os componentes
+     * Construtor da classe EmprestimoRealizado. Inicializa os componentes
      * gráficos e carrega os dados na tabela.
      */
     public EmprestimoRealizado() {
@@ -197,6 +197,7 @@ public class EmprestimoRealizado extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_JBEmprestimosRealizadosVoltarActionPerformed
 
+    // Método para carregar as informações que serão exibidas.
     public void carregarTabela() {
         DefaultTableModel modeloFinalizados = (DefaultTableModel) this.JTTabelaEmprestimoRealizados.getModel();
         DefaultTableModel modeloNaoDevolvidos = (DefaultTableModel) this.JTTabelaQuemNuncaDevolveu.getModel();
