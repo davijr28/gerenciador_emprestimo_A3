@@ -115,7 +115,7 @@ Para executar o projeto, compile o código na IDE e certifique-se de que o banco
 O Sistema de Gerenciamento de Empréstimos de Ferramentas é uma solução funcional que atende aos requisitos de gerenciamento simples e eficaz de empréstimos. O projeto proporcionou aprendizado prático e nos desafiou em todas as etapas, desde a concepção até a implementação. Além de cumprir os objetivos propostos, nos motivou a pensar em expansões futuras, consolidando nossos conhecimentos e nos preparando para desafios ainda maiores na área de desenvolvimento de software.
 
 ### Apresentação em Vídeo
-A apresentação do projeto estara disponível em um link de vídeo no YouTube assim que o projeto for finalizado.
+A apresentação do projeto (https://youtu.be/waL3DVzU5rQ)
 
 ### Alunos:
 
