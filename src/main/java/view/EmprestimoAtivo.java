@@ -11,7 +11,7 @@ import model.Emprestimo;
  * Classe responsável por exibir os empréstimos ativos. Permite visualizar,
  * gerenciar e concluir empréstimos de ferramentas.
  */
-public class EmprestimosAtivos extends javax.swing.JFrame {
+public class EmprestimoAtivo extends javax.swing.JFrame {
 
     private Emprestimo objetoEmprestimo;
     private Calendar calendario = Calendar.getInstance();
@@ -21,7 +21,7 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
      * Construtor da classe EmprestimosAtivos. Inicializa os componentes e
      * carrega a tabela de empréstimos ativos.
      */
-    public EmprestimosAtivos() {
+    public EmprestimoAtivo() {
         initComponents();
         this.objetoEmprestimo = new Emprestimo(); // Cria um novo objeto Emprestimo.
         this.carregarTabela(); // Carrega os empréstimos ativos na tabela.
@@ -170,7 +170,7 @@ public class EmprestimosAtivos extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmprestimosAtivos().setVisible(true);
+                new EmprestimoAtivo().setVisible(true);
             }
         });
     }

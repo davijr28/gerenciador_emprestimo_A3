@@ -9,18 +9,18 @@ import javax.swing.table.DefaultTableModel;
  * alterar o nome, a marca e o preço de uma ferramenta selecionada na tabela da classe
  * RelatoriosDeFerramentas.
  */
-public class AlterarFerramentas extends javax.swing.JFrame {
+public class AlterarFerramenta extends javax.swing.JFrame {
 
-    private RelatoriosDeFerramentas objeto;
+    private RelatorioDeFerramenta objeto;
 
     /**
      * Construtor da classe AlterarFerramentas. Inicializa a interface gráfica,
      * e preenche os campos com os dados da ferramenta selecionada na tabela.
      *
-     * @param objeto Objeto RelatoriosDeFerramentas contendo a referência à
-     * tabela de relatório de ferramentas.
+     * @param objeto Objeto RelatorioDeFerramenta contendo a referência à
+ tabela de relatório de ferramentas.
      */
-    public AlterarFerramentas(RelatoriosDeFerramentas objeto) {
+    public AlterarFerramenta(RelatorioDeFerramenta objeto) {
         this.objeto = objeto; // Atribui o objeto recebido como parâmetro.
         initComponents();
         

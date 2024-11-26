@@ -4,12 +4,12 @@ package view;
  * Classe responsável por exibir ao usuário opções de operações referentes à
  * empréstimos.
  */
-public class RealizarEmprestimos extends javax.swing.JFrame {
+public class RealizarEmprestimo extends javax.swing.JFrame {
 
     /**
      * Construtor da classe RealizarEmprestimos.
      */
-    public RealizarEmprestimos() {
+    public RealizarEmprestimo() {
         initComponents();
     }
 
@@ -117,19 +117,19 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
     }//GEN-LAST:event_JBRealizarEmprestimosVoltarActionPerformed
 
     private void JBNovosEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBNovosEmprestimosActionPerformed
-        NovosEmprestimos objeto = new NovosEmprestimos();
+        NovoEmprestimo objeto = new NovoEmprestimo();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBNovosEmprestimosActionPerformed
 
     private void JBEmprestimosRealizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosRealizadosActionPerformed
-        EmprestimosRealizados objeto = new EmprestimosRealizados();
+        EmprestimoRealizado objeto = new EmprestimoRealizado();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBEmprestimosRealizadosActionPerformed
 
     private void JBEmprestimosAtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestimosAtivosActionPerformed
-        EmprestimosAtivos objeto = new EmprestimosAtivos();
+        EmprestimoAtivo objeto = new EmprestimoAtivo();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBEmprestimosAtivosActionPerformed
@@ -137,7 +137,7 @@ public class RealizarEmprestimos extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RealizarEmprestimos().setVisible(true);
+                new RealizarEmprestimo().setVisible(true);
             }
         });
     }

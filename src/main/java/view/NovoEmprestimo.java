@@ -15,7 +15,7 @@ import model.*;
  * de ferramenta para um amigo, definindo uma data de realização do empréstimo e
  * uma data para devolução da ferramenta.
  */
-public class NovosEmprestimos extends javax.swing.JFrame {
+public class NovoEmprestimo extends javax.swing.JFrame {
 
     private Ferramenta objetoFerramenta;
     private Amigo objetoAmigo;
@@ -27,7 +27,7 @@ public class NovosEmprestimos extends javax.swing.JFrame {
      * Construtor da classe NovosEmprestimos. Inicializa os objetos e configura
      * os campos de data.
      */
-    public NovosEmprestimos() {
+    public NovoEmprestimo() {
         initComponents();
         this.objetoAmigo = new Amigo();
         this.objetoFerramenta = new Ferramenta();
@@ -368,7 +368,7 @@ public class NovosEmprestimos extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NovosEmprestimos().setVisible(true);
+                new NovoEmprestimo().setVisible(true);
             }
         });
     }

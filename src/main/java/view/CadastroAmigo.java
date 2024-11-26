@@ -10,7 +10,7 @@ import model.Amigo;
  * usuário insira o nome e telefone de um amigo, aplicando uma máscara ao campo
  * de telefone e validando os dados antes de salvar no banco de dados.
  */
-public class CadastroAmigos extends javax.swing.JFrame {
+public class CadastroAmigo extends javax.swing.JFrame {
 
     private Amigo objetoAmigo; // Declara um objeto da classe Amigo.
     private MaskFormatter mftelefone;
@@ -19,7 +19,7 @@ public class CadastroAmigos extends javax.swing.JFrame {
      * Construtor da classe CadastroAmigos. Inicializa os componentes e
      * configura a máscara para o campo de telefone.
      */
-    public CadastroAmigos() {
+    public CadastroAmigo() {
         initComponents();
         this.objetoAmigo = new Amigo(); // Cria um novo objeto Amigo para o cadastro.
         try {
@@ -199,7 +199,7 @@ public class CadastroAmigos extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroAmigos().setVisible(true);
+                new CadastroAmigo().setVisible(true);
             }
         });
     }

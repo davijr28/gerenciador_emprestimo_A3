@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
  * Ela permite que o usuário visualize, altere e apague informações sobre
  * ferramentas armazenadas no sistema.
  */
-public class RelatoriosDeFerramentas extends javax.swing.JFrame {
+public class RelatorioDeFerramenta extends javax.swing.JFrame {
 
     // Objeto responsável por gerenciar os dados das ferramentas.
     public Ferramenta objetoFerramenta;
@@ -23,7 +23,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
      * gráficos e cria uma instância do objeto Ferramenta. Também carrega os
      * dados das ferramentas na tabela.
      */
-    public RelatoriosDeFerramentas() {
+    public RelatorioDeFerramenta() {
         initComponents();
         this.objetoFerramenta = new Ferramenta();
         this.carregarTabela();
@@ -173,8 +173,8 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
             if (ferramentaSelecionada.isEmprestada()) {
                 JOptionPane.showMessageDialog(null, "Não é possível alterar uma ferramenta que atualmente está emprestada.");
             } else {
-                // Cria a janela para alterar a ferramenta, utilizando o objeto RelatoriosDeFerramentas como parâmetro.
-                AlterarFerramentas objeto = new AlterarFerramentas(this);
+                // Cria a janela para alterar a ferramenta, utilizando o objeto RelatorioDeFerramenta como parâmetro.
+                AlterarFerramenta objeto = new AlterarFerramenta(this);
                 objeto.setVisible(true);
                 objeto.setLocationRelativeTo(null);
             }
@@ -243,7 +243,7 @@ public class RelatoriosDeFerramentas extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RelatoriosDeFerramentas().setVisible(true);
+                new RelatorioDeFerramenta().setVisible(true);
             }
         });
     }

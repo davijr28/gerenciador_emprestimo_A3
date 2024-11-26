@@ -110,7 +110,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_JBMenuSairActionPerformed
 
     private void JBMenuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMenuIniciarActionPerformed
-        MenuEscolhas objeto = new MenuEscolhas();
+        MenuEscolha objeto = new MenuEscolha();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBMenuIniciarActionPerformed

@@ -8,14 +8,14 @@ import model.Ferramenta;
  * que o usuário insira o nome, a marca e preço de uma ferramenta, validando os
  * dados antes de salvar no banco de dados.
  */
-public class CadastroFerramentas extends javax.swing.JFrame {
+public class CadastroFerramenta extends javax.swing.JFrame {
 
     private Ferramenta objetoFerramenta; // Declara um objeto da classe Ferramenta.
 
     /**
      * Construtor da classe CadastroFerramentas.
      */
-    public CadastroFerramentas() {
+    public CadastroFerramenta() {
         initComponents();
         this.objetoFerramenta = new Ferramenta(); // Cria um novo objeto Ferramenta para o cadastro.
     }
@@ -196,7 +196,7 @@ public class CadastroFerramentas extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroFerramentas().setVisible(true);
+                new CadastroFerramenta().setVisible(true);
             }
         });
     }

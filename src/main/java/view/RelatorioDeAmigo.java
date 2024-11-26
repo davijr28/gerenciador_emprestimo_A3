@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
  * permite que o usuário visualize, altere e apague informações sobre amigos
  * armazenados no sistema.
  */
-public class RelatoriosDeAmigos extends javax.swing.JFrame {
+public class RelatorioDeAmigo extends javax.swing.JFrame {
 
     // Objeto responsável por gerenciar os dados de amigos.
     public Amigo objetoAmigo;
@@ -23,7 +23,7 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
      * gráficos e cria uma instância do objeto Amigo. Também carrega os dados
      * dos amigos na tabela.
      */
-    public RelatoriosDeAmigos() {
+    public RelatorioDeAmigo() {
         initComponents();
         this.objetoAmigo = new Amigo();
         this.carregarTabela();
@@ -156,8 +156,8 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
             //Obtém o ID do amigo selecionado.
             id = Integer.parseInt(this.JTableAmigos.getValueAt(this.JTableAmigos.getSelectedRow(), 0).toString());
 
-            // Cria a janela para alterar o amigo, utilizando o objeto RelatoriosDeAmigos como parâmetro.
-            AlterarAmigos objeto = new AlterarAmigos(this);
+            // Cria a janela para alterar o amigo, utilizando o objeto RelatorioDeAmigo como parâmetro.
+            AlterarAmigo objeto = new AlterarAmigo(this);
             objeto.setVisible(true);
             objeto.setLocationRelativeTo(null);
         }
@@ -217,7 +217,7 @@ public class RelatoriosDeAmigos extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RelatoriosDeAmigos().setVisible(true);
+                new RelatorioDeAmigo().setVisible(true);
             }
         });
     }

@@ -3,12 +3,12 @@ package view;
 /**
  * Classe responsável por exibir as opções do menu para o usuário.
  */
-public class MenuEscolhas extends javax.swing.JFrame {
+public class MenuEscolha extends javax.swing.JFrame {
 
     /**
      * Construtor da classe MenuEscolhas.
      */
-    public MenuEscolhas() {
+    public MenuEscolha() {
         initComponents();
     }
 
@@ -147,19 +147,19 @@ public class MenuEscolhas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCadastroFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastroFerramentasActionPerformed
-        CadastroFerramentas objeto = new CadastroFerramentas();
+        CadastroFerramenta objeto = new CadastroFerramenta();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBCadastroFerramentasActionPerformed
 
     private void JBCadastroAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastroAmigosActionPerformed
-        CadastroAmigos objeto = new CadastroAmigos();
+        CadastroAmigo objeto = new CadastroAmigo();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBCadastroAmigosActionPerformed
 
     private void JBRelatoriosGeraisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatoriosGeraisActionPerformed
-        RelatoriosGerais objeto = new RelatoriosGerais();
+        RelatorioGeral objeto = new RelatorioGeral();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBRelatoriosGeraisActionPerformed
@@ -169,7 +169,7 @@ public class MenuEscolhas extends javax.swing.JFrame {
     }//GEN-LAST:event_JBMenuEscolhasVoltarActionPerformed
 
     private void JBRealizarEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRealizarEmprestimosActionPerformed
-        RealizarEmprestimos objeto = new RealizarEmprestimos();
+        RealizarEmprestimo objeto = new RealizarEmprestimo();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBRealizarEmprestimosActionPerformed
@@ -177,7 +177,7 @@ public class MenuEscolhas extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuEscolhas().setVisible(true);
+                new MenuEscolha().setVisible(true);
             }
         });
     }

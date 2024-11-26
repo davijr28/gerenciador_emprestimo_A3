@@ -11,7 +11,7 @@ import model.Emprestimo;
  * Mostra a lista de empréstimos concluídos, informações sobre número total de
  * empréstimos, quem fez mais empréstimos e quem nunca devolveu as ferramentas.
  */
-public class EmprestimosRealizados extends javax.swing.JFrame {
+public class EmprestimoRealizado extends javax.swing.JFrame {
 
     private Emprestimo objetoEmprestimo;
     private Calendar calendario = Calendar.getInstance();
@@ -21,7 +21,7 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
      * Construtor da classe EmprestimosRealizados. Inicializa os componentes
      * gráficos e carrega os dados na tabela.
      */
-    public EmprestimosRealizados() {
+    public EmprestimoRealizado() {
         initComponents();
         this.objetoEmprestimo = new Emprestimo();
         this.carregarTabela(); // Carrega os dados na tabela.
@@ -243,7 +243,7 @@ public class EmprestimosRealizados extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmprestimosRealizados().setVisible(true);
+                new EmprestimoRealizado().setVisible(true);
             }
         });
     }

@@ -10,9 +10,9 @@ import javax.swing.text.MaskFormatter;
  * alterar o nome e telefone de um amigo selecionado na tabela da classe
  * RelatoriosDeAmigos.
  */
-public class AlterarAmigos extends javax.swing.JFrame {
+public class AlterarAmigo extends javax.swing.JFrame {
 
-    private RelatoriosDeAmigos objeto;
+    private RelatorioDeAmigo objeto;
     private MaskFormatter mftelefone; // Objeto para formatação da caixa de texto de telefone.
 
     /**
@@ -20,10 +20,10 @@ public class AlterarAmigos extends javax.swing.JFrame {
      * interface gráfica e aplica uma máscara no campo de telefone para exibir o
      * número no formato específico.
      *
-     * @param objeto Objeto RelatoriosDeAmigos contendo a referência ao amigo
-     * selecionado na tabela de relatórios.
+     * @param objeto Objeto RelatorioDeAmigo contendo a referência ao amigo
+ selecionado na tabela de relatórios.
      */
-    public AlterarAmigos(RelatoriosDeAmigos objeto) {
+    public AlterarAmigo(RelatorioDeAmigo objeto) {
         this.objeto = objeto; // Atribui o objeto recebido como parâmetro.
         initComponents();
         try {

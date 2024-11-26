@@ -4,12 +4,12 @@ package view;
  * Classe responsável por exibir ao usuário opções para relatórios de
  * ferramentas ou de amigos.
  */
-public class RelatoriosGerais extends javax.swing.JFrame {
+public class RelatorioGeral extends javax.swing.JFrame {
 
     /**
      * Construtor da classe RelatoriosGerais.
      */
-    public RelatoriosGerais() {
+    public RelatorioGeral() {
         initComponents();
     }
 
@@ -102,13 +102,13 @@ public class RelatoriosGerais extends javax.swing.JFrame {
     }//GEN-LAST:event_JBRelatoriosGeraisVoltarActionPerformed
 
     private void JBRelatoriosDeAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatoriosDeAmigosActionPerformed
-        RelatoriosDeAmigos objeto = new RelatoriosDeAmigos();
+        RelatorioDeAmigo objeto = new RelatorioDeAmigo();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBRelatoriosDeAmigosActionPerformed
 
     private void JBRelatoriosDeFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatoriosDeFerramentasActionPerformed
-        RelatoriosDeFerramentas objeto = new RelatoriosDeFerramentas();
+        RelatorioDeFerramenta objeto = new RelatorioDeFerramenta();
         objeto.setVisible(true);
         objeto.setLocationRelativeTo(null);
     }//GEN-LAST:event_JBRelatoriosDeFerramentasActionPerformed
@@ -116,7 +116,7 @@ public class RelatoriosGerais extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RelatoriosGerais().setVisible(true);
+                new RelatorioGeral().setVisible(true);
             }
         });
     }
