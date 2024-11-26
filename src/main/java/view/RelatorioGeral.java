@@ -7,7 +7,7 @@ package view;
 public class RelatorioGeral extends javax.swing.JFrame {
 
     /**
-     * Construtor da classe RelatoriosGerais.
+     * Construtor da classe RelatorioGeral.
      */
     public RelatorioGeral() {
         initComponents();

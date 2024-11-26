@@ -14,7 +14,7 @@ public class AlterarFerramenta extends javax.swing.JFrame {
     private RelatorioDeFerramenta objeto;
 
     /**
-     * Construtor da classe AlterarFerramentas. Inicializa a interface gráfica,
+     * Construtor da classe AlterarFerramenta. Inicializa a interface gráfica,
      * e preenche os campos com os dados da ferramenta selecionada na tabela.
      *
      * @param objeto Objeto RelatorioDeFerramenta contendo a referência à

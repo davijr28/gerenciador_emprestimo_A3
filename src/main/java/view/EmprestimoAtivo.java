@@ -18,7 +18,7 @@ public class EmprestimoAtivo extends javax.swing.JFrame {
     private Date hoje = new Date(calendario.getTimeInMillis()); // Define a data atual.
 
     /**
-     * Construtor da classe EmprestimosAtivos. Inicializa os componentes e
+     * Construtor da classe EmprestimosAtivo. Inicializa os componentes e
      * carrega a tabela de empréstimos ativos.
      */
     public EmprestimoAtivo() {

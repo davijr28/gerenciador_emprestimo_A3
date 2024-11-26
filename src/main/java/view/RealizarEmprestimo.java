@@ -7,7 +7,7 @@ package view;
 public class RealizarEmprestimo extends javax.swing.JFrame {
 
     /**
-     * Construtor da classe RealizarEmprestimos.
+     * Construtor da classe RealizarEmprestimo.
      */
     public RealizarEmprestimo() {
         initComponents();

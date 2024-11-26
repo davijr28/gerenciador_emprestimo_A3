@@ -24,7 +24,7 @@ public class NovoEmprestimo extends javax.swing.JFrame {
     Date hoje = new Date(System.currentTimeMillis()); // Data atual
 
     /**
-     * Construtor da classe NovosEmprestimos. Inicializa os objetos e configura
+     * Construtor da classe NovosEmprestimo. Inicializa os objetos e configura
      * os campos de data.
      */
     public NovoEmprestimo() {

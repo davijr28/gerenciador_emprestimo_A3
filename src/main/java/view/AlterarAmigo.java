@@ -16,7 +16,7 @@ public class AlterarAmigo extends javax.swing.JFrame {
     private MaskFormatter mftelefone; // Objeto para formatação da caixa de texto de telefone.
 
     /**
-     * Construtor da classe AlterarAmigos. Inicializa os componentes da
+     * Construtor da classe AlterarAmigo. Inicializa os componentes da
      * interface gráfica e aplica uma máscara no campo de telefone para exibir o
      * número no formato específico.
      *

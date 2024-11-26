@@ -13,7 +13,7 @@ public class CadastroFerramenta extends javax.swing.JFrame {
     private Ferramenta objetoFerramenta; // Declara um objeto da classe Ferramenta.
 
     /**
-     * Construtor da classe CadastroFerramentas.
+     * Construtor da classe CadastroFerramenta.
      */
     public CadastroFerramenta() {
         initComponents();

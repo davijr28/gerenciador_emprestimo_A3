@@ -6,7 +6,7 @@ package view;
 public class MenuEscolha extends javax.swing.JFrame {
 
     /**
-     * Construtor da classe MenuEscolhas.
+     * Construtor da classe MenuEscolha.
      */
     public MenuEscolha() {
         initComponents();

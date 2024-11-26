@@ -16,7 +16,7 @@ public class CadastroAmigo extends javax.swing.JFrame {
     private MaskFormatter mftelefone;
 
     /**
-     * Construtor da classe CadastroAmigos. Inicializa os componentes e
+     * Construtor da classe CadastroAmigo. Inicializa os componentes e
      * configura a máscara para o campo de telefone.
      */
     public CadastroAmigo() {

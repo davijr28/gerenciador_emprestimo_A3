@@ -19,7 +19,7 @@ public class RelatorioDeAmigo extends javax.swing.JFrame {
     public int id = 0;
 
     /**
-     * Construtor da classe RelatoriosDeAmigos. Inicializa os componentes
+     * Construtor da classe RelatorioDeAmigo. Inicializa os componentes
      * gráficos e cria uma instância do objeto Amigo. Também carrega os dados
      * dos amigos na tabela.
      */

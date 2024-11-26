@@ -19,7 +19,7 @@ public class RelatorioDeFerramenta extends javax.swing.JFrame {
     public int id = 0;
 
     /**
-     * Construtor da classe RelatoriosDeFerramentass. Inicializa os componentes
+     * Construtor da classe RelatorioDeFerramenta. Inicializa os componentes
      * gráficos e cria uma instância do objeto Ferramenta. Também carrega os
      * dados das ferramentas na tabela.
      */
