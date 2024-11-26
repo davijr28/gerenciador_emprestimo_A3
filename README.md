@@ -60,6 +60,9 @@ Para o desenvolvimento e execução deste projeto, utilizamos o ambiente e as te
 •Linguagem: Java
 
 •Banco de Dados: MySQL
+  usuário: root
+  senha: 1234
+(Usuário e senha estão localizados na classe 'ConexaoDAO' dentro do pacote 'dao')
 
 •Frameworks e Bibliotecas: JDBC para conexão com o banco de dados
 
